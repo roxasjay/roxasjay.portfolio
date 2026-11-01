@@ -2,306 +2,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-  <title>Jay Roxas | Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jhon Jeremy S. Roxas | Portfolio</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-      background: #081426;
-      color: #eaf2ff;
-      font-family: Arial, sans-serif;
-      line-height: 1.7;
-    }
+        body {
+            background-color: #020a35;
+            color: #a5b5d3;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-    header {
-      background: #0d1e35;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            padding: 35px 7%;
+        }
 
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-      color: #60a5fa;
-    }
+        nav a {
+            color: #527eb5;
+            text-decoration: none;
+            font-size: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
 
-    nav a {
-      color: #dbeafe;
-      text-decoration: none;
-      margin-left: 18px;
-      font-size: 14px;
-    }
+        nav a:hover {
+            color: #a5c8ff;
+        }
 
-    nav a:hover {
-      color: #60a5fa;
-    }
+        /* HOMEPAGE */
+        .home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 60px 4%;
+            min-height: 75vh;
+        }
 
-    section {
-      padding: 75px 8%;
-      scroll-margin-top: 85px;
-    }
+        /* LEFT CONTENT */
+        .content {
+            width: 55%;
+        }
 
-    .hero {
-      min-height: 75vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: linear-gradient(
-        135deg, #081426, #102b50
-      );
-    }
+        h1 {
+            font-size: 56px;
+            line-height: 0.95;
+            margin-bottom: 30px;
+            font-weight: 750;
+        }
 
-    .hero h1 {
-      font-size: clamp(36px, 6vw, 65px);
-      margin: 10px 0;
-    }
+        h1 .hello {
+            color: #a5b5d3;
+        }
 
-    .hero h1 span {
-      color: #60a5fa;
-    }
+        h1 .name {
+            color: #426eae;
+        }
 
-    .hero h2 {
-      color: #93c5fd;
-      font-size: 23px;
-    }
+        h2 {
+            font-size: 29px;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
 
-    .hero p {
-      max-width: 600px;
-      margin: 20px 0;
-      color: #b8c7dd;
-    }
+        h2 span {
+            color: #426eae;
+        }
 
-    .button {
-      display: inline-block;
-      width: fit-content;
-      background: #2563eb;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+        /* STATIC SOFTWARE ENGINEER TITLE */
+        .moving-title {
+            display: inline-block;
+            animation: none;
+        }
 
-    .button:hover {
-      background: #3b82f6;
-      transform: translateY(-3px);
-    }
+        .description {
+            font-size: 20px;
+            line-height: 1.55;
+            font-weight: 600;
+            max-width: 700px;
+            text-align: justify;
+        }
 
-    .section-title {
-      font-size: 30px;
-      color: #93c5fd;
-      margin-bottom: 25px;
-    }
+        /* RIGHT PHOTO */
+        .photo {
+            width: 42%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .about-text {
-      max-width: 750px;
-      color: #b8c7dd;
-    }
+        .photo-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
 
-    .cards {
-      display: grid;
-      grid-template-columns:
-        repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
-    }
+        .photo-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
 
-    .card {
-      background: #10233d;
-      border: 1px solid #24456b;
-      padding: 25px;
-      border-radius: 12px;
-      transition: 0.3s;
-    }
+        /* FLOATING ELEMENTS */
+        .floating-card {
+            position: absolute;
+            background: #091b43;
+            color: #dbe8ff;
+            padding: 15px 20px;
+            border: 1px solid #244778;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            white-space: nowrap;
+            box-shadow: 0 8px 25px
+                rgba(0, 0, 0, 0.3);
+        }
 
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #60a5fa;
-      box-shadow: 0 8px 25px #0004;
-    }
+        /* CODE - FLOATING 14 SECONDS */
+        .code {
+            top: 55%;
+            left: -8%;
+            animation: float 14s ease-in-out infinite;
+        }
 
-    .card h3 {
-      color: #93c5fd;
-      margin-bottom: 10px;
-    }
+        /* PYTHON - FLOATING 7 SECONDS */
+        .python {
+            top: 15%;
+            right: -5%;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            animation: float 7s ease-in-out infinite;
+        }
 
-    .card p {
-      color: #b8c7dd;
-    }
+        /* PYTHON SYMBOLS */
+        .python-symbol {
+            color: #8ab4ff;
+        }
 
-    .skills {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+        /* PYTHON TYPING ANIMATION */
+        .python-typing {
+            display: inline-block;
+            width: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #8ab4ff;
+            animation:
+                pythonTyping 6s steps(6, end) infinite,
+                blink 0.7s step-end infinite;
+        }
 
-    .skill {
-      background: #17345b;
-      border: 1px solid #315d90;
-      padding: 10px 20px;
-      border-radius: 25px;
-    }
+        @keyframes pythonTyping {
+            0%, 10% {
+                width: 0;
+            }
 
-    .contact a {
-      color: #93c5fd;
-    }
+            40%, 65% {
+                width: 6ch;
+            }
 
-    footer {
-      text-align: center;
-      background: #0d1e35;
-      padding: 25px;
-      color: #94a3b8;
-    }
+            95%, 100% {
+                width: 0;
+            }
+        }
 
-    @media (max-width: 600px) {
-      header {
-        justify-content: center;
-      }
+        /* SOFTWARE ENGINEER CARD - 7 SECONDS */
+        .engineer {
+            bottom: 12%;
+            right: -5%;
+            animation: float 7s ease-in-out infinite;
+        }
 
-      nav a {
-        margin: 0 8px;
-      }
+        /* FLOATING ANIMATION */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
 
-      section {
-        padding: 55px 6%;
-      }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
 
-      .hero {
-        min-height: 65vh;
-      }
-    }
-  </style>
+        /* BLINKING CURSOR */
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* MOBILE RESPONSIVENESS */
+        @media (max-width: 800px) {
+            nav {
+                gap: 20px;
+                padding: 25px 5%;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                font-size: 17px;
+            }
+
+            .home {
+                flex-direction: column-reverse;
+                padding: 35px 6%;
+                gap: 35px;
+            }
+
+            .content {
+                width: 100%;
+            }
+
+            .photo {
+                width: 85%;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            h2 {
+                font-size: 23px;
+            }
+
+            .description {
+                font-size: 16px;
+            }
+
+            .floating-card {
+                font-size: 12px;
+                padding: 10px 12px;
+            }
+
+            .code {
+                left: -3%;
+            }
+
+            .python,
+            .engineer {
+                right: -3%;
+            }
+        }
+
+        /* ACCESSIBILITY */
+        @media (prefers-reduced-motion: reduce) {
+            .code,
+            .python,
+            .engineer,
+            .python-typing {
+                animation: none;
+            }
+
+            .python-typing {
+                width: auto;
+                border-right: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">JR.</div>
-
+    <!-- NAVIGATION -->
     <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+        <a href="#about">About me</a>
+        <a href="#education">Education</a>
+        <a href="#achievements">Achievements</a>
     </nav>
-  </header>
 
-  <section class="hero" id="home">
-    <h2>Hello, I'm</h2>
-    <h1>Jay <span>Roxas.</span></h1>
-    <h2>Computer Science Student</h2>
+    <!-- HOMEPAGE -->
+    <section class="home" id="about">
 
-    <p>
-      Welcome to my personal portfolio!
-      I'm passionate about programming,
-      software development, and creating
-      useful digital solutions.
-    </p>
+        <!-- LEFT SIDE -->
+        <div class="content">
 
-    <a class="button" href="#projects">
-      Explore My Projects
-    </a>
-  </section>
+            <h1>
+                <span class="hello">
+                    Hello, I am
+                </span>
+                <br>
+                <span class="name">
+                    Jhon Jeremy S.<br>Roxas
+                </span>
+            </h1>
 
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
+            <!-- STATIC TITLE -->
+            <h2>
+                An Aspiring
+                <span class="moving-title">
+                    Software Engineer
+                </span>
+            </h2>
 
-    <p class="about-text">
-      I'm a Computer Science student at the
-      University of the Cordilleras.
-      I enjoy exploring programming languages,
-      solving problems, and improving my
-      software development skills.
-      My goal is to become a skilled
-      software engineer in the future.
-    </p>
-  </section>
+            <p class="description">
+                I am a first-year Bachelor of Science
+                in Computer Science student at the
+                University of the Cordilleras.
+                I have a strong interest in programming,
+                technology, and software development.
+                I aim to become a skilled software
+                engineer who can create innovative
+                solutions, solve real-world problems,
+                and continuously improve my knowledge
+                and skills in the field of computer
+                science.
+            </p>
 
-  <section id="projects">
-    <h2 class="section-title">My Projects</h2>
+        </div>
 
-    <div class="cards">
-      <div class="card">
-        <h3>Python Bank Simulator</h3>
-        <p>
-          A Python program that allows users
-          to deposit, withdraw, and check
-          their account balance.
-        </p>
-      </div>
+        <!-- RIGHT SIDE -->
+        <div class="photo">
 
-      <div class="card">
-        <h3>Java Radix Converter</h3>
-        <p>
-          A Java program that converts numbers
-          between binary, decimal, octal,
-          and hexadecimal.
-        </p>
-      </div>
+            <div class="photo-container">
 
-      <div class="card">
-        <h3>More Projects Coming Soon</h3>
-        <p>
-          I'll continue adding new projects
-          as I improve my programming skills.
-        </p>
-      </div>
-    </div>
-  </section>
+                <!-- GRADUATION PHOTO -->
+                <img src="graduation-photo.png"
+                     alt="Jhon Jeremy S. Roxas">
 
-  <section id="skills">
-    <h2 class="section-title">My Skills</h2>
+                <!-- FLOATING CODE -->
+                <div class="floating-card code">
+                    &lt;/&gt; Code
+                </div>
 
-    <div class="skills">
-      <span class="skill">Python</span>
-      <span class="skill">Java</span>
-      <span class="skill">HTML</span>
-      <span class="skill">Problem Solving</span>
-      <span class="skill">Programming Fundamentals</span>
-    </div>
-  </section>
+                <!-- FLOATING AND TYPING PYTHON -->
+                <div class="floating-card python">
+                    <span class="python-symbol">
+                        &#123; &#125;
+                    </span>
+                    <span class="python-typing">Python</span>
+                </div>
 
-  <section id="contact" class="contact">
-    <h2 class="section-title">Contact Me</h2>
+                <!-- FLOATING SOFTWARE ENGINEER -->
+                <div class="floating-card engineer">
+                    ⚙ Software Engineer
+                </div>
 
-    <p>
-      Interested in connecting or
-      collaborating?
-    </p>
+            </div>
 
-    <p>
-      Visit my
-      <a href="https://github.com/roxasjay"
-         target="_blank"
-         rel="noopener noreferrer">
-        GitHub Profile
-      </a>.
-    </p>
-  </section>
+        </div>
 
-  <footer>
-    <p>© 2026 Jay Roxas | Personal Portfolio</p>
-  </footer>
+    </section>
 
 </body>
 </html>
