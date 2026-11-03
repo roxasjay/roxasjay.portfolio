@@ -5,17 +5,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#020a35">
+
 <title>Jhon Jeremy S. Roxas | Portfolio</title>
 
 <style>
+
+/* MAIN COLORS */
 :root {
-    --background: #020a35;
+    --bg: #020a35;
     --nav: #062758;
     --card: #091b43;
-    --card-light: #0c234c;
+    --card2: #0c234c;
     --border: #244778;
     --accent: #8ab4ff;
-    --accent-dark: #426eae;
+    --blue: #426eae;
     --text: #a5b5d3;
     --white: #dbe8ff;
 }
@@ -26,400 +29,365 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+html, body {
+    width: 100%;
+    height: 100%;
 }
 
 body {
-    background: var(--background);
+    background: var(--bg);
     color: var(--text);
     font-family: Arial, sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-    line-height: 1.5;
+    line-height: 1.55;
+    overflow: hidden;
 }
 
-/* SUBTLE GRID BACKGROUND */
+/* BACKGROUND GRID */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: -1;
+
     background-image:
         linear-gradient(
-            rgba(82,126,181,.055) 1px,
+            rgba(82,126,181,.05) 1px,
             transparent 1px
         ),
         linear-gradient(
             90deg,
-            rgba(82,126,181,.055) 1px,
+            rgba(82,126,181,.05) 1px,
             transparent 1px
         );
+
     background-size: 45px 45px;
 }
 
-a {
-    color: inherit;
+button {
+    font: inherit;
+    cursor: pointer;
 }
 
-button, input {
-    font: inherit;
+/* WEBSITE LAYOUT */
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
 }
 
 /* NAVIGATION */
 nav {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 60px;
-    padding: 35px 7%;
+    gap: 20px;
+    padding: 20px 5%;
+
     background: var(--nav);
     border-bottom: 1px solid #123366;
+    flex-shrink: 0;
 }
 
-nav a {
-    color: #527eb5;
-    text-decoration: none;
-    font-size: 25px;
+.logo {
+    color: var(--accent);
+    font-size: 20px;
     font-weight: bold;
-    transition: color .3s;
+    letter-spacing: 1px;
+    white-space: nowrap;
 }
 
-nav a:hover,
-nav a:focus-visible {
-    color: #a5c8ff;
-}
-
-/* HOMEPAGE */
-.home {
+.nav-buttons {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    padding: 60px 4% 35px;
-    min-height: 75vh;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
-.content {
+.nav-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    padding: 10px 15px;
+
+    color: var(--text);
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: .25s;
+}
+
+.nav-btn:hover {
+    background: #123366;
+    color: var(--white);
+}
+
+.nav-btn.active {
+    background: var(--blue);
+    border-color: #527eb5;
+    color: white;
+}
+
+/* PAGE SWITCHING */
+.page-container {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+}
+
+.page {
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 35px 6%;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+.page.active {
+    display: flex;
+    flex-direction: column;
+    animation: pageFade .3s ease;
+}
+
+@keyframes pageFade {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HOME PAGE */
+.home-layout {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 55px;
+}
+
+.home-content {
     width: 55%;
     min-width: 0;
 }
 
-/* AVAILABILITY STATUS */
+/* STATUS */
 .availability {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+
+    padding: 9px 15px;
+    margin-bottom: 25px;
+
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 30px;
-    padding: 9px 15px;
-    margin-bottom: 28px;
+
     color: var(--white);
     font-size: 13px;
-    font-weight: bold;
 }
 
 .status-dot {
     width: 9px;
     height: 9px;
-    border-radius: 50%;
     background: #63d99a;
-    box-shadow: 0 0 9px rgba(99,217,154,.4);
-    animation: statusPulse 3s ease-in-out infinite;
+    border-radius: 50%;
+
+    animation: pulse 3s infinite;
 }
 
-@keyframes statusPulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: .55; }
+@keyframes pulse {
+    50% {
+        opacity: .4;
+    }
 }
 
-/* INTRODUCTION */
-h1 {
-    font-size: 56px;
-    line-height: .95;
-    margin-bottom: 30px;
-    font-weight: 750;
+/* HOMEPAGE TEXT */
+.home-title {
+    font-size: clamp(40px, 4.8vw, 66px);
+    line-height: 1.08;
+    margin-bottom: 25px;
 }
 
-h1 .hello {
+.hello {
     color: var(--text);
 }
 
-h1 .name {
-    color: var(--accent-dark);
+.name {
+    color: var(--blue);
 }
 
-h2 {
-    font-size: 29px;
-    margin-bottom: 30px;
-    letter-spacing: .5px;
-}
-
-h2 span {
-    color: var(--accent-dark);
-}
-
-.moving-title {
-    display: inline-block;
-    animation: none;
-}
-
-.description {
-    font-size: 20px;
-    line-height: 1.55;
-    font-weight: 600;
-    max-width: 700px;
-    text-align: justify;
-}
-
-/* PROGRAMMING SKILLS */
-.skills {
-    margin-top: 30px;
-}
-
-.section-small-title {
-    color: var(--accent);
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.skill-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.skill-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 13px;
-    border-radius: 9px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    color: var(--white);
-    font-size: 14px;
+.home-subtitle {
+    font-size: clamp(21px, 2.3vw, 30px);
     font-weight: bold;
-    transition: transform .3s, border-color .3s;
+    color: var(--white);
+    margin-bottom: 20px;
 }
 
-.skill-badge:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent);
-}
-
-.skill-symbol {
+.home-subtitle span {
     color: var(--accent);
-    font-family: monospace;
 }
 
-/* ACTION BUTTONS */
-.action-buttons {
+.home-intro {
+    max-width: 600px;
+    font-size: 19px;
+    line-height: 1.75;
+}
+
+/* HOMEPAGE BUTTONS */
+.home-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    margin-top: 28px;
+    margin-top: 30px;
 }
 
-.action-button {
+.action-btn {
     display: inline-flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    padding: 13px 20px;
-    border-radius: 10px;
-    font-size: 15px;
+
+    padding: 12px 19px;
+    border-radius: 9px;
+
+    font-size: 14px;
     font-weight: bold;
     text-decoration: none;
-    transition: transform .3s, background .3s;
+
+    transition: .25s;
 }
 
-.action-button:hover {
+.action-btn:hover {
     transform: translateY(-3px);
 }
 
-.action-button svg {
+.primary {
+    background: var(--blue);
+    border: 1px solid var(--blue);
+    color: white;
+}
+
+.primary:hover {
+    background: #5788cc;
+}
+
+.secondary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--white);
+}
+
+.secondary:hover {
+    background: #123366;
+}
+
+.action-btn svg {
     width: 18px;
     height: 18px;
-    stroke: currentColor;
     fill: none;
+    stroke: currentColor;
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
-.primary-button {
-    background: #426eae;
-    color: white;
-}
-
-.primary-button:hover {
-    background: #5788cc;
-}
-
-.secondary-button {
-    background: var(--card);
-    color: var(--white);
-    border: 1px solid var(--border);
-}
-
-.secondary-button:hover {
-    background: #123366;
-}
-
-/* CONTACT INFORMATION */
-.contact-info {
-    margin-top: 30px;
-}
-
-.contact-info h3,
-.social-media h3 {
-    color: var(--accent);
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.contact-info p {
-    color: var(--text);
-    font-size: 17px;
-    margin-bottom: 12px;
+/* PHOTO */
+.photo-side {
+    width: 40%;
     display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.contact-info a {
-    color: inherit;
-    text-decoration: none;
-    overflow-wrap: anywhere;
-}
-
-.contact-info a:hover {
-    color: var(--accent);
-}
-
-.contact-icon {
-    color: var(--accent);
-    font-size: 20px;
-    width: 25px;
-    text-align: center;
-    flex-shrink: 0;
-}
-
-/* SOCIAL MEDIA */
-.social-media {
-    margin-top: 25px;
-}
-
-.social-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.social-links a {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px 16px;
-    color: var(--white);
-    font-size: 15px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: .3s;
-}
-
-.social-links a:hover {
-    background: #123366;
-    border-color: var(--accent);
-    transform: translateY(-3px);
-}
-
-.social-links svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-    color: var(--accent);
-    flex-shrink: 0;
-}
-
-/* DEVELOPER WINDOW PHOTO */
-.photo {
-    width: 42%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    min-width: 0;
+    justify-content: center;
 }
 
 .photo-container {
     position: relative;
     width: 100%;
-    max-width: 500px;
+    max-width: 460px;
+
     background: var(--card);
-    border: 1px solid var(--accent-dark);
+    border: 1px solid var(--blue);
     border-radius: 16px;
-    box-shadow: 0 12px 35px rgba(0,0,0,.3);
+
+    box-shadow: 0 15px 40px rgba(0,0,0,.3);
 }
 
+/* DEVELOPER WINDOW */
 .window-header {
     display: flex;
     align-items: center;
     gap: 8px;
-    height: 44px;
-    padding: 0 16px;
-    background: var(--card-light);
+
+    height: 43px;
+    padding: 0 15px;
+
+    background: var(--card2);
     border-bottom: 1px solid var(--border);
     border-radius: 15px 15px 0 0;
 }
 
 .window-dot {
-    width: 11px;
-    height: 11px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    flex-shrink: 0;
 }
 
-.dot-red { background: #e58c88; }
-.dot-yellow { background: #e7bf72; }
-.dot-green { background: #80c8a0; }
+.red {
+    background: #e58c88;
+}
+
+.yellow {
+    background: #e7bf72;
+}
+
+.green {
+    background: #80c8a0;
+}
 
 .window-title {
     margin-left: auto;
+    font-size: 12px;
     color: var(--accent);
-    font-size: 13px;
     font-family: monospace;
 }
 
-.window-content {
+.photo-content {
     padding: 12px;
 }
 
-.window-content img {
+.photo-content img {
     width: 100%;
+    max-height: min(60vh, 560px);
     height: auto;
     display: block;
     object-fit: contain;
     border-radius: 8px;
 }
 
-/* FLOATING ELEMENTS */
+/* FLOATING CODING CARDS */
 .floating-card {
     position: absolute;
+
+    padding: 12px 16px;
     background: var(--card);
-    color: var(--white);
-    padding: 15px 20px;
     border: 1px solid var(--border);
-    border-radius: 12px;
-    font-size: 16px;
+    border-radius: 11px;
+
+    color: var(--white);
+    font-size: 14px;
     font-weight: bold;
     white-space: nowrap;
+
     box-shadow: 0 8px 25px rgba(0,0,0,.3);
 }
 
@@ -432,9 +400,11 @@ h2 span {
 .python {
     top: 15%;
     right: -5%;
+
     display: flex;
     align-items: center;
     gap: 5px;
+
     animation: float 7s ease-in-out infinite;
 }
 
@@ -447,16 +417,12 @@ h2 span {
     width: 0;
     overflow: hidden;
     white-space: nowrap;
-    border-right: 2px solid var(--accent);
-    animation:
-        pythonTyping 6s steps(6,end) infinite,
-        blink .7s step-end infinite;
-}
 
-@keyframes pythonTyping {
-    0%, 10% { width: 0; }
-    40%, 65% { width: 6ch; }
-    95%, 100% { width: 0; }
+    border-right: 2px solid var(--accent);
+
+    animation:
+        typing 6s steps(6,end) infinite,
+        blink .7s step-end infinite;
 }
 
 .engineer {
@@ -466,128 +432,186 @@ h2 span {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes typing {
+    0%, 10% {
+        width: 0;
+    }
+
+    40%, 65% {
+        width: 6ch;
+    }
+
+    95%, 100% {
+        width: 0;
+    }
 }
 
 @keyframes blink {
-    50% { border-color: transparent; }
+    50% {
+        border-color: transparent;
+    }
 }
 
-/* MINI CODING TERMINAL */
-.terminal {
+/* OTHER PAGES */
+.inner-page {
     width: 100%;
-    max-width: 500px;
-    background: #050f2d;
-    border: 1px solid var(--border);
-    border-radius: 13px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    max-width: 1150px;
+    margin: auto;
 }
 
-.terminal-header {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    padding: 11px 14px;
-    background: var(--card-light);
-    border-bottom: 1px solid var(--border);
-}
-
-.terminal-header .window-dot {
-    width: 9px;
-    height: 9px;
-}
-
-.terminal-title {
-    margin-left: auto;
-    font-size: 12px;
-    color: var(--accent);
-    font-family: monospace;
-}
-
-.terminal-body {
-    padding: 16px;
-    font-family: Consolas, Monaco, monospace;
-    font-size: 13px;
-    line-height: 1.8;
-    color: #a5b5d3;
-}
-
-.terminal-output {
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-    max-height: 190px;
-    overflow-y: auto;
-}
-
-.terminal-green { color: #80c8a0; }
-.terminal-blue { color: var(--accent); }
-
-.terminal-input-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.terminal-input {
-    flex: 1;
-    min-width: 0;
-    background: transparent;
-    border: none;
-    outline: none;
+.page-heading {
     color: var(--white);
-    font-family: inherit;
-    font-size: inherit;
-}
-
-.terminal-input::placeholder {
-    color: #7185a9;
-}
-
-/* SCROLL INDICATOR */
-.scroll-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 7px;
-    padding: 20px;
-    color: var(--accent);
-    font-size: 12px;
-    text-decoration: none;
-    letter-spacing: 1px;
-}
-
-.scroll-arrow {
-    font-size: 23px;
-    animation: scrollBounce 2s infinite;
-}
-
-@keyframes scrollBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(8px); }
-}
-
-/* FEATURED PROJECTS */
-.portfolio-section {
-    padding: 75px 7%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.section-heading {
-    font-size: 34px;
-    color: var(--white);
+    font-size: clamp(30px, 3.5vw, 42px);
     margin-bottom: 12px;
 }
 
-.section-description {
-    font-size: 17px;
-    margin-bottom: 30px;
-    max-width: 650px;
+.page-description {
+    font-size: 16px;
+    margin-bottom: 27px;
 }
 
+/* ABOUT ME */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 20px;
+}
+
+.info-card {
+    padding: 25px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.info-card h3 {
+    color: var(--accent);
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+
+.info-card p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.about-description {
+    text-align: justify;
+}
+
+/* SKILLS */
+.skills {
+    margin-top: 22px;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.skill-badge {
+    padding: 8px 12px;
+    background: #102b54;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    color: var(--white);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.skill-badge span {
+    color: var(--accent);
+    font-family: monospace;
+    margin-right: 5px;
+}
+
+/* CONTACT */
+.contact-item {
+    margin-bottom: 13px;
+    overflow-wrap: anywhere;
+}
+
+.contact-item a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: var(--accent);
+}
+
+/* SOCIAL MEDIA */
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 10px 13px;
+    background: #102b54;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+
+    transition: .25s;
+}
+
+.social-link:hover {
+    background: #123b70;
+    transform: translateY(-3px);
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--accent);
+    flex-shrink: 0;
+}
+
+.resume-area {
+    margin-top: 23px;
+}
+
+/* EDUCATION AND ACHIEVEMENTS */
+.large-info-card {
+    max-width: 850px;
+}
+
+.large-info-card h3 {
+    color: var(--white);
+    font-size: 23px;
+}
+
+.info-icon {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+/* PROJECTS */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0,1fr));
@@ -598,34 +622,39 @@ h2 span {
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    padding: 23px;
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 24px;
-    transition: transform .3s, border-color .3s;
+    border-radius: 15px;
+
+    transition: .25s;
 }
 
 .project-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--accent-dark);
+    transform: translateY(-5px);
+    border-color: var(--blue);
 }
 
 .project-icon {
     display: flex;
     justify-content: center;
     align-items: center;
+
     width: 48px;
     height: 48px;
+
     background: #123366;
-    border-radius: 12px;
+    border-radius: 11px;
+
     color: var(--accent);
-    font-size: 23px;
     font-family: monospace;
+    font-size: 23px;
 }
 
 .project-card h3 {
-    font-size: 21px;
     color: var(--white);
+    font-size: 20px;
 }
 
 .project-card p {
@@ -637,136 +666,175 @@ h2 span {
 .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 7px;
 }
 
 .project-tags span {
-    padding: 5px 9px;
     background: #102b54;
-    border-radius: 6px;
     color: var(--accent);
+
+    border-radius: 6px;
+    padding: 5px 9px;
     font-size: 12px;
 }
 
 .project-link {
     color: var(--accent);
-    font-weight: bold;
-    font-size: 14px;
     text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .project-link:hover {
     text-decoration: underline;
 }
 
-/* EDUCATION AND ACHIEVEMENTS */
-.info-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 15px;
-    padding: 25px;
-    max-width: 850px;
-}
-
-.info-card h3 {
-    color: var(--white);
-    font-size: 21px;
-    margin-bottom: 10px;
-}
-
-.info-card p {
-    margin-bottom: 8px;
-    font-size: 16px;
-}
-
-.placeholder-note {
-    color: #8399bd;
-    font-style: italic;
-}
-
+/* FOOTER */
 footer {
+    flex-shrink: 0;
     text-align: center;
-    padding: 35px 20px;
-    border-top: 1px solid var(--border);
+    padding: 12px;
+
     background: #040e2f;
-    font-size: 14px;
+    border-top: 1px solid var(--border);
+
+    color: #8399bd;
+    font-size: 12px;
 }
 
-/* RESPONSIVE DESIGN */
+/* TABLET */
 @media (max-width: 1050px) {
-    .home { gap: 25px; }
-    h1 { font-size: 45px; }
-    h2 { font-size: 24px; }
-    .description { font-size: 17px; }
+
+    nav {
+        padding: 15px 4%;
+    }
+
+    .nav-btn {
+        font-size: 13px;
+        padding: 9px 11px;
+    }
+
+    .home-layout {
+        gap: 30px;
+    }
+
+    .home-intro {
+        font-size: 16px;
+    }
+
     .project-grid {
         grid-template-columns: repeat(2, minmax(0,1fr));
     }
 }
 
+/* MOBILE */
 @media (max-width: 800px) {
+
     nav {
-        gap: 20px;
-        padding: 25px 5%;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 12px;
+        padding: 13px 3%;
     }
 
-    nav a { font-size: 17px; }
-
-    .home {
-        flex-direction: column-reverse;
-        padding: 35px 6%;
-        gap: 35px;
+    .logo {
+        font-size: 17px;
     }
 
-    .content { width: 100%; }
-    .photo { width: 85%; }
-    h1 { font-size: 40px; }
-    h2 { font-size: 23px; }
-    .description { font-size: 16px; }
-
-    .section-small-title,
-    .contact-info h3,
-    .social-media h3 {
-        font-size: 18px;
+    .nav-buttons {
+        justify-content: center;
+        gap: 5px;
     }
 
-    .contact-info p { font-size: 15px; }
-
-    .social-links a {
-        font-size: 13px;
-        padding: 10px 12px;
-    }
-
-    .floating-card {
+    .nav-btn {
         font-size: 12px;
-        padding: 10px 12px;
+        padding: 8px 10px;
     }
 
-    .code { left: -3%; }
-    .python, .engineer { right: -3%; }
-    .window-title { font-size: 11px; }
-    .portfolio-section { padding: 55px 6%; }
-    .section-heading { font-size: 28px; }
-    .project-grid { grid-template-columns: 1fr; }
-}
+    .page {
+        padding: 25px 6%;
+    }
 
-@media (max-width: 420px) {
-    .photo { width: 90%; }
+    .home-layout {
+        flex-direction: column-reverse;
+        gap: 28px;
+    }
+
+    .home-content {
+        width: 100%;
+    }
+
+    .photo-side {
+        width: 70%;
+    }
+
+    .photo-content img {
+        max-height: 270px;
+    }
+
+    .home-title {
+        font-size: 38px;
+    }
+
+    .home-subtitle {
+        font-size: 22px;
+    }
+
+    .home-intro {
+        font-size: 15px;
+    }
 
     .floating-card {
         font-size: 10px;
-        padding: 8px;
+        padding: 8px 10px;
     }
 
-    .terminal-body { font-size: 11px; }
-    .action-button { font-size: 13px; }
-    .skill-badge { font-size: 12px; }
+    .code {
+        left: -4%;
+    }
+
+    .python,
+    .engineer {
+        right: -4%;
+    }
+
+    .about-grid,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-description {
+        text-align: left;
+    }
 }
 
+@media (max-width: 420px) {
+
+    .photo-side {
+        width: 80%;
+    }
+
+    .nav-btn {
+        padding: 7px 8px;
+        font-size: 11px;
+    }
+
+    .action-btn {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .floating-card {
+        font-size: 9px;
+    }
+}
+
+/* REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+
+    *,
+    *::before,
+    *::after {
         animation: none !important;
-        scroll-behavior: auto !important;
         transition: none !important;
     }
 
@@ -775,416 +843,566 @@ footer {
         border-right: none;
     }
 }
+
 </style>
 </head>
 
 <body>
 
+<div class="app">
+
 <!-- NAVIGATION -->
 <nav>
-    <a href="#about">About me</a>
-    <a href="#education">Education</a>
-    <a href="#achievements">Achievements</a>
+
+    <div class="logo">
+        JR / PORTFOLIO
+    </div>
+
+    <div class="nav-buttons"
+         aria-label="Portfolio navigation">
+
+        <button class="nav-btn active"
+                data-page="home"
+                onclick="showPage('home')">
+            Home
+        </button>
+
+        <button class="nav-btn"
+                data-page="about"
+                onclick="showPage('about')">
+            About Me
+        </button>
+
+        <button class="nav-btn"
+                data-page="education"
+                onclick="showPage('education')">
+            Education
+        </button>
+
+        <button class="nav-btn"
+                data-page="achievements"
+                onclick="showPage('achievements')">
+            Achievements
+        </button>
+
+        <button class="nav-btn"
+                data-page="projects"
+                onclick="showPage('projects')">
+            Projects
+        </button>
+
+    </div>
+
 </nav>
 
-<!-- HOMEPAGE -->
-<section class="home" id="about">
+<main class="page-container">
 
-    <div class="content">
+<!-- ================================= -->
+<!-- HOME PAGE                         -->
+<!-- ================================= -->
 
-        <!-- AVAILABILITY -->
-        <div class="availability">
-            <span class="status-dot"></span>
-            Currently Learning &amp; Building
+<section class="page active"
+         id="home"
+         aria-label="Home">
+
+    <div class="home-layout">
+
+        <div class="home-content">
+
+            <!-- STATUS -->
+            <div class="availability">
+                <span class="status-dot"></span>
+                Currently Learning &amp; Building
+            </div>
+
+            <!-- NAME -->
+            <h1 class="home-title">
+
+                <span class="hello">
+                    Hello, I am
+                </span>
+
+                <br>
+
+                <span class="name">
+                    Jhon Jeremy S.<br>Roxas
+                </span>
+
+            </h1>
+
+            <!-- UPDATED TITLE -->
+            <div class="home-subtitle">
+                I am a
+                <span>Computer Science student</span>
+            </div>
+
+            <!-- UPDATED INTRODUCTION -->
+            <p class="home-intro">
+                I am motivated to learn, explore new
+                technologies, and continuously improve
+                my programming skills. I am passionate
+                about gaining knowledge, taking on new
+                challenges, and developing my skills
+                in software development.
+            </p>
+
+            <!-- BUTTONS -->
+            <div class="home-actions">
+
+                <button class="action-btn primary"
+                        onclick="showPage('about')">
+                    More About Me ↗
+                </button>
+
+                <button class="action-btn secondary"
+                        onclick="showPage('projects')">
+                    View My Projects
+                </button>
+
+            </div>
+
         </div>
 
-        <!-- INTRODUCTION -->
-        <h1>
-            <span class="hello">Hello, I am</span><br>
-            <span class="name">
-                Jhon Jeremy S.<br>Roxas
-            </span>
-        </h1>
+        <!-- PHOTO -->
+        <div class="photo-side">
 
-        <h2>
-            An Aspiring
-            <span class="moving-title">
-                Software Engineer
-            </span>
+            <div class="photo-container">
+
+                <div class="window-header">
+
+                    <span class="window-dot red"></span>
+                    <span class="window-dot yellow"></span>
+                    <span class="window-dot green"></span>
+
+                    <span class="window-title">
+                        j.jpeg
+                    </span>
+
+                </div>
+
+                <div class="photo-content">
+
+                    <img src="j.jpeg"
+                         alt="Jhon Jeremy S. Roxas">
+
+                </div>
+
+                <!-- FLOATING ELEMENTS -->
+                <div class="floating-card code">
+                    &lt;/&gt; Code
+                </div>
+
+                <div class="floating-card python">
+
+                    <span class="python-symbol">
+                        &#123; &#125;
+                    </span>
+
+                    <span class="python-typing">
+                        Python
+                    </span>
+
+                </div>
+
+                <div class="floating-card engineer">
+                    ⚙ Software Engineer
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- ABOUT ME PAGE                     -->
+<!-- ================================= -->
+
+<section class="page"
+         id="about"
+         aria-label="About Me"
+         hidden>
+
+    <div class="inner-page">
+
+        <h2 class="page-heading">
+            About Me
         </h2>
 
-        <p class="description">
-            I am a first-year Bachelor of Science in
-            Computer Science student at the University
-            of the Cordilleras. I have a strong interest
-            in programming, technology, and software
-            development. I aim to become a skilled
-            software engineer who can create innovative
-            solutions, solve real-world problems, and
-            continuously improve my knowledge and skills
-            in the field of computer science.
+        <p class="page-description">
+            Get to know more about me, my interests,
+            and my journey in Computer Science.
         </p>
 
-        <!-- PROGRAMMING SKILLS -->
-        <div class="skills">
-            <h3 class="section-small-title">
-                Programming Skills
+        <div class="about-grid">
+
+            <!-- ABOUT DESCRIPTION -->
+            <div class="info-card">
+
+                <h3>Who Am I?</h3>
+
+                <p class="about-description">
+                    I am a first-year Bachelor of Science
+                    in Computer Science student at the
+                    University of the Cordilleras.
+                    I have a strong interest in programming,
+                    technology, and software development.
+                    I aim to become a skilled software
+                    engineer who can create innovative
+                    solutions, solve real-world problems,
+                    and continuously improve my knowledge
+                    and skills in the field of computer science.
+                </p>
+
+                <!-- PROGRAMMING SKILLS -->
+                <div class="skills">
+
+                    <h3>Programming Skills</h3>
+
+                    <div class="skill-list">
+
+                        <span class="skill-badge">
+                            <span>Py</span> Python
+                        </span>
+
+                        <span class="skill-badge">
+                            <span>J</span> Java
+                        </span>
+
+                        <span class="skill-badge">
+                            <span>&lt;/&gt;</span> HTML
+                        </span>
+
+                        <span class="skill-badge">
+                            <span>#</span> CSS
+                        </span>
+
+                        <span class="skill-badge">
+                            <span>{ }</span> GitHub
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CONTACT INFORMATION -->
+            <div class="info-card">
+
+                <h3>Contact Information</h3>
+
+                <p class="contact-item">
+                    ✉
+                    <a href="mailto:jay7roxas@gmail.com">
+                        jay7roxas@gmail.com
+                    </a>
+                </p>
+
+                <p class="contact-item">
+                    ☎
+                    <a href="tel:+639284072685">
+                        0928 407 2685
+                    </a>
+                </p>
+
+                <p class="contact-item">
+                    📍 Baguio City, Philippines
+                </p>
+
+                <!-- SOCIAL MEDIA -->
+                <h3 style="margin-top:25px;">
+                    Social Media
+                </h3>
+
+                <div class="social-links">
+
+                    <!-- INSTAGRAM -->
+                    <a class="social-link"
+                       href="https://www.instagram.com/YOUR_USERNAME"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <svg viewBox="0 0 24 24"
+                             aria-hidden="true">
+                            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.5-3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>
+                        </svg>
+
+                        Instagram
+
+                    </a>
+
+                    <!-- FACEBOOK -->
+                    <a class="social-link"
+                       href="https://www.facebook.com/YOUR_USERNAME"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <svg viewBox="0 0 24 24"
+                             aria-hidden="true">
+                            <path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/>
+                        </svg>
+
+                        Facebook
+
+                    </a>
+
+                    <!-- GITHUB -->
+                    <a class="social-link"
+                       href="https://github.com/roxasjay"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <svg viewBox="0 0 24 24"
+                             aria-hidden="true">
+                            <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.08c-3.09.67-3.74-1.31-3.74-1.31-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 1.71 2.61 1.22 3.25.93.1-.72.39-1.22.7-1.5-2.47-.28-5.06-1.24-5.06-5.49 0-1.21.43-2.2 1.15-2.98-.12-.28-.5-1.41.11-2.93 0 0 .94-.3 3.05 1.14a10.64 10.64 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.52.23 2.65.11 2.93.72.78 1.15 1.77 1.15 2.98 0 4.26-2.59 5.21-5.07 5.48.4.35.76 1.03.76 2.06V22c0 .29.2.64.77.53A11.1 11.1 0 0 0 12 .9z"/>
+                        </svg>
+
+                        GitHub
+
+                    </a>
+
+                </div>
+
+                <!-- RESUME -->
+                <div class="resume-area">
+
+                    <a href="resume.pdf"
+                       download="Jhon_Jeremy_Roxas_Resume.pdf"
+                       class="action-btn primary">
+
+                        <svg viewBox="0 0 24 24"
+                             aria-hidden="true">
+                            <path d="M12 3v12m0 0 5-5m-5 5-5-5M4 17v3h16v-3"/>
+                        </svg>
+
+                        Download Resume
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- EDUCATION PAGE                    -->
+<!-- ================================= -->
+
+<section class="page"
+         id="education"
+         aria-label="Education"
+         hidden>
+
+    <div class="inner-page">
+
+        <h2 class="page-heading">
+            Education
+        </h2>
+
+        <p class="page-description">
+            My academic background and current studies.
+        </p>
+
+        <div class="info-card large-info-card">
+
+            <div class="info-icon">
+                🎓
+            </div>
+
+            <h3>
+                University of the Cordilleras
             </h3>
 
-            <div class="skill-list">
-                <span class="skill-badge">
-                    <span class="skill-symbol">Py</span>
-                    Python
-                </span>
-
-                <span class="skill-badge">
-                    <span class="skill-symbol">J</span>
-                    Java
-                </span>
-
-                <span class="skill-badge">
-                    <span class="skill-symbol">&lt;/&gt;</span>
-                    HTML
-                </span>
-
-                <span class="skill-badge">
-                    <span class="skill-symbol">#</span>
-                    CSS
-                </span>
-
-                <span class="skill-badge">
-                    <span class="skill-symbol">{ }</span>
-                    GitHub
-                </span>
-            </div>
-        </div>
-
-        <!-- ACTION BUTTONS -->
-        <div class="action-buttons">
-
-            <a href="#projects"
-               class="action-button primary-button">
-                View My Projects ↗
-            </a>
-
-            <a href="mailto:jay7roxas@gmail.com"
-               class="action-button secondary-button">
-                ✉ Contact Me
-            </a>
-
-            <!-- DOWNLOAD RESUME -->
-            <a href="resume.pdf"
-               download="Jhon_Jeremy_Roxas_Resume.pdf"
-               class="action-button secondary-button">
-
-                <svg viewBox="0 0 24 24"
-                     aria-hidden="true">
-                    <path d="M12 3v12m0 0 5-5m-5 5-5-5M4 17v3h16v-3"/>
-                </svg>
-
-                Download Resume
-            </a>
-
-        </div>
-
-        <!-- CONTACT INFORMATION -->
-        <div class="contact-info" id="contact">
-
-            <h3>Contact Information</h3>
-
             <p>
-                <span class="contact-icon">✉</span>
-                <a href="mailto:jay7roxas@gmail.com">
-                    jay7roxas@gmail.com
-                </a>
+                Bachelor of Science in Computer Science
             </p>
 
             <p>
-                <span class="contact-icon">☎</span>
-                <a href="tel:+639284072685">
-                    0928 407 2685
-                </a>
+                First-Year Student
             </p>
 
             <p>
-                <span class="contact-icon">📍</span>
                 Baguio City, Philippines
             </p>
 
         </div>
 
-        <!-- SOCIAL MEDIA -->
-        <div class="social-media">
+    </div>
 
-            <h3>Social Media</h3>
+</section>
 
-            <div class="social-links">
 
-                <!-- INSTAGRAM -->
-                <a href="https://www.instagram.com/YOUR_USERNAME"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Instagram">
+<!-- ================================= -->
+<!-- ACHIEVEMENTS PAGE                 -->
+<!-- ================================= -->
 
-                    <svg viewBox="0 0 24 24"
-                         aria-hidden="true">
-                        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.5-3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>
-                    </svg>
+<section class="page"
+         id="achievements"
+         aria-label="Achievements"
+         hidden>
 
-                    Instagram
-                </a>
+    <div class="inner-page">
 
-                <!-- FACEBOOK -->
-                <a href="https://www.facebook.com/YOUR_USERNAME"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Facebook">
+        <h2 class="page-heading">
+            Achievements
+        </h2>
 
-                    <svg viewBox="0 0 24 24"
-                         aria-hidden="true">
-                        <path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/>
-                    </svg>
+        <p class="page-description">
+            My academic accomplishments,
+            certifications, and milestones.
+        </p>
 
-                    Facebook
-                </a>
+        <div class="info-card large-info-card">
 
-                <!-- GITHUB -->
+            <div class="info-icon">
+                🏆
+            </div>
+
+            <h3>My Achievements</h3>
+
+            <p>
+                Add your academic awards,
+                certificates, competitions,
+                and achievements here.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- PROJECTS PAGE                     -->
+<!-- ================================= -->
+
+<section class="page"
+         id="projects"
+         aria-label="Projects"
+         hidden>
+
+    <div class="inner-page">
+
+        <h2 class="page-heading">
+            Featured Projects
+        </h2>
+
+        <p class="page-description">
+            A collection of programming projects
+            and activities from my learning journey.
+        </p>
+
+        <div class="project-grid">
+
+            <!-- PROJECT 1 -->
+            <article class="project-card">
+
+                <div class="project-icon">
+                    &lt;/&gt;
+                </div>
+
+                <h3>
+                    Python Bank Simulation
+                </h3>
+
+                <p>
+                    A Python program that simulates
+                    banking transactions, including
+                    deposits, withdrawals, balance
+                    checking, and input validation.
+                </p>
+
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>Loops</span>
+                    <span>Conditions</span>
+                </div>
+
+                <span class="project-link">
+                    Project link coming soon
+                </span>
+
+            </article>
+
+            <!-- PROJECT 2 -->
+            <article class="project-card">
+
+                <div class="project-icon">
+                    01
+                </div>
+
+                <h3>
+                    Java Radix Converter
+                </h3>
+
+                <p>
+                    A Java program for converting
+                    numbers between binary, decimal,
+                    octal, and hexadecimal.
+                </p>
+
+                <div class="project-tags">
+                    <span>Java</span>
+                    <span>Number Systems</span>
+                </div>
+
+                <span class="project-link">
+                    Project link coming soon
+                </span>
+
+            </article>
+
+            <!-- PROJECT 3 -->
+            <article class="project-card">
+
+                <div class="project-icon">
+                    { }
+                </div>
+
+                <h3>
+                    Personal Portfolio
+                </h3>
+
+                <p>
+                    A responsive personal website
+                    featuring my introduction,
+                    programming skills, education,
+                    achievements, and projects.
+                </p>
+
+                <div class="project-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+
                 <a href="https://github.com/roxasjay"
                    target="_blank"
                    rel="noopener noreferrer"
-                   aria-label="GitHub">
-
-                    <svg viewBox="0 0 24 24"
-                         aria-hidden="true">
-                        <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.08c-3.09.67-3.74-1.31-3.74-1.31-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 1.71 2.61 1.22 3.25.93.1-.72.39-1.22.7-1.5-2.47-.28-5.06-1.24-5.06-5.49 0-1.21.43-2.2 1.15-2.98-.12-.28-.5-1.41.11-2.93 0 0 .94-.3 3.05 1.14a10.64 10.64 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.52.23 2.65.11 2.93.72.78 1.15 1.77 1.15 2.98 0 4.26-2.59 5.21-5.07 5.48.4.35.76 1.03.76 2.06V22c0 .29.2.64.77.53A11.1 11.1 0 0 0 12 .9z"/>
-                    </svg>
-
-                    GitHub
+                   class="project-link">
+                    Visit My GitHub ↗
                 </a>
 
-            </div>
-        </div>
-
-    </div>
-
-    <!-- PHOTO AND TERMINAL -->
-    <div class="photo">
-
-        <div class="photo-container">
-
-            <div class="window-header">
-                <span class="window-dot dot-red"></span>
-                <span class="window-dot dot-yellow"></span>
-                <span class="window-dot dot-green"></span>
-                <span class="window-title">j.jpeg</span>
-            </div>
-
-            <div class="window-content">
-                <img src="j.jpeg"
-                     alt="Jhon Jeremy S. Roxas">
-            </div>
-
-            <div class="floating-card code">
-                &lt;/&gt; Code
-            </div>
-
-            <div class="floating-card python">
-                <span class="python-symbol">
-                    &#123; &#125;
-                </span>
-                <span class="python-typing">
-                    Python
-                </span>
-            </div>
-
-            <div class="floating-card engineer">
-                ⚙ Software Engineer
-            </div>
+            </article>
 
         </div>
 
-        <!-- INTERACTIVE TERMINAL -->
-        <div class="terminal">
-
-            <div class="terminal-header">
-                <span class="window-dot dot-red"></span>
-                <span class="window-dot dot-yellow"></span>
-                <span class="window-dot dot-green"></span>
-                <span class="terminal-title">
-                    jay@portfolio:~
-                </span>
-            </div>
-
-            <div class="terminal-body">
-
-                <div id="terminal-output"
-                     class="terminal-output"
-                     aria-live="polite"><span class="terminal-green">jay@portfolio</span>:<span class="terminal-blue">~</span>$ whoami
-Jhon Jeremy S. Roxas
-Aspiring Software Engineer
-
-Type "help" to see commands.</div>
-
-                <form id="terminal-form"
-                      class="terminal-input-row"
-                      autocomplete="off">
-
-                    <span class="terminal-green">$</span>
-
-                    <input
-                        id="terminal-input"
-                        class="terminal-input"
-                        type="text"
-                        placeholder="Type a command..."
-                        aria-label="Terminal command"
-                        maxlength="50"
-                    >
-
-                </form>
-            </div>
-        </div>
-
     </div>
 
 </section>
 
-<!-- SCROLL INDICATOR -->
-<a href="#projects" class="scroll-indicator">
-    <span>SCROLL TO EXPLORE</span>
-    <span class="scroll-arrow">↓</span>
-</a>
-
-<!-- FEATURED PROJECTS -->
-<section class="portfolio-section" id="projects">
-
-    <h2 class="section-heading">
-        Featured Projects
-    </h2>
-
-    <p class="section-description">
-        A collection of programming projects and
-        activities from my learning journey.
-    </p>
-
-    <div class="project-grid">
-
-        <article class="project-card">
-            <div class="project-icon">&lt;/&gt;</div>
-
-            <h3>Python Bank Simulation</h3>
-
-            <p>
-                A beginner-friendly Python program
-                that simulates banking transactions,
-                including deposits, withdrawals,
-                balance checking, and input validation.
-            </p>
-
-            <div class="project-tags">
-                <span>Python</span>
-                <span>Loops</span>
-                <span>Conditions</span>
-            </div>
-
-            <a href="#"
-               class="project-link placeholder-link">
-                Project link coming soon ↗
-            </a>
-        </article>
-
-        <article class="project-card">
-            <div class="project-icon">01</div>
-
-            <h3>Java Radix Converter</h3>
-
-            <p>
-                A Java program for converting
-                numbers between binary, decimal,
-                octal, and hexadecimal number systems.
-            </p>
-
-            <div class="project-tags">
-                <span>Java</span>
-                <span>Number Systems</span>
-            </div>
-
-            <a href="#"
-               class="project-link placeholder-link">
-                Project link coming soon ↗
-            </a>
-        </article>
-
-        <article class="project-card">
-            <div class="project-icon">{ }</div>
-
-            <h3>Personal Portfolio</h3>
-
-            <p>
-                A responsive personal website featuring
-                my introduction, programming skills,
-                education, achievements, and projects.
-            </p>
-
-            <div class="project-tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-            </div>
-
-            <a href="https://github.com/roxasjay"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="project-link">
-                Visit My GitHub ↗
-            </a>
-        </article>
-
-    </div>
-
-</section>
-
-<!-- EDUCATION -->
-<section class="portfolio-section" id="education">
-
-    <h2 class="section-heading">
-        Education
-    </h2>
-
-    <p class="section-description">
-        My academic background and current studies.
-    </p>
-
-    <div class="info-card">
-        <h3>University of the Cordilleras</h3>
-        <p>Bachelor of Science in Computer Science</p>
-        <p>First-Year Student</p>
-        <p>Baguio City, Philippines</p>
-    </div>
-
-</section>
-
-<!-- ACHIEVEMENTS -->
-<section class="portfolio-section" id="achievements">
-
-    <h2 class="section-heading">
-        Achievements
-    </h2>
-
-    <p class="section-description">
-        Academic accomplishments, certifications,
-        and milestones.
-    </p>
-
-    <div class="info-card">
-        <h3>My Achievements</h3>
-
-        <p class="placeholder-note">
-            Add your academic awards, certificates,
-            competitions, and other achievements here.
-        </p>
-    </div>
-
-</section>
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -1192,92 +1410,104 @@ Type "help" to see commands.</div>
     Jhon Jeremy S. Roxas. All rights reserved.
 </footer>
 
+</div>
+
+
 <script>
-    /* AUTOMATIC YEAR */
-    document.getElementById("year").textContent =
-        new Date().getFullYear();
 
-    /* INTERACTIVE TERMINAL */
-    const terminalForm =
-        document.getElementById("terminal-form");
+/* BUTTON-BASED NAVIGATION */
+function showPage(pageId) {
 
-    const terminalInput =
-        document.getElementById("terminal-input");
+    const selectedPage =
+        document.getElementById(pageId);
 
-    const terminalOutput =
-        document.getElementById("terminal-output");
+    if (
+        !selectedPage ||
+        !selectedPage.classList.contains("page")
+    ) {
+        return;
+    }
 
-    const commands = {
-        help:
-            "Available commands:\n" +
-            "help     - Show commands\n" +
-            "whoami   - About me\n" +
-            "skills   - My programming skills\n" +
-            "projects - My featured projects\n" +
-            "contact  - My contact email\n" +
-            "clear    - Clear the terminal",
+    /* SHOW SELECTED PAGE */
+    document.querySelectorAll(".page")
+        .forEach(function(page) {
 
-        whoami:
-            "Jhon Jeremy S. Roxas\n" +
-            "BS Computer Science Student\n" +
-            "Aspiring Software Engineer",
+            const active = page.id === pageId;
 
-        skills:
-            "Python, Java, HTML, CSS, GitHub",
+            page.classList.toggle("active", active);
+            page.hidden = !active;
 
-        projects:
-            "1. Python Bank Simulation\n" +
-            "2. Java Radix Converter\n" +
-            "3. Personal Portfolio",
-
-        contact:
-            "Email: jay7roxas@gmail.com"
-    };
-
-    terminalForm.addEventListener(
-        "submit",
-        function(event) {
-            event.preventDefault();
-
-            const command =
-                terminalInput.value.trim().toLowerCase();
-
-            if (!command) return;
-
-            if (command === "clear") {
-                terminalOutput.textContent = "";
-                terminalInput.value = "";
-                return;
+            if (active) {
+                page.scrollTop = 0;
             }
 
-            const response =
-                Object.prototype.hasOwnProperty.call(
-                    commands,
-                    command
-                )
-                    ? commands[command]
-                    : 'Command not found. Type "help".';
-
-            terminalOutput.textContent +=
-                "\n\n$ " + command + "\n" + response;
-
-            terminalOutput.scrollTop =
-                terminalOutput.scrollHeight;
-
-            terminalInput.value = "";
-        }
-    );
-
-    /* DISABLE PLACEHOLDER LINKS */
-    document.querySelectorAll(".placeholder-link")
-        .forEach(function(link) {
-            link.addEventListener(
-                "click",
-                function(event) {
-                    event.preventDefault();
-                }
-            );
         });
+
+    /* UPDATE ACTIVE BUTTON */
+    document.querySelectorAll(".nav-btn")
+        .forEach(function(button) {
+
+            const active =
+                button.dataset.page === pageId;
+
+            button.classList.toggle("active", active);
+
+            if (active) {
+                button.setAttribute(
+                    "aria-current",
+                    "page"
+                );
+            } else {
+                button.removeAttribute("aria-current");
+            }
+
+        });
+
+    /* UPDATE URL */
+    history.replaceState(
+        null,
+        "",
+        "#" + pageId
+    );
+}
+
+/* AUTOMATIC FOOTER YEAR */
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+/* OPEN CORRECT PAGE */
+const initialPage =
+    window.location.hash.slice(1);
+
+if (
+    initialPage &&
+    document.getElementById(initialPage)
+        ?.classList.contains("page")
+) {
+    showPage(initialPage);
+} else {
+    showPage("home");
+}
+
+/* HANDLE URL CHANGES */
+window.addEventListener(
+    "hashchange",
+    function() {
+
+        const pageId =
+            window.location.hash.slice(1);
+
+        if (
+            pageId &&
+            document.getElementById(pageId)
+                ?.classList.contains("page")
+        ) {
+            showPage(pageId);
+        }
+
+    }
+);
+
 </script>
 
 </body>
