@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Jhon Jeremy S. Roxas | Portfolio</title>
 
     <style>
@@ -187,24 +188,67 @@
             align-items: center;
         }
 
-        /* NEW PHOTO BOX DESIGN */
+        /* DESIGN 06 - DEVELOPER WINDOW */
         .photo-container {
             position: relative;
             width: 100%;
             max-width: 500px;
             background: #091b43;
-            border: 2px solid #426eae;
-            border-radius: 20px;
-            padding: 12px;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+            border: 1px solid #426eae;
+            border-radius: 16px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
         }
 
-        .photo-container img {
+        /* DEVELOPER WINDOW HEADER */
+        .window-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            height: 44px;
+            padding: 0 16px;
+            background: #0c234c;
+            border-bottom: 1px solid #244778;
+            border-radius: 15px 15px 0 0;
+        }
+
+        /* WINDOW DOTS */
+        .window-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        .dot-red {
+            background: #e58c88;
+        }
+
+        .dot-yellow {
+            background: #e7bf72;
+        }
+
+        .dot-green {
+            background: #80c8a0;
+        }
+
+        /* WINDOW TITLE */
+        .window-title {
+            margin-left: auto;
+            color: #8ab4ff;
+            font-size: 13px;
+            font-family: monospace;
+        }
+
+        /* PHOTO INSIDE WINDOW */
+        .window-content {
+            padding: 12px;
+        }
+
+        .window-content img {
             width: 100%;
             height: auto;
             display: block;
             object-fit: contain;
-            border-radius: 12px;
+            border-radius: 8px;
         }
 
         /* FLOATING ELEMENTS */
@@ -359,6 +403,10 @@
             .engineer {
                 right: -3%;
             }
+
+            .window-title {
+                font-size: 11px;
+            }
         }
 
         /* ACCESSIBILITY */
@@ -505,12 +553,25 @@
         <!-- RIGHT SIDE -->
         <div class="photo">
 
-            <!-- PHOTO WITH NEW BOX FRAME -->
+            <!-- DEVELOPER WINDOW PHOTO FRAME -->
             <div class="photo-container">
 
-                <!-- GRADUATION PHOTO -->
-                <img src="j.jpeg"
-                     alt="Jhon Jeremy S. Roxas">
+                <!-- WINDOW HEADER -->
+                <div class="window-header">
+                    <span class="window-dot dot-red"></span>
+                    <span class="window-dot dot-yellow"></span>
+                    <span class="window-dot dot-green"></span>
+
+                    <span class="window-title">
+                        profile.jpeg
+                    </span>
+                </div>
+
+                <!-- PHOTO -->
+                <div class="window-content">
+                    <img src="j.jpeg"
+                         alt="Jhon Jeremy S. Roxas">
+                </div>
 
                 <!-- FLOATING CODE -->
                 <div class="floating-card code">
