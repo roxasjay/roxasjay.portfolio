@@ -101,6 +101,84 @@
             text-align: justify;
         }
 
+        /* CONTACT INFORMATION */
+        .contact-info {
+            margin-top: 30px;
+        }
+
+        .contact-info h3,
+        .social-media h3 {
+            color: #8ab4ff;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            color: #a5b5d3;
+            font-size: 17px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-info a {
+            color: inherit;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-info a:hover {
+            color: #8ab4ff;
+        }
+
+        .contact-icon {
+            color: #8ab4ff;
+            font-size: 20px;
+            width: 25px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* SOCIAL MEDIA */
+        .social-media {
+            margin-top: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #091b43;
+            border: 1px solid #244778;
+            border-radius: 10px;
+            padding: 12px 16px;
+            color: #dbe8ff;
+            font-size: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #123366;
+            border-color: #8ab4ff;
+            transform: translateY(-3px);
+        }
+
+        .social-links svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            color: #8ab4ff;
+        }
+
         /* RIGHT PHOTO */
         .photo {
             width: 42%;
@@ -109,10 +187,16 @@
             align-items: center;
         }
 
+        /* NEW PHOTO BOX DESIGN */
         .photo-container {
             position: relative;
             width: 100%;
             max-width: 500px;
+            background: #091b43;
+            border: 2px solid #426eae;
+            border-radius: 20px;
+            padding: 12px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
         }
 
         .photo-container img {
@@ -120,6 +204,7 @@
             height: auto;
             display: block;
             object-fit: contain;
+            border-radius: 12px;
         }
 
         /* FLOATING ELEMENTS */
@@ -247,6 +332,20 @@
                 font-size: 16px;
             }
 
+            .contact-info h3,
+            .social-media h3 {
+                font-size: 18px;
+            }
+
+            .contact-info p {
+                font-size: 15px;
+            }
+
+            .social-links a {
+                font-size: 13px;
+                padding: 10px 12px;
+            }
+
             .floating-card {
                 font-size: 12px;
                 padding: 10px 12px;
@@ -326,14 +425,90 @@
                 science.
             </p>
 
+            <!-- CONTACT INFORMATION -->
+            <div class="contact-info">
+
+                <h3>Contact Information</h3>
+
+                <p>
+                    <span class="contact-icon">✉</span>
+                    <a href="mailto:jay7roxas@gmail.com">
+                        jay7roxas@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    <span class="contact-icon">☎</span>
+                    <a href="tel:+639284072685">
+                        0928 407 2685
+                    </a>
+                </p>
+
+                <p>
+                    <span class="contact-icon">📍</span>
+                    Baguio City, Philippines
+                </p>
+
+            </div>
+
+            <!-- SOCIAL MEDIA -->
+            <div class="social-media">
+
+                <h3>Social Media</h3>
+
+                <div class="social-links">
+
+                    <!-- INSTAGRAM -->
+                    <a href="https://www.instagram.com/YOUR_USERNAME"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <svg viewBox="0 0 24 24"
+                             aria-hidden="true">
+                            <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
+                        </svg>
+
+                        Instagram
+                    </a>
+
+                    <!-- FACEBOOK -->
+                    <a href="https://www.facebook.com/YOUR_USERNAME"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <svg viewBox="0 0 24 24"
+                             aria-hidden="true">
+                            <path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/>
+                        </svg>
+
+                        Facebook
+                    </a>
+
+                    <!-- GITHUB -->
+                    <a href="https://github.com/roxasjay"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <svg viewBox="0 0 24 24"
+                             aria-hidden="true">
+                            <path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.61-3.37-1.18-3.37-1.18-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0112 6.8c.85 0 1.71.11 2.51.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.78c0 .27.18.58.69.48A10 10 0 0012 2z"/>
+                        </svg>
+
+                        GitHub
+                    </a>
+
+                </div>
+            </div>
+
         </div>
 
         <!-- RIGHT SIDE -->
         <div class="photo">
 
+            <!-- PHOTO WITH NEW BOX FRAME -->
             <div class="photo-container">
 
-                <!-- GRADUATION PHOTO - UPDATED -->
+                <!-- GRADUATION PHOTO -->
                 <img src="j.jpeg"
                      alt="Jhon Jeremy S. Roxas">
 
