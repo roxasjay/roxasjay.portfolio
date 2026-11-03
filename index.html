@@ -4,10 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#020a35">
 
     <title>Jhon Jeremy S. Roxas | Portfolio</title>
 
     <style>
+        :root {
+            --background: #020a35;
+            --nav: #062758;
+            --card: #091b43;
+            --card-light: #0c234c;
+            --border: #244778;
+            --accent: #8ab4ff;
+            --accent-dark: #426eae;
+            --text: #a5b5d3;
+            --white: #dbe8ff;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -16,23 +29,56 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
-            background-color: #020a35;
-            color: #a5b5d3;
+            background-color: var(--background);
+            color: var(--text);
             font-family: Arial, sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
+            line-height: 1.5;
         }
 
-        /* NAVIGATION BAR */
+        /* SUBTLE GRID BACKGROUND */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+
+            background-image:
+                linear-gradient(
+                    rgba(82, 126, 181, 0.055) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(82, 126, 181, 0.055) 1px,
+                    transparent 1px
+                );
+
+            background-size: 45px 45px;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        /* NAVIGATION */
         nav {
             display: flex;
             align-items: center;
             gap: 60px;
             padding: 35px 7%;
-            background-color: #062758;
+            background-color: var(--nav);
             border-bottom: 1px solid #123366;
         }
 
@@ -41,10 +87,11 @@
             text-decoration: none;
             font-size: 25px;
             font-weight: bold;
-            transition: 0.3s;
+            transition: color 0.3s;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a:focus-visible {
             color: #a5c8ff;
         }
 
@@ -54,15 +101,50 @@
             align-items: center;
             justify-content: space-between;
             gap: 40px;
-            padding: 60px 4%;
+            padding: 60px 4% 35px;
             min-height: 75vh;
         }
 
-        /* LEFT CONTENT */
         .content {
             width: 55%;
+            min-width: 0;
         }
 
+        /* AVAILABILITY STATUS */
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 9px 15px;
+            margin-bottom: 28px;
+            color: var(--white);
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .status-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #63d99a;
+            box-shadow: 0 0 9px rgba(99, 217, 154, 0.4);
+            animation: statusPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.55;
+            }
+        }
+
+        /* INTRODUCTION */
         h1 {
             font-size: 56px;
             line-height: 0.95;
@@ -71,11 +153,11 @@
         }
 
         h1 .hello {
-            color: #a5b5d3;
+            color: var(--text);
         }
 
         h1 .name {
-            color: #426eae;
+            color: var(--accent-dark);
         }
 
         h2 {
@@ -85,10 +167,9 @@
         }
 
         h2 span {
-            color: #426eae;
+            color: var(--accent-dark);
         }
 
-        /* STATIC SOFTWARE ENGINEER TITLE */
         .moving-title {
             display: inline-block;
             animation: none;
@@ -102,6 +183,91 @@
             text-align: justify;
         }
 
+        /* PROGRAMMING SKILLS */
+        .skills {
+            margin-top: 30px;
+        }
+
+        .section-small-title {
+            color: var(--accent);
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 13px;
+            border-radius: 9px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .skill-badge:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+        }
+
+        .skill-symbol {
+            color: var(--accent);
+            font-family: monospace;
+        }
+
+        /* ACTION BUTTONS */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .action-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 20px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .action-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .primary-button {
+            background: #426eae;
+            color: white;
+        }
+
+        .primary-button:hover {
+            background: #5788cc;
+        }
+
+        .secondary-button {
+            background: var(--card);
+            color: var(--white);
+            border: 1px solid var(--border);
+        }
+
+        .secondary-button:hover {
+            background: #123366;
+        }
+
         /* CONTACT INFORMATION */
         .contact-info {
             margin-top: 30px;
@@ -109,13 +275,13 @@
 
         .contact-info h3,
         .social-media h3 {
-            color: #8ab4ff;
+            color: var(--accent);
             font-size: 20px;
             margin-bottom: 15px;
         }
 
         .contact-info p {
-            color: #a5b5d3;
+            color: var(--text);
             font-size: 17px;
             margin-bottom: 12px;
             display: flex;
@@ -130,11 +296,11 @@
         }
 
         .contact-info a:hover {
-            color: #8ab4ff;
+            color: var(--accent);
         }
 
         .contact-icon {
-            color: #8ab4ff;
+            color: var(--accent);
             font-size: 20px;
             width: 25px;
             text-align: center;
@@ -156,11 +322,11 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: #091b43;
-            border: 1px solid #244778;
+            background: var(--card);
+            border: 1px solid var(--border);
             border-radius: 10px;
             padding: 12px 16px;
-            color: #dbe8ff;
+            color: var(--white);
             font-size: 15px;
             font-weight: bold;
             text-decoration: none;
@@ -169,7 +335,7 @@
 
         .social-links a:hover {
             background: #123366;
-            border-color: #8ab4ff;
+            border-color: var(--accent);
             transform: translateY(-3px);
         }
 
@@ -177,45 +343,46 @@
             width: 20px;
             height: 20px;
             fill: currentColor;
-            color: #8ab4ff;
+            color: var(--accent);
         }
 
         /* RIGHT PHOTO */
         .photo {
             width: 42%;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            gap: 24px;
+            min-width: 0;
         }
 
-        /* DESIGN 06 - DEVELOPER WINDOW */
+        /* DEVELOPER WINDOW PHOTO */
         .photo-container {
             position: relative;
             width: 100%;
             max-width: 500px;
-            background: #091b43;
-            border: 1px solid #426eae;
+            background: var(--card);
+            border: 1px solid var(--accent-dark);
             border-radius: 16px;
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
         }
 
-        /* DEVELOPER WINDOW HEADER */
         .window-header {
             display: flex;
             align-items: center;
             gap: 8px;
             height: 44px;
             padding: 0 16px;
-            background: #0c234c;
-            border-bottom: 1px solid #244778;
+            background: var(--card-light);
+            border-bottom: 1px solid var(--border);
             border-radius: 15px 15px 0 0;
         }
 
-        /* WINDOW DOTS */
         .window-dot {
             width: 11px;
             height: 11px;
             border-radius: 50%;
+            flex-shrink: 0;
         }
 
         .dot-red {
@@ -230,15 +397,13 @@
             background: #80c8a0;
         }
 
-        /* WINDOW TITLE */
         .window-title {
             margin-left: auto;
-            color: #8ab4ff;
+            color: var(--accent);
             font-size: 13px;
             font-family: monospace;
         }
 
-        /* PHOTO INSIDE WINDOW */
         .window-content {
             padding: 12px;
         }
@@ -254,10 +419,10 @@
         /* FLOATING ELEMENTS */
         .floating-card {
             position: absolute;
-            background: #091b43;
-            color: #dbe8ff;
+            background: var(--card);
+            color: var(--white);
             padding: 15px 20px;
-            border: 1px solid #244778;
+            border: 1px solid var(--border);
             border-radius: 12px;
             font-size: 16px;
             font-weight: bold;
@@ -265,14 +430,12 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
-        /* CODE - FLOATING 14 SECONDS */
         .code {
             top: 55%;
             left: -8%;
             animation: float 14s ease-in-out infinite;
         }
 
-        /* PYTHON - FLOATING 7 SECONDS */
         .python {
             top: 15%;
             right: -5%;
@@ -282,18 +445,16 @@
             animation: float 7s ease-in-out infinite;
         }
 
-        /* PYTHON SYMBOLS */
         .python-symbol {
-            color: #8ab4ff;
+            color: var(--accent);
         }
 
-        /* PYTHON TYPING ANIMATION */
         .python-typing {
             display: inline-block;
             width: 0;
             overflow: hidden;
             white-space: nowrap;
-            border-right: 2px solid #8ab4ff;
+            border-right: 2px solid var(--accent);
             animation:
                 pythonTyping 6s steps(6, end) infinite,
                 blink 0.7s step-end infinite;
@@ -313,14 +474,12 @@
             }
         }
 
-        /* SOFTWARE ENGINEER CARD - 7 SECONDS */
         .engineer {
             bottom: 12%;
             right: -5%;
             animation: float 7s ease-in-out infinite;
         }
 
-        /* FLOATING ANIMATION */
         @keyframes float {
             0%, 100% {
                 transform: translateY(0);
@@ -331,14 +490,266 @@
             }
         }
 
-        /* BLINKING CURSOR */
         @keyframes blink {
             50% {
                 border-color: transparent;
             }
         }
 
-        /* MOBILE RESPONSIVENESS */
+        /* MINI CODING TERMINAL */
+        .terminal {
+            width: 100%;
+            max-width: 500px;
+            background: #050f2d;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 11px 14px;
+            background: var(--card-light);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .terminal-header .window-dot {
+            width: 9px;
+            height: 9px;
+        }
+
+        .terminal-title {
+            margin-left: auto;
+            font-size: 12px;
+            color: var(--accent);
+            font-family: monospace;
+        }
+
+        .terminal-body {
+            padding: 16px;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #a5b5d3;
+        }
+
+        .terminal-output {
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            max-height: 190px;
+            overflow-y: auto;
+        }
+
+        .terminal-green {
+            color: #80c8a0;
+        }
+
+        .terminal-blue {
+            color: var(--accent);
+        }
+
+        .terminal-input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .terminal-input {
+            flex: 1;
+            min-width: 0;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--white);
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        .terminal-input::placeholder {
+            color: #7185a9;
+        }
+
+        /* SCROLL INDICATOR */
+        .scroll-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 7px;
+            padding: 20px;
+            color: var(--accent);
+            font-size: 12px;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .scroll-arrow {
+            font-size: 23px;
+            animation: scrollBounce 2s infinite;
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(8px);
+            }
+        }
+
+        /* LOWER SECTIONS */
+        .portfolio-section {
+            padding: 75px 7%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            font-size: 34px;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            font-size: 17px;
+            margin-bottom: 30px;
+            max-width: 650px;
+        }
+
+        /* FEATURED PROJECTS */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-dark);
+        }
+
+        .project-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            background: #123366;
+            border-radius: 12px;
+            color: var(--accent);
+            font-size: 23px;
+            font-family: monospace;
+        }
+
+        .project-card h3 {
+            font-size: 21px;
+            color: var(--white);
+        }
+
+        .project-card p {
+            font-size: 15px;
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-tags span {
+            padding: 5px 9px;
+            background: #102b54;
+            border-radius: 6px;
+            color: var(--accent);
+            font-size: 12px;
+        }
+
+        .project-link {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* EDUCATION AND ACHIEVEMENTS */
+        .info-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 850px;
+        }
+
+        .info-card h3 {
+            color: var(--white);
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .placeholder-note {
+            color: #8399bd;
+            font-style: italic;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 1px solid var(--border);
+            background: #040e2f;
+            font-size: 14px;
+        }
+
+        /* TABLET */
+        @media (max-width: 1050px) {
+            .home {
+                gap: 25px;
+            }
+
+            h1 {
+                font-size: 45px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .description {
+                font-size: 17px;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        /* MOBILE */
         @media (max-width: 800px) {
             nav {
                 gap: 20px;
@@ -376,6 +787,7 @@
                 font-size: 16px;
             }
 
+            .section-small-title,
             .contact-info h3,
             .social-media h3 {
                 font-size: 18px;
@@ -407,15 +819,51 @@
             .window-title {
                 font-size: 11px;
             }
+
+            .portfolio-section {
+                padding: 55px 6%;
+            }
+
+            .section-heading {
+                font-size: 28px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .photo {
+                width: 90%;
+            }
+
+            .floating-card {
+                font-size: 10px;
+                padding: 8px;
+            }
+
+            .terminal-body {
+                font-size: 11px;
+            }
+
+            .action-button {
+                font-size: 13px;
+            }
+
+            .skill-badge {
+                font-size: 12px;
+            }
         }
 
         /* ACCESSIBILITY */
         @media (prefers-reduced-motion: reduce) {
-            .code,
-            .python,
-            .engineer,
-            .python-typing {
-                animation: none;
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                scroll-behavior: auto !important;
+                transition: none !important;
             }
 
             .python-typing {
@@ -438,9 +886,16 @@
     <!-- HOMEPAGE -->
     <section class="home" id="about">
 
-        <!-- LEFT SIDE -->
+        <!-- LEFT CONTENT -->
         <div class="content">
 
+            <!-- AVAILABILITY STATUS -->
+            <div class="availability">
+                <span class="status-dot"></span>
+                Currently Learning &amp; Building
+            </div>
+
+            <!-- INTRODUCTION -->
             <h1>
                 <span class="hello">
                     Hello, I am
@@ -451,7 +906,6 @@
                 </span>
             </h1>
 
-            <!-- STATIC TITLE -->
             <h2>
                 An Aspiring
                 <span class="moving-title">
@@ -472,6 +926,58 @@
                 and skills in the field of computer
                 science.
             </p>
+
+            <!-- PROGRAMMING SKILLS -->
+            <div class="skills">
+                <h3 class="section-small-title">
+                    Programming Skills
+                </h3>
+
+                <!-- Edit these to match your actual skills -->
+                <div class="skill-list">
+
+                    <span class="skill-badge">
+                        <span class="skill-symbol">Py</span>
+                        Python
+                    </span>
+
+                    <span class="skill-badge">
+                        <span class="skill-symbol">J</span>
+                        Java
+                    </span>
+
+                    <span class="skill-badge">
+                        <span class="skill-symbol">&lt;/&gt;</span>
+                        HTML
+                    </span>
+
+                    <span class="skill-badge">
+                        <span class="skill-symbol">#</span>
+                        CSS
+                    </span>
+
+                    <span class="skill-badge">
+                        <span class="skill-symbol">{ }</span>
+                        GitHub
+                    </span>
+
+                </div>
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div class="action-buttons">
+
+                <a href="#projects"
+                   class="action-button primary-button">
+                    View My Projects ↗
+                </a>
+
+                <a href="mailto:jay7roxas@gmail.com"
+                   class="action-button secondary-button">
+                    ✉ Contact Me
+                </a>
+
+            </div>
 
             <!-- CONTACT INFORMATION -->
             <div class="contact-info">
@@ -506,20 +1012,20 @@
 
                 <div class="social-links">
 
-                    <!-- INSTAGRAM -->
+                    <!-- Replace YOUR_USERNAME -->
                     <a href="https://www.instagram.com/YOUR_USERNAME"
                        target="_blank"
                        rel="noopener noreferrer">
 
                         <svg viewBox="0 0 24 24"
                              aria-hidden="true">
-                            <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
+                            <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
                         </svg>
 
                         Instagram
                     </a>
 
-                    <!-- FACEBOOK -->
+                    <!-- Replace YOUR_USERNAME -->
                     <a href="https://www.facebook.com/YOUR_USERNAME"
                        target="_blank"
                        rel="noopener noreferrer">
@@ -539,7 +1045,7 @@
 
                         <svg viewBox="0 0 24 24"
                              aria-hidden="true">
-                            <path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.61-3.37-1.18-3.37-1.18-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0112 6.8c.85 0 1.71.11 2.51.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.78c0 .27.18.58.69.48A10 10 0 0012 2z"/>
+                            <path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.61-3.37-1.18-3.37-1.18-.45-1.15-1.11-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0112 6.8c.85 0 1.71.11 2.51.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.78c0 .27.18.58.69.48A10 10 0 0012 2z"/>
                         </svg>
 
                         GitHub
@@ -550,24 +1056,22 @@
 
         </div>
 
-        <!-- RIGHT SIDE -->
+        <!-- RIGHT CONTENT -->
         <div class="photo">
 
-            <!-- DEVELOPER WINDOW PHOTO FRAME -->
+            <!-- DEVELOPER WINDOW PHOTO -->
             <div class="photo-container">
 
-                <!-- WINDOW HEADER -->
                 <div class="window-header">
                     <span class="window-dot dot-red"></span>
                     <span class="window-dot dot-yellow"></span>
                     <span class="window-dot dot-green"></span>
 
                     <span class="window-title">
-                        profile.jpeg
+                        j.jpeg
                     </span>
                 </div>
 
-                <!-- PHOTO -->
                 <div class="window-content">
                     <img src="j.jpeg"
                          alt="Jhon Jeremy S. Roxas">
@@ -578,12 +1082,14 @@
                     &lt;/&gt; Code
                 </div>
 
-                <!-- FLOATING AND TYPING PYTHON -->
+                <!-- FLOATING PYTHON -->
                 <div class="floating-card python">
                     <span class="python-symbol">
                         &#123; &#125;
                     </span>
-                    <span class="python-typing">Python</span>
+                    <span class="python-typing">
+                        Python
+                    </span>
                 </div>
 
                 <!-- FLOATING SOFTWARE ENGINEER -->
@@ -593,9 +1099,313 @@
 
             </div>
 
+            <!-- MINI CODING TERMINAL -->
+            <div class="terminal">
+
+                <div class="terminal-header">
+                    <span class="window-dot dot-red"></span>
+                    <span class="window-dot dot-yellow"></span>
+                    <span class="window-dot dot-green"></span>
+
+                    <span class="terminal-title">
+                        jay@portfolio:~
+                    </span>
+                </div>
+
+                <div class="terminal-body">
+
+                    <div id="terminal-output"
+                         class="terminal-output"
+                         aria-live="polite"><span class="terminal-green">jay@portfolio</span>:<span class="terminal-blue">~</span>$ whoami
+Jhon Jeremy S. Roxas
+Aspiring Software Engineer
+
+Type "help" to see commands.</div>
+
+                    <form id="terminal-form"
+                          class="terminal-input-row"
+                          autocomplete="off">
+
+                        <span class="terminal-green">
+                            $
+                        </span>
+
+                        <input
+                            id="terminal-input"
+                            class="terminal-input"
+                            type="text"
+                            placeholder="Type a command..."
+                            aria-label="Terminal command"
+                            maxlength="50"
+                        >
+
+                    </form>
+
+                </div>
+            </div>
+
         </div>
 
     </section>
+
+    <!-- SCROLL INDICATOR -->
+    <a href="#projects" class="scroll-indicator">
+        <span>SCROLL TO EXPLORE</span>
+        <span class="scroll-arrow">↓</span>
+    </a>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="portfolio-section" id="projects">
+
+        <h2 class="section-heading">
+            Featured Projects
+        </h2>
+
+        <p class="section-description">
+            A collection of programming projects
+            and activities from my learning journey.
+        </p>
+
+        <div class="project-grid">
+
+            <!-- PROJECT 1 -->
+            <article class="project-card">
+
+                <div class="project-icon">
+                    &lt;/&gt;
+                </div>
+
+                <h3>Python Bank Simulation</h3>
+
+                <p>
+                    A beginner-friendly Python program
+                    that simulates banking transactions,
+                    including deposits, withdrawals,
+                    balance checking, and input validation.
+                </p>
+
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>Loops</span>
+                    <span>Conditions</span>
+                </div>
+
+                <!-- Replace # with the actual project URL -->
+                <a href="#"
+                   class="project-link placeholder-link">
+                    Project link coming soon ↗
+                </a>
+
+            </article>
+
+            <!-- PROJECT 2 -->
+            <article class="project-card">
+
+                <div class="project-icon">
+                    01
+                </div>
+
+                <h3>Java Radix Converter</h3>
+
+                <p>
+                    A Java program for converting
+                    numbers between binary, decimal,
+                    octal, and hexadecimal number systems.
+                </p>
+
+                <div class="project-tags">
+                    <span>Java</span>
+                    <span>Number Systems</span>
+                </div>
+
+                <!-- Replace # with the actual project URL -->
+                <a href="#"
+                   class="project-link placeholder-link">
+                    Project link coming soon ↗
+                </a>
+
+            </article>
+
+            <!-- PROJECT 3 -->
+            <article class="project-card">
+
+                <div class="project-icon">
+                    { }
+                </div>
+
+                <h3>Personal Portfolio</h3>
+
+                <p>
+                    A responsive personal website
+                    featuring my introduction,
+                    programming skills, education,
+                    achievements, and projects.
+                </p>
+
+                <div class="project-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+
+                <a href="https://github.com/roxasjay"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="project-link">
+                    Visit My GitHub ↗
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="portfolio-section" id="education">
+
+        <h2 class="section-heading">
+            Education
+        </h2>
+
+        <p class="section-description">
+            My academic background and current studies.
+        </p>
+
+        <div class="info-card">
+
+            <h3>University of the Cordilleras</h3>
+
+            <p>
+                Bachelor of Science in Computer Science
+            </p>
+
+            <p>
+                First-Year Student
+            </p>
+
+            <p>
+                Baguio City, Philippines
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="portfolio-section" id="achievements">
+
+        <h2 class="section-heading">
+            Achievements
+        </h2>
+
+        <p class="section-description">
+            Academic accomplishments, certifications,
+            and milestones.
+        </p>
+
+        <div class="info-card">
+
+            <h3>My Achievements</h3>
+
+            <p class="placeholder-note">
+                Add your academic awards, certificates,
+                competitions, and other achievements here.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © <span id="year"></span>
+        Jhon Jeremy S. Roxas.
+        All rights reserved.
+    </footer>
+
+    <script>
+        /* AUTOMATIC FOOTER YEAR */
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        /* MINI TERMINAL */
+        const terminalForm =
+            document.getElementById("terminal-form");
+
+        const terminalInput =
+            document.getElementById("terminal-input");
+
+        const terminalOutput =
+            document.getElementById("terminal-output");
+
+        const commands = {
+            help:
+                "Available commands:\n" +
+                "help     - Show commands\n" +
+                "whoami   - About me\n" +
+                "skills   - My programming skills\n" +
+                "projects - My featured projects\n" +
+                "contact  - My contact email\n" +
+                "clear    - Clear the terminal",
+
+            whoami:
+                "Jhon Jeremy S. Roxas\n" +
+                "BS Computer Science Student\n" +
+                "Aspiring Software Engineer",
+
+            skills:
+                "Python, Java, HTML, CSS, GitHub",
+
+            projects:
+                "1. Python Bank Simulation\n" +
+                "2. Java Radix Converter\n" +
+                "3. Personal Portfolio",
+
+            contact:
+                "Email: jay7roxas@gmail.com"
+        };
+
+        terminalForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const command =
+                terminalInput.value.trim().toLowerCase();
+
+            if (!command) {
+                return;
+            }
+
+            if (command === "clear") {
+                terminalOutput.textContent = "";
+                terminalInput.value = "";
+                return;
+            }
+
+            const response = Object.prototype.hasOwnProperty.call(
+                commands,
+                command
+            )
+                ? commands[command]
+                : 'Command not found. Type "help".';
+
+            terminalOutput.textContent +=
+                "\n\n$ " + command + "\n" + response;
+
+            terminalOutput.scrollTop =
+                terminalOutput.scrollHeight;
+
+            terminalInput.value = "";
+        });
+
+        /* PREVENT PLACEHOLDER PROJECT LINKS */
+        document.querySelectorAll(".placeholder-link")
+            .forEach(function(link) {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault();
+                });
+            });
+    </script>
 
 </body>
 </html>
