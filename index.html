@@ -3,217 +3,1169 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#020a35">
+
 <title>Jhon Jeremy S. Roxas | Portfolio</title>
+
 <style>
-:root{--bg:#020a35;--nav:#062758;--card:#091b43;--card2:#0c234c;--border:#244778;--accent:#8ab4ff;--blue:#426eae;--text:#a5b5d3;--white:#dbe8ff}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;width:100%}
-body{background:var(--bg);color:var(--text);font:16px/1.55 Arial,sans-serif;overflow:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(rgba(82,126,181,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(82,126,181,.05) 1px,transparent 1px);background-size:45px 45px}
-button{font:inherit;cursor:pointer}
-.app{display:flex;flex-direction:column;height:100dvh}
-nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 5%;background:var(--nav);border-bottom:1px solid #123366;flex-shrink:0}
-.logo{color:var(--accent);font-size:20px;font-weight:bold;letter-spacing:1px;white-space:nowrap}
-.nav-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.nav-btn{background:transparent;border:1px solid transparent;border-radius:9px;padding:10px 15px;color:var(--text);font-size:14px;font-weight:bold;transition:.25s}
-.nav-btn:hover{background:#123366;color:var(--white)}
-.nav-btn.active{background:var(--blue);border-color:#527eb5;color:white}
-.page-container{flex:1;min-height:0;position:relative}
-.page{display:none;width:100%;height:100%;overflow-y:auto;padding:35px 6%;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
-.page.active{display:flex;flex-direction:column;animation:fade .3s ease}
-@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.home-layout{width:100%;max-width:1400px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:55px}
-.home-content{width:55%;min-width:0}
-.availability{display:inline-flex;align-items:center;gap:10px;padding:9px 15px;margin-bottom:25px;background:var(--card);border:1px solid var(--border);border-radius:30px;color:var(--white);font-size:13px}
-.status-dot{height:9px;width:9px;background:#63d99a;border-radius:50%;animation:pulse 3s infinite}
-@keyframes pulse{50%{opacity:.4}}
-.home-title{font-size:clamp(40px,4.8vw,66px);line-height:1.08;margin-bottom:25px}
-.hello{color:var(--text)}.name{color:var(--blue)}
-.home-subtitle{font-size:clamp(21px,2.3vw,30px);font-weight:bold;color:var(--white);margin-bottom:20px}
-.home-subtitle span{color:var(--accent)}
-.home-intro{max-width:600px;font-size:19px;line-height:1.75}
-.home-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.action-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 19px;border-radius:9px;font-size:14px;font-weight:bold;text-decoration:none;transition:.25s}
-.action-btn:hover{transform:translateY(-3px)}
-.primary{background:var(--blue);border:1px solid var(--blue);color:white}
-.primary:hover{background:#5788cc}
-.secondary{background:var(--card);border:1px solid var(--border);color:var(--white)}
-.secondary:hover{background:#123366}
-.action-btn svg{height:18px;width:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.photo-side{width:40%;display:flex;justify-content:center}
-.photo-container{position:relative;width:100%;max-width:460px;background:var(--card);border:1px solid var(--blue);border-radius:16px;box-shadow:0 15px 40px rgba(0,0,0,.3)}
-.window-header{display:flex;align-items:center;gap:8px;height:43px;padding:0 15px;background:var(--card2);border-bottom:1px solid var(--border);border-radius:15px 15px 0 0}
-.window-dot{width:10px;height:10px;border-radius:50%}
-.red{background:#e58c88}.yellow{background:#e7bf72}.green{background:#80c8a0}
-.window-title{margin-left:auto;font:12px monospace;color:var(--accent)}
-.photo-content{padding:12px}
-.photo-content img{width:100%;max-height:min(60vh,560px);height:auto;display:block;object-fit:contain;border-radius:8px}
-.floating-card{position:absolute;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;color:var(--white);font-size:14px;font-weight:bold;white-space:nowrap;box-shadow:0 8px 25px rgba(0,0,0,.3)}
-.code{top:55%;left:-8%;animation:float 14s ease-in-out infinite}
-.python{top:15%;right:-5%;display:flex;align-items:center;gap:5px;animation:float 7s ease-in-out infinite}
-.python-symbol{color:var(--accent)}
-.python-typing{display:inline-block;width:0;overflow:hidden;white-space:nowrap;border-right:2px solid var(--accent);animation:typing 6s steps(6,end) infinite,blink .7s step-end infinite}
-.engineer{bottom:12%;right:-5%;animation:float 7s ease-in-out infinite}
-@keyframes float{50%{transform:translateY(-12px)}}
-@keyframes typing{0%,10%{width:0}40%,65%{width:6ch}95%,100%{width:0}}
-@keyframes blink{50%{border-color:transparent}}
-.inner-page{width:100%;max-width:1150px;margin:auto}
-.page-heading{color:var(--white);font-size:clamp(30px,3.5vw,42px);margin-bottom:12px}
-.page-description{font-size:16px;margin-bottom:27px}
-.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
-.info-card{padding:25px;background:var(--card);border:1px solid var(--border);border-radius:15px}
-.info-card h3{color:var(--accent);font-size:20px;margin-bottom:14px}
-.info-card p{font-size:16px;line-height:1.7;margin-bottom:10px}
-.about-description{text-align:justify}
-.skills{margin-top:22px}
-.skill-list{display:flex;flex-wrap:wrap;gap:9px}
-.skill-badge{padding:8px 12px;background:#102b54;border:1px solid var(--border);border-radius:8px;color:var(--white);font-size:13px;font-weight:bold}
-.skill-badge span{color:var(--accent);font-family:monospace;margin-right:5px}
-.contact-item{margin-bottom:13px;overflow-wrap:anywhere}
-.contact-item a{color:var(--white);text-decoration:none}
-.contact-item a:hover{color:var(--accent)}
-.social-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}
-.social-link{display:inline-flex;align-items:center;gap:9px;padding:10px 13px;background:#102b54;border:1px solid var(--border);border-radius:9px;color:var(--white);text-decoration:none;font-size:13px;font-weight:bold;transition:.25s}
-.social-link:hover{background:#123b70;transform:translateY(-3px)}
-.social-link svg{width:20px;height:20px;fill:var(--accent);flex-shrink:0}
-.education-list{display:flex;flex-direction:column;gap:18px;max-width:850px}
-.education-card{display:flex;align-items:center;gap:25px}
-.university-logo{width:100px;height:100px;object-fit:contain;flex-shrink:0}
-@media(max-width:500px){.education-card{flex-direction:column;text-align:center}}
-.large-info-card{max-width:850px}
-.large-info-card h3{color:var(--white);font-size:23px}
-.info-icon{font-size:34px;margin-bottom:15px}
-.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.project-card{display:flex;flex-direction:column;gap:15px;padding:23px;background:var(--card);border:1px solid var(--border);border-radius:15px;transition:.25s}
-.project-card:hover{transform:translateY(-5px);border-color:var(--blue)}
-.project-icon{display:flex;justify-content:center;align-items:center;width:48px;height:48px;background:#123366;border-radius:11px;color:var(--accent);font:23px monospace}
-.project-card h3{color:var(--white);font-size:20px}
-.project-card p{font-size:15px;line-height:1.65;flex:1}
-.project-tags{display:flex;flex-wrap:wrap;gap:7px}
-.project-tags span{background:#102b54;color:var(--accent);border-radius:6px;padding:5px 9px;font-size:12px}
-.project-link{color:var(--accent);text-decoration:none;font-size:14px;font-weight:bold}
-.project-link:hover{text-decoration:underline}
-footer{flex-shrink:0;text-align:center;padding:12px;background:#040e2f;border-top:1px solid var(--border);color:#8399bd;font-size:12px}
-@media(max-width:1050px){nav{padding:15px 4%}.nav-btn{font-size:13px;padding:9px 11px}.home-layout{gap:30px}.home-intro{font-size:16px}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:800px){nav{flex-direction:column;gap:12px;padding:13px 3%}.logo{font-size:17px}.nav-buttons{justify-content:center;gap:5px}.nav-btn{font-size:12px;padding:8px 10px}.page{padding:25px 6%}.home-layout{flex-direction:column-reverse;gap:28px}.home-content{width:100%}.photo-side{width:70%}.photo-content img{max-height:270px}.home-title{font-size:38px}.home-subtitle{font-size:22px}.home-intro{font-size:15px}.floating-card{font-size:10px;padding:8px 10px}.code{left:-4%}.python,.engineer{right:-4%}.about-grid,.project-grid{grid-template-columns:1fr}.about-description{text-align:left}}
-@media(max-width:420px){.photo-side{width:80%}.nav-btn{padding:7px 8px;font-size:11px}.action-btn{padding:10px 12px;font-size:12px}.floating-card{font-size:9px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.python-typing{width:auto;border-right:none}}
+
+/* GENERAL DESIGN */
+
+:root {
+    --bg: #020a35;
+    --nav: #062758;
+    --card: #091b43;
+    --card2: #0c234c;
+    --border: #244778;
+    --accent: #8ab4ff;
+    --blue: #426eae;
+    --text: #a5b5d3;
+    --white: #dbe8ff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.55 Arial, sans-serif;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image:
+        linear-gradient(rgba(82,126,181,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(82,126,181,.05) 1px, transparent 1px);
+    background-size: 45px 45px;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+}
+
+/* TOP NAVIGATION */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 5%;
+    background: var(--nav);
+    border-bottom: 1px solid #123366;
+    flex-shrink: 0;
+}
+
+.logo {
+    color: var(--accent);
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.nav-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    padding: 10px 15px;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: bold;
+    transition: .25s;
+}
+
+.nav-btn:hover {
+    background: #123366;
+    color: var(--white);
+}
+
+.nav-btn.active {
+    background: var(--blue);
+    border-color: #527eb5;
+    color: white;
+}
+
+/* PAGE LAYOUT */
+
+.page-container {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+}
+
+.page {
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    padding: 35px 6% 135px;
+    scrollbar-width: none;
+}
+
+.page.active {
+    display: flex;
+    flex-direction: column;
+    animation: fade .3s ease;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HOME PAGE */
+
+.home-layout {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 55px;
+}
+
+.home-content {
+    width: 55%;
+    min-width: 0;
+}
+
+.availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 15px;
+    margin-bottom: 25px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    color: var(--white);
+    font-size: 13px;
+}
+
+.status-dot {
+    height: 9px;
+    width: 9px;
+    background: #63d99a;
+    border-radius: 50%;
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        opacity: .4;
+    }
+}
+
+.home-title {
+    font-size: clamp(40px,4.8vw,66px);
+    line-height: 1.08;
+    margin-bottom: 25px;
+}
+
+.hello {
+    color: var(--text);
+}
+
+.name {
+    color: var(--blue);
+}
+
+.home-subtitle {
+    font-size: clamp(21px,2.3vw,30px);
+    font-weight: bold;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.home-subtitle span {
+    color: var(--accent);
+}
+
+.home-intro {
+    max-width: 600px;
+    font-size: 19px;
+    line-height: 1.75;
+}
+
+/* PROFILE PICTURE */
+
+.photo-side {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.photo-container {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    background: var(--card);
+    border: 1px solid var(--blue);
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.3);
+}
+
+.window-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 43px;
+    padding: 0 15px;
+    background: var(--card2);
+    border-bottom: 1px solid var(--border);
+    border-radius: 15px 15px 0 0;
+}
+
+.window-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.red {
+    background: #e58c88;
+}
+
+.yellow {
+    background: #e7bf72;
+}
+
+.green {
+    background: #80c8a0;
+}
+
+.window-title {
+    margin-left: auto;
+    font: 12px monospace;
+    color: var(--accent);
+}
+
+.photo-content {
+    padding: 12px;
+}
+
+.photo-content img {
+    width: 100%;
+    max-height: min(60vh,560px);
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* FLOATING CODING ELEMENTS */
+
+.floating-card {
+    position: absolute;
+    padding: 12px 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0 8px 25px rgba(0,0,0,.3);
+}
+
+.code {
+    top: 55%;
+    left: -8%;
+    animation: float 14s ease-in-out infinite;
+}
+
+.python {
+    top: 15%;
+    right: -5%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    animation: float 7s ease-in-out infinite;
+}
+
+.python-symbol {
+    color: var(--accent);
+}
+
+.python-typing {
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--accent);
+    animation:
+        typing 6s steps(6,end) infinite,
+        blink .7s step-end infinite;
+}
+
+.engineer {
+    bottom: 12%;
+    right: -5%;
+    animation: float 7s ease-in-out infinite;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes typing {
+    0%,10% {
+        width: 0;
+    }
+    40%,65% {
+        width: 6ch;
+    }
+    95%,100% {
+        width: 0;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* INNER PAGES */
+
+.inner-page {
+    width: 100%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+.page-heading {
+    color: var(--white);
+    font-size: clamp(30px,3.5vw,42px);
+    margin-bottom: 24px;
+}
+
+.page-description {
+    font-size: 16px;
+    margin-bottom: 27px;
+}
+
+.info-card {
+    padding: 25px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.info-card h3 {
+    color: var(--accent);
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+
+.info-card p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+/* PERSONAL INFORMATION */
+
+.about-description {
+    text-align: justify;
+}
+
+.personal-details {
+    margin-top: 20px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 16px;
+}
+
+.detail-item {
+    background: #102b54;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.detail-label {
+    display: block;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.detail-value {
+    color: var(--white);
+    font-size: 15px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* EDUCATION */
+
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 850px;
+}
+
+.education-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.university-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* BOTTOM NAVIGATION */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px;
+    background: #0c234c;
+    border: 1px solid #426eae;
+    border-radius: 16px;
+    z-index: 1000;
+    box-shadow: 0 8px 25px rgba(0,0,0,.3);
+}
+
+.bottom-btn {
+    padding: 11px 22px;
+    background: #123366;
+    border: 1px solid #244778;
+    border-radius: 9px;
+    color: #dbe8ff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: .25s;
+}
+
+.bottom-btn:hover {
+    background: #426eae;
+    transform: translateY(-2px);
+}
+
+.bottom-btn:focus-visible {
+    outline: 2px solid #8ab4ff;
+    outline-offset: 3px;
+}
+
+.next-btn {
+    background: #426eae;
+    color: white;
+}
+
+/* FOOTER */
+
+footer {
+    flex-shrink: 0;
+    text-align: center;
+    padding: 12px;
+    background: #040e2f;
+    border-top: 1px solid var(--border);
+    color: #8399bd;
+    font-size: 12px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width:1050px) {
+    nav {
+        padding: 15px 4%;
+    }
+
+    .nav-btn {
+        font-size: 13px;
+        padding: 9px 11px;
+    }
+
+    .home-layout {
+        gap: 30px;
+    }
+
+    .home-intro {
+        font-size: 16px;
+    }
+}
+
+@media (max-width:800px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+        padding: 13px 3%;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .nav-buttons {
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .nav-btn {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .page {
+        padding: 25px 6% 135px;
+    }
+
+    .home-layout {
+        flex-direction: column-reverse;
+        gap: 28px;
+    }
+
+    .home-content {
+        width: 100%;
+    }
+
+    .photo-side {
+        width: 70%;
+    }
+
+    .photo-content img {
+        max-height: 270px;
+    }
+
+    .home-title {
+        font-size: 38px;
+    }
+
+    .home-subtitle {
+        font-size: 22px;
+    }
+
+    .home-intro {
+        font-size: 15px;
+    }
+
+    .floating-card {
+        font-size: 10px;
+        padding: 8px 10px;
+    }
+
+    .code {
+        left: -4%;
+    }
+
+    .python,
+    .engineer {
+        right: -4%;
+    }
+
+    .about-description {
+        text-align: left;
+    }
+}
+
+@media (max-width:500px) {
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .education-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bottom-nav {
+        bottom: 45px;
+        gap: 6px;
+        padding: 7px;
+    }
+
+    .bottom-btn {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width:420px) {
+    .photo-side {
+        width: 80%;
+    }
+
+    .nav-btn {
+        padding: 7px 8px;
+        font-size: 11px;
+    }
+
+    .floating-card {
+        font-size: 9px;
+    }
+}
+
+@media (prefers-reduced-motion:reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .python-typing {
+        width: auto;
+        border-right: none;
+    }
+}
+
+/* PERSONAL INFORMATION - NO SCROLL FIX */
+
+#about {
+    overflow: hidden;
+    padding-top: 18px;
+    padding-bottom: 105px;
+}
+
+#about .inner-page {
+    margin: 0 auto;
+}
+
+#about .page-heading {
+    margin-bottom: 12px;
+    font-size: 36px;
+}
+
+#about .info-card {
+    padding: 14px 22px;
+}
+
+#about .info-card h3 {
+    margin-bottom: 8px;
+}
+
+#about .info-card p {
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+#about .personal-details {
+    margin-top: 12px;
+}
+
+#about .details-grid {
+    gap: 8px 16px;
+}
+
+#about .detail-item {
+    padding: 8px 14px;
+}
+
+#about .detail-label {
+    margin-bottom: 2px;
+}
+
+/* EDUCATION PAGE - NO SCROLL FIX */
+
+#education {
+    overflow: hidden;
+    padding-top: 16px;
+    padding-bottom: 105px;
+}
+
+#education .inner-page {
+    margin: 0 auto;
+}
+
+#education .page-heading {
+    font-size: 34px;
+    margin-bottom: 5px;
+}
+
+#education .page-description {
+    margin-bottom: 10px;
+}
+
+#education .education-list {
+    gap: 10px;
+    max-width: 850px;
+}
+
+#education .education-card {
+    padding: 12px 20px;
+    gap: 18px;
+}
+
+#education .university-logo {
+    width: 65px;
+    height: 65px;
+}
+
+#education .education-card h3 {
+    font-size: 19px;
+    margin-bottom: 4px;
+}
+
+#education .education-card p {
+    font-size: 15px;
+    line-height: 1.3;
+    margin-bottom: 3px;
+}
+
+.bottom-nav {
+    bottom: 48px;
+}
+
 </style>
 </head>
+
 <body>
+
 <div class="app">
+
+<!-- TOP NAVIGATION -->
+
 <nav>
-<div class="logo">JR / PORTFOLIO</div>
-<div class="nav-buttons" aria-label="Portfolio navigation">
-<button class="nav-btn active" data-page="home" onclick="showPage('home')">Home</button>
-<button class="nav-btn" data-page="about" onclick="showPage('about')">About Me</button>
-<button class="nav-btn" data-page="education" onclick="showPage('education')">Education</button>
-<button class="nav-btn" data-page="achievements" onclick="showPage('achievements')">Achievements</button>
-<button class="nav-btn" data-page="projects" onclick="showPage('projects')">Projects</button>
-</div>
+    <div class="logo">JR / PORTFOLIO</div>
+
+    <div class="nav-buttons" aria-label="Portfolio navigation">
+
+        <button class="nav-btn active"
+                data-page="home"
+                onclick="showPage('home')">
+            Home
+        </button>
+
+        <button class="nav-btn"
+                data-page="about"
+                onclick="showPage('about')">
+            Personal Information
+        </button>
+
+        <button class="nav-btn"
+                data-page="education"
+                onclick="showPage('education')">
+            Education
+        </button>
+
+    </div>
 </nav>
+
 <main class="page-container">
+
+<!-- HOME PAGE -->
+
 <section class="page active" id="home" aria-label="Home">
-<div class="home-layout">
-<div class="home-content">
-<div class="availability"><span class="status-dot"></span>Currently Learning &amp; Building</div>
-<h1 class="home-title"><span class="hello">Hello, I am</span><br><span class="name">Jhon Jeremy S.<br>Roxas</span></h1>
-<div class="home-subtitle">I am a <span>Computer Science student</span></div>
-<p class="home-intro">I am motivated to learn, explore new technologies, and continuously improve my programming skills. I am passionate about gaining knowledge, taking on new challenges, and developing my skills in software development.</p>
-<div class="home-actions">
-<button class="action-btn primary" onclick="showPage('about')">More About Me ↗</button>
-<button class="action-btn secondary" onclick="showPage('projects')">View My Projects</button>
-</div>
-</div>
-<div class="photo-side"><div class="photo-container">
-<div class="window-header"><span class="window-dot red"></span><span class="window-dot yellow"></span><span class="window-dot green"></span><span class="window-title">j.jpeg</span></div>
-<div class="photo-content"><img src="j.jpeg" alt="Jhon Jeremy S. Roxas"></div>
-<div class="floating-card code">&lt;/&gt; Code</div>
-<div class="floating-card python"><span class="python-symbol">&#123; &#125;</span><span class="python-typing">Python</span></div>
-<div class="floating-card engineer">⚙ Software Engineer</div>
-</div></div>
-</div>
+
+    <div class="home-layout">
+
+        <div class="home-content">
+
+            <div class="availability">
+                <span class="status-dot"></span>
+                Currently Learning &amp; Building
+            </div>
+
+            <h1 class="home-title">
+                <span class="hello">Hello, I am</span>
+                <br>
+                <span class="name">
+                    Jhon Jeremy S.<br>Roxas
+                </span>
+            </h1>
+
+            <div class="home-subtitle">
+                I am a <span>Computer Science student</span>
+            </div>
+
+            <p class="home-intro">
+                I am motivated to learn, explore new technologies,
+                and continuously improve my programming skills.
+                I am passionate about gaining knowledge, taking
+                on new challenges, and developing my skills in
+                software development.
+            </p>
+
+        </div>
+
+        <div class="photo-side">
+
+            <div class="photo-container">
+
+                <div class="window-header">
+                    <span class="window-dot red"></span>
+                    <span class="window-dot yellow"></span>
+                    <span class="window-dot green"></span>
+                    <span class="window-title">j.jpeg</span>
+                </div>
+
+                <div class="photo-content">
+                    <img src="j.jpeg" alt="Jhon Jeremy S. Roxas">
+                </div>
+
+                <div class="floating-card code">
+                    &lt;/&gt; Code
+                </div>
+
+                <div class="floating-card python">
+                    <span class="python-symbol">&#123; &#125;</span>
+                    <span class="python-typing">Python</span>
+                </div>
+
+                <div class="floating-card engineer">
+                    ⚙ Software Engineer
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
-<section class="page" id="about" aria-label="About Me" hidden>
-<div class="inner-page">
-<h2 class="page-heading">About Me</h2>
-<p class="page-description">Get to know more about me, my interests, and my journey in Computer Science.</p>
-<div class="about-grid">
-<div class="info-card">
-<h3>Who Am I?</h3>
-<p class="about-description">I am a first-year Bachelor of Science in Computer Science student at the University of the Cordilleras. I have a strong interest in programming, technology, and software development. I aim to become a skilled software engineer who can create innovative solutions, solve real-world problems, and continuously improve my knowledge and skills in the field of computer science.</p>
-<div class="skills"><h3>Programming Skills</h3><div class="skill-list">
-<span class="skill-badge"><span>Py</span> Python</span>
-<span class="skill-badge"><span>J</span> Java</span>
-<span class="skill-badge"><span>&lt;/&gt;</span> HTML</span>
-<span class="skill-badge"><span>#</span> CSS</span>
-<span class="skill-badge"><span>{ }</span> GitHub</span>
-</div></div>
-</div>
-<div class="info-card">
-<h3>Contact Information</h3>
-<p class="contact-item">✉ <a href="mailto:jay7roxas@gmail.com">jay7roxas@gmail.com</a></p>
-<p class="contact-item">☎ <a href="tel:+639284072685">0928 407 2685</a></p>
-<p class="contact-item">📍 Baguio City, Philippines</p>
-<h3 style="margin-top:25px">Social Media</h3>
-<div class="social-links">
-<a class="social-link" href="https://www.instagram.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.5-3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>Instagram</a>
-<a class="social-link" href="https://www.facebook.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>Facebook</a>
-<a class="social-link" href="https://github.com/roxasjay" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.08c-3.09.67-3.74-1.31-3.74-1.31-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 1.71 2.61 1.22 3.25.93.1-.72.39-1.22.7-1.5-2.47-.28-5.06-1.24-5.06-5.49 0-1.21.43-2.2 1.15-2.98-.12-.28-.5-1.41.11-2.93 0 0 .94-.3 3.05 1.14a10.64 10.64 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.52.23 2.65.11 2.93.72.78 1.15 1.77 1.15 2.98 0 4.26-2.59 5.21-5.07 5.48.4.35.76 1.03.76 2.06V22c0 .29.2.64.77.53A11.1 11.1 0 0 0 12 .9z"/></svg>GitHub</a>
+
+<!-- PERSONAL INFORMATION PAGE -->
+
+<section class="page" id="about"
+         aria-label="Personal Information" hidden>
+
+    <div class="inner-page">
+
+        <h2 class="page-heading">
+            Personal Information
+        </h2>
+
+        <div class="info-card">
+
+            <h3>Who Am I?</h3>
+
+            <p class="about-description">
+                I am a first-year Bachelor of Science in
+                Computer Science student at the University
+                of the Cordilleras. I have a strong interest
+                in programming, technology, and software
+                development. I aim to become a skilled
+                software engineer who can create innovative
+                solutions, solve real-world problems, and
+                continuously improve my knowledge and skills
+                in the field of computer science.
+            </p>
+
+        </div>
+
+        <div class="info-card personal-details">
+
+            <h3>Personal Details</h3>
+
+            <div class="details-grid">
+
+                <div class="detail-item">
+                    <span class="detail-label">Birthday</span>
+                    <span class="detail-value">November 17, 2007</span>
+                </div>
+
+                <div class="detail-item">
+                    <span class="detail-label">Age</span>
+                    <span class="detail-value">18 Years Old</span>
+                </div>
+
+                <div class="detail-item">
+                    <span class="detail-label">Year &amp; Course</span>
+                    <span class="detail-value">
+                        1st Year – BS Computer Science
+                    </span>
+                </div>
+
+                <div class="detail-item">
+                    <span class="detail-label">University</span>
+                    <span class="detail-value">
+                        University of the Cordilleras
+                    </span>
+                </div>
+
+                <div class="detail-item">
+                    <span class="detail-label">Location</span>
+                    <span class="detail-value">
+                        Kayang Extension, Labsan Street,
+                        Baguio City, Benguet
+                    </span>
+                </div>
+
+                <div class="detail-item">
+                    <span class="detail-label">Civil Status</span>
+                    <span class="detail-value">Single</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EDUCATION PAGE -->
+
+<section class="page" id="education"
+         aria-label="Education" hidden>
+
+    <div class="inner-page">
+
+        <h2 class="page-heading">Education</h2>
+
+        <p class="page-description">
+            My academic background and educational journey.
+        </p>
+
+        <div class="education-list">
+
+            <!-- UNIVERSITY -->
+
+            <div class="info-card education-card">
+
+                <img src="uc-logo.png"
+                     alt="University of the Cordilleras logo"
+                     class="university-logo">
+
+                <div>
+                    <h3>University of the Cordilleras</h3>
+                    <p>Bachelor of Science in Computer Science</p>
+                    <p>First-Year Student</p>
+                    <p>Baguio City, Philippines</p>
+                </div>
+
+            </div>
+
+            <!-- SENIOR HIGH SCHOOL -->
+
+            <div class="info-card education-card">
+
+                <img src="bnhs-senior-logo.png"
+                     alt="Bataan National High School Senior High School logo"
+                     class="university-logo">
+
+                <div>
+                    <h3>Bataan National High School</h3>
+                    <p>Senior High School</p>
+                    <p>Balanga City, Bataan</p>
+                </div>
+
+            </div>
+
+            <!-- JUNIOR HIGH SCHOOL -->
+
+            <div class="info-card education-card">
+
+                <img src="bnhs-junior-logo.png"
+                     alt="Bataan National High School Junior High School logo"
+                     class="university-logo">
+
+                <div>
+                    <h3>Bataan National High School</h3>
+                    <p>Junior High School</p>
+                    <p>Balanga City, Bataan</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BOTTOM NAVIGATION -->
+
+<div class="bottom-nav" role="navigation"
+     aria-label="Bottom navigation">
+
+    <button type="button" class="bottom-btn"
+            onclick="showPage('home')">
+        ⌂ Home
+    </button>
+
+    <button type="button" class="bottom-btn"
+            onclick="previousPage()">
+        ↶ Redo
+    </button>
+
+    <button type="button" class="bottom-btn next-btn"
+            onclick="nextPage()">
+        Next →
+    </button>
+
 </div>
 
-</div></div></div>
-</section>
-<section class="page" id="education" aria-label="Education" hidden>
-<div class="inner-page">
-<h2 class="page-heading">Education</h2>
-<p class="page-description">My academic background and educational journey.</p>
-<div class="education-list">
-<div class="info-card education-card"><img src="uc-logo.png" alt="University of the Cordilleras logo" class="university-logo"><div><h3>University of the Cordilleras</h3><p>Bachelor of Science in Computer Science</p><p>First-Year Student</p><p>Baguio City, Philippines</p></div></div>
-<div class="info-card education-card"><img src="bnhs-logo.png" alt="Bataan National High School logo" class="university-logo"><div><h3>Bataan National High School</h3><p>Senior High School</p><p>Balanga City, Bataan</p></div></div>
-<div class="info-card education-card"><img src="bnhs-logo.png" alt="Bataan National High School logo" class="university-logo"><div><h3>Bataan National High School</h3><p>Junior High School</p><p>Balanga City, Bataan</p></div></div>
-</div></div></section>
-<section class="page" id="achievements" aria-label="Achievements" hidden>
-<div class="inner-page"><h2 class="page-heading">Achievements</h2><p class="page-description">My academic accomplishments, certifications, and milestones.</p>
-<div class="info-card large-info-card"><div class="info-icon">🏆</div><h3>My Achievements</h3><p>Add your academic awards, certificates, competitions, and achievements here.</p></div>
-</div></section>
-<section class="page" id="projects" aria-label="Projects" hidden>
-<div class="inner-page"><h2 class="page-heading">Featured Projects</h2><p class="page-description">A collection of programming projects and activities from my learning journey.</p>
-<div class="project-grid">
-<article class="project-card"><div class="project-icon">&lt;/&gt;</div><h3>Python Bank Simulation</h3><p>A Python program that simulates banking transactions, including deposits, withdrawals, balance checking, and input validation.</p><div class="project-tags"><span>Python</span><span>Loops</span><span>Conditions</span></div><span class="project-link">Project link coming soon</span></article>
-<article class="project-card"><div class="project-icon">01</div><h3>Java Radix Converter</h3><p>A Java program for converting numbers between binary, decimal, octal, and hexadecimal.</p><div class="project-tags"><span>Java</span><span>Number Systems</span></div><span class="project-link">Project link coming soon</span></article>
-<article class="project-card"><div class="project-icon">{ }</div><h3>Personal Portfolio</h3><p>A responsive personal website featuring my introduction, programming skills, education, achievements, and projects.</p><div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><a class="project-link" href="https://github.com/roxasjay" target="_blank" rel="noopener noreferrer">Visit My GitHub ↗</a></article>
-</div></div></section>
 </main>
-<footer>© <span id="year"></span> Jhon Jeremy S. Roxas. All rights reserved.</footer>
+
+<!-- FOOTER -->
+
+<footer>
+    © <span id="year"></span>
+    Jhon Jeremy S. Roxas. All rights reserved.
+</footer>
+
 </div>
+
 <script>
-function showPage(pageId){
-const selected=document.getElementById(pageId);
-if(!selected||!selected.classList.contains("page"))return;
-document.querySelectorAll(".page").forEach(page=>{
-const active=page.id===pageId;
-page.classList.toggle("active",active);
-page.hidden=!active;
-if(active)page.scrollTop=0;
-});
-document.querySelectorAll(".nav-btn").forEach(button=>{
-const active=button.dataset.page===pageId;
-button.classList.toggle("active",active);
-if(active)button.setAttribute("aria-current","page");
-else button.removeAttribute("aria-current");
-});
-history.replaceState(null,"","#"+pageId);
+
+/* PAGE ORDER */
+
+const pages = [
+    "home",
+    "about",
+    "education"
+];
+
+/* MAIN NAVIGATION */
+
+function showPage(pageId) {
+
+    const selected = document.getElementById(pageId);
+
+    if (!selected || !selected.classList.contains("page")) {
+        return;
+    }
+
+    document.querySelectorAll(".page").forEach(page => {
+
+        const active = page.id === pageId;
+
+        page.classList.toggle("active", active);
+        page.hidden = !active;
+
+        if (active) {
+            page.scrollTop = 0;
+        }
+
+    });
+
+    document.querySelectorAll(".nav-btn").forEach(button => {
+
+        const active = button.dataset.page === pageId;
+
+        button.classList.toggle("active", active);
+
+        if (active) {
+            button.setAttribute("aria-current", "page");
+        } else {
+            button.removeAttribute("aria-current");
+        }
+
+    });
+
+    history.replaceState(null, "", "#" + pageId);
 }
-document.getElementById("year").textContent=new Date().getFullYear();
-const initial=location.hash.slice(1);
-showPage(document.getElementById(initial)?.classList.contains("page")?initial:"home");
-window.addEventListener("hashchange",()=>{
-const pageId=location.hash.slice(1);
-if(document.getElementById(pageId)?.classList.contains("page"))showPage(pageId);
+
+/* REDO BUTTON - PREVIOUS PAGE */
+
+function previousPage() {
+
+    const current =
+        document.querySelector(".page.active");
+
+    const index = current
+        ? pages.indexOf(current.id)
+        : 0;
+
+    const previousIndex =
+        (index - 1 + pages.length) % pages.length;
+
+    showPage(pages[previousIndex]);
+}
+
+/* NEXT BUTTON */
+
+function nextPage() {
+
+    const current =
+        document.querySelector(".page.active");
+
+    const index = current
+        ? pages.indexOf(current.id)
+        : -1;
+
+    const nextIndex =
+        (index + 1) % pages.length;
+
+    showPage(pages[nextIndex]);
+}
+
+/* FOOTER YEAR */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+/* INITIAL PAGE */
+
+const initial = location.hash.slice(1);
+
+if (pages.includes(initial)) {
+    showPage(initial);
+} else {
+    showPage("home");
+}
+
+/* HANDLE URL HASH CHANGES */
+
+window.addEventListener("hashchange", () => {
+
+    const pageId = location.hash.slice(1);
+
+    if (pages.includes(pageId)) {
+        showPage(pageId);
+    }
+
 });
+
 </script>
+
 </body>
 </html>
