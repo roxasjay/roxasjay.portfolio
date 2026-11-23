@@ -112,18 +112,18 @@ nav{display:flex;justify-content:space-between;align-items:center;gap:20px;paddi
 .sports-highlight:hover{border-color:var(--gold);box-shadow:0 5px 22px rgba(240,198,109,.12)}
 .leadership-highlight{border-color:#b48b45;border-left-color:var(--gold);flex:1}
 
-/* FAMILY AND FRIENDS */
-#family-friends{padding:14px 4% 10px}
-#family-friends .inner-page{max-width:1600px;width:100%;height:100%;margin:0 auto;display:flex;flex-direction:column;min-height:0}
+/* FAMILY AND FRIENDS — 4-COLUMN FULL-HEIGHT GALLERY */
+#family-friends{padding:14px 3% 10px}
+#family-friends .inner-page{max-width:1700px;width:100%;height:100%;margin:0 auto;display:flex;flex-direction:column;min-height:0}
 #family-friends .page-heading{font-size:clamp(24px,2.4vw,34px);margin-bottom:12px;flex-shrink:0}
-.family-friends-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:14px;width:100%;flex:1;min-height:0}
-.family-friends-card{display:flex;flex-direction:column;gap:8px;min-width:0;min-height:0;padding:12px 14px;border:1px solid #30588d;border-radius:16px;background:linear-gradient(150deg,#0d234b,#081838);transition:.25s ease}
+.family-friends-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;width:100%;flex:1;min-height:0}
+.family-friends-card{display:flex;flex-direction:column;gap:10px;min-width:0;min-height:0;padding:12px;border:1px solid #30588d;border-radius:16px;background:linear-gradient(150deg,#0d234b,#081838);transition:.25s ease}
 .family-friends-card:hover{border-color:var(--accent);transform:translateY(-2px)}
-.family-friends-header{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.family-friends-header h3{color:var(--accent);font-size:17px}
-.family-photo-box{flex:1 1 0;min-height:0;width:100%;display:flex;align-items:center;justify-content:center;background:#071430;border:1px solid var(--border);border-radius:12px;overflow:hidden;padding:4px}
-.family-photo{display:block;width:100%;height:100%;object-fit:contain;border-radius:8px}
-.family-thank-you{color:var(--text);font-size:12px;line-height:1.4;flex-shrink:0}
+.family-friends-header{display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.family-friends-header h3{color:var(--accent);font-size:17px;text-align:center}
+.family-photo-box{flex:1 1 0;min-height:0;width:100%;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#071430}
+.family-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.family-thank-you{color:var(--text);font-size:12px;line-height:1.42;flex-shrink:0;text-align:justify}
 
 /* BOTTOM NAVIGATION */
 .bottom-nav{display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 12px;margin:0 auto 8px;flex-shrink:0;background:#0c234c;border:1px solid #426eae;border-radius:16px;box-shadow:0 8px 25px rgba(0,0,0,.3)}
@@ -148,11 +148,12 @@ footer{flex-shrink:0;text-align:center;padding:8px;background:#040e2f;border-top
 .home-intro{font-size:16px}
 .family-friends-grid{gap:10px}
 .family-friends-card{padding:10px}
-.family-thank-you{font-size:11px}
+.family-friends-header h3{font-size:15px}
+.family-thank-you{font-size:11px;line-height:1.35}
 }
 
 /* TABLET */
-@media(max-width:800px){
+@media(max-width:850px){
 nav{flex-direction:column;gap:8px;padding:10px 3%}
 .logo{font-size:17px}
 .nav-buttons{justify-content:center;gap:5px}
@@ -180,11 +181,12 @@ nav{flex-direction:column;gap:8px;padding:10px 3%}
 .award-description{font-size:11px}
 .award-symbol{font-size:17px}
 .award-star{font-size:12px}
-#family-friends{padding:10px 3%}
-.family-friends-grid{gap:8px}
-.family-friends-card{padding:8px;gap:5px}
-.family-friends-header h3{font-size:13px}
-.family-thank-you{font-size:10px;line-height:1.3}
+#family-friends{padding:10px 3%;overflow-y:auto}
+.family-friends-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;gap:10px}
+.family-friends-card{padding:10px;gap:8px}
+.family-photo-box{flex:none;aspect-ratio:4/5}
+.family-friends-header h3{font-size:14px}
+.family-thank-you{font-size:11.5px;line-height:1.35;text-align:left}
 }
 
 /* SMALL MOBILE */
@@ -209,22 +211,22 @@ nav{flex-direction:column;gap:8px;padding:10px 3%}
 .award-description{font-size:10px;margin-top:1px}
 .award-symbol{font-size:14px}
 #family-friends .page-heading{font-size:22px;margin-bottom:8px}
-.family-friends-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:6px}
-.family-friends-card{padding:6px;gap:4px}
-.family-friends-header h3{font-size:11px}
-.family-thank-you{font-size:9px;line-height:1.2}
+.family-friends-grid{grid-template-columns:1fr;gap:10px}
+.family-friends-card{padding:10px;gap:6px}
+.family-friends-header h3{font-size:14px}
+.family-thank-you{font-size:11.5px;line-height:1.35}
 .bottom-nav{gap:6px;padding:5px;margin-bottom:4px}
 .bottom-btn{padding:7px 11px;font-size:12px}
 footer{font-size:10px;padding:5px}
 }
 
 /* SHORT DESKTOP SCREENS */
-@media(max-height:720px) and (min-width:801px){
+@media(max-height:720px) and (min-width:851px){
 nav{padding-top:8px;padding-bottom:8px}
 #achievements,#family-friends{padding-top:8px;padding-bottom:6px}
 #achievements .page-heading,#family-friends .page-heading{font-size:26px;margin-bottom:6px}
 #achievements .page-description{margin-bottom:8px}
-.achievement-card,.family-friends-card{padding:8px 10px;gap:5px}
+.achievement-card,.family-friends-card{padding:8px 10px;gap:6px}
 .award-highlight{padding:9px}
 .academic-awards,.sports-awards,.leadership-awards{gap:7px}
 .family-thank-you{font-size:11px;line-height:1.3}
