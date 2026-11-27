@@ -7,35 +7,58 @@
 <title>Jhon Jeremy S. Roxas | Portfolio</title>
 <style>
 :root {
---bg:#020a35;--nav:#062758;--card:#091b43;--card2:#0c234c;
---border:#244778;--accent:#8ab4ff;--blue:#426eae;
---text:#a5b5d3;--white:#dbe8ff;--gold:#f0c66d;
+  --bg:#020a35;--nav:#062758;--card:#091b43;--card2:#0c234c;
+  --border:#244778;--accent:#8ab4ff;--blue:#426eae;
+  --text:#a5b5d3;--white:#dbe8ff;--gold:#f0c66d;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;height:100%}
-body{background:var(--bg);color:var(--text);font:16px/1.55 Arial,sans-serif;overflow:hidden}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(rgba(82,126,181,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(82,126,181,.05) 1px,transparent 1px);background-size:45px 45px}
+body{
+  background:var(--bg);color:var(--text);font:16px/1.55 Arial,sans-serif;
+  overflow:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background-image:
+    linear-gradient(rgba(82,126,181,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(82,126,181,.05) 1px,transparent 1px);
+  background-size:45px 45px;
+}
 button{font:inherit;cursor:pointer}
 .app{display:flex;flex-direction:column;height:100dvh;min-height:0}
 
 /* TOP NAVIGATION */
-nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:15px 5%;background:var(--nav);border-bottom:1px solid #123366;flex-shrink:0;z-index:20}
+nav{
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:15px 5%;background:var(--nav);border-bottom:1px solid #123366;
+  flex-shrink:0;z-index:20;
+}
 .logo{color:var(--accent);font-size:20px;font-weight:bold;letter-spacing:1px;white-space:nowrap}
 .nav-buttons{display:flex;flex-wrap:wrap;gap:8px}
-.nav-btn{background:transparent;border:1px solid transparent;border-radius:9px;padding:10px 15px;color:var(--text);font-size:14px;font-weight:bold;transition:.25s}
+.nav-btn{
+  background:transparent;border:1px solid transparent;border-radius:9px;
+  padding:10px 15px;color:var(--text);font-size:14px;font-weight:bold;transition:.25s;
+}
 .nav-btn:hover{background:#123366;color:var(--white)}
 .nav-btn.active{background:var(--blue);border-color:#527eb5;color:white}
 
 /* PAGE LAYOUT */
-.page-container{flex:1;min-height:0;position:relative}
+.page-container{flex:1;min-height:0;position:relative;overflow:hidden}
 .page{display:none;width:100%;height:100%;overflow:hidden;padding:25px 5%}
 .page.active{display:flex;flex-direction:column;animation:fade .3s ease}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
 /* HOME PAGE */
-.home-layout{width:100%;max-width:1400px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:55px}
+.home-layout{
+  width:100%;max-width:1400px;margin:auto;
+  display:flex;justify-content:space-between;align-items:center;gap:55px;
+}
 .home-content{width:55%;min-width:0}
-.availability{display:inline-flex;align-items:center;gap:10px;padding:9px 15px;margin-bottom:25px;background:var(--card);border:1px solid var(--border);border-radius:30px;color:var(--white);font-size:13px}
+.availability{
+  display:inline-flex;align-items:center;gap:10px;padding:9px 15px;
+  margin-bottom:25px;background:var(--card);border:1px solid var(--border);
+  border-radius:30px;color:var(--white);font-size:13px;
+}
 .status-dot{height:9px;width:9px;background:#63d99a;border-radius:50%;animation:pulse 3s infinite}
 @keyframes pulse{50%{opacity:.4}}
 .home-title{font-size:clamp(40px,4.8vw,66px);line-height:1.08;margin-bottom:25px}
@@ -47,26 +70,43 @@ nav{display:flex;justify-content:space-between;align-items:center;gap:20px;paddi
 
 /* PROFILE PICTURE */
 .photo-side{width:40%;display:flex;justify-content:center}
-.photo-container{position:relative;width:100%;max-width:460px;background:var(--card);border:1px solid var(--blue);border-radius:16px;box-shadow:0 15px 40px rgba(0,0,0,.3)}
-.window-header{display:flex;align-items:center;gap:8px;height:43px;padding:0 15px;background:var(--card2);border-bottom:1px solid var(--border);border-radius:15px 15px 0 0}
+.photo-container{
+  position:relative;width:100%;max-width:460px;background:var(--card);
+  border:1px solid var(--blue);border-radius:16px;box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+.window-header{
+  display:flex;align-items:center;gap:8px;height:43px;padding:0 15px;
+  background:var(--card2);border-bottom:1px solid var(--border);border-radius:15px 15px 0 0;
+}
 .window-dot{width:10px;height:10px;border-radius:50%}
 .red{background:#e58c88}.yellow{background:#e7bf72}.green{background:#80c8a0}
 .window-title{margin-left:auto;font:12px monospace;color:var(--accent)}
 .photo-content{padding:12px}
-.photo-content img{width:100%;max-height:min(54vh,520px);height:auto;display:block;object-fit:contain;border-radius:8px}
+.photo-content img{
+  width:100%;max-height:min(54vh,520px);height:auto;display:block;
+  object-fit:contain;border-radius:8px;background:#071430;
+}
 
 /* FLOATING CODING ELEMENTS */
-.floating-card{position:absolute;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;color:var(--white);font-size:14px;font-weight:bold;white-space:nowrap;box-shadow:0 8px 25px rgba(0,0,0,.3)}
+.floating-card{
+  position:absolute;padding:12px 16px;background:var(--card);
+  border:1px solid var(--border);border-radius:11px;color:var(--white);
+  font-size:14px;font-weight:bold;white-space:nowrap;box-shadow:0 8px 25px rgba(0,0,0,.3);
+}
 .code{top:55%;left:-8%;animation:float 14s ease-in-out infinite}
 .python{top:15%;right:-5%;display:flex;align-items:center;gap:5px;animation:float 7s ease-in-out infinite}
 .python-symbol{color:var(--accent)}
-.python-typing{display:inline-block;width:0;overflow:hidden;white-space:nowrap;border-right:2px solid var(--accent);animation:typing 6s steps(6,end) infinite,blink .7s step-end infinite}
+.python-typing{
+  display:inline-block;width:0;overflow:hidden;white-space:nowrap;
+  border-right:2px solid var(--accent);
+  animation:typing 6s steps(6,end) infinite,blink .7s step-end infinite;
+}
 .engineer{bottom:12%;right:-5%;animation:float 7s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-12px)}}
 @keyframes typing{0%,10%{width:0}40%,65%{width:6ch}95%,100%{width:0}}
 @keyframes blink{50%{border-color:transparent}}
 
-/* INNER PAGES */
+/* SHARED INNER PAGE */
 .inner-page{width:100%;max-width:1150px;margin:auto}
 .page-heading{color:var(--white);font-size:clamp(30px,3.5vw,42px);margin-bottom:20px}
 .page-description{font-size:16px;margin-bottom:20px}
@@ -74,418 +114,491 @@ nav{display:flex;justify-content:space-between;align-items:center;gap:20px;paddi
 .info-card h3{color:var(--accent);font-size:20px;margin-bottom:12px}
 .info-card p{font-size:16px;line-height:1.6}
 
-/* PERSONAL INFORMATION — MAXIMIZED & NON-SCROLLABLE ON DESKTOP */
-#about{padding:10px 3% 8px;overflow:hidden}
-#about .inner-page{max-width:1700px;width:100%;height:100%;margin:0 auto;display:flex;flex-direction:column;gap:8px;min-height:0}
-#about .page-heading{margin-bottom:0;font-size:clamp(22px,2.2vw,30px);line-height:1.15;flex-shrink:0}
-#about .info-card{padding:10px 16px;border-radius:12px}
-#about .info-card h3{margin-bottom:4px;font-size:15px}
-#about .info-card p{line-height:1.35;font-size:12.5px}
-.about-description{text-align:justify}
-.personal-details{flex:1;min-height:0;display:flex;flex-direction:column;gap:8px}
-.details-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px 8px;flex-shrink:0}
-.traits-box{margin-top:0;padding-top:8px;border-top:1px solid var(--border);flex:1;min-height:0;display:flex;flex-direction:column}
-.traits-heading{color:var(--accent);font-size:14px;font-weight:bold;margin-bottom:6px;flex-shrink:0}
-.traits-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));gap:6px 8px;flex:1;min-height:0;overflow:hidden;padding-right:0}
-.detail-item{background:#102b54;border:1px solid var(--border);border-radius:8px;padding:4px 8px;display:flex;flex-direction:column;justify-content:center;min-height:0}
-.detail-label{display:block;color:var(--accent);font-size:10px;font-weight:bold;line-height:1.15;margin-bottom:1px}
-.detail-value{color:var(--white);font-size:12px;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* PERSONAL INFORMATION — STRICTLY NON-SCROLLABLE SPACE-MAXIMIZED LAYOUT */
+#about{padding:8px 2.5% 6px;overflow:hidden}
+#about .inner-page{
+  width:100%;max-width:100%;height:100%;margin:0 auto;
+  display:flex;flex-direction:column;justify-content:space-between;gap:6px;
+  min-height:0;overflow:hidden;
+}
+#about .page-heading{
+  margin-bottom:0;font-size:clamp(20px,2vw,26px);line-height:1.15;flex-shrink:0;
+}
+#about .info-card{
+  padding:8px 14px;border-radius:12px;min-height:0;overflow:hidden;
+}
+#about .info-card h3{margin-bottom:3px;font-size:14px;line-height:1.2}
+#about .info-card p{line-height:1.3;font-size:clamp(10.5px,1.02vw,12.5px)}
+.about-description{text-align:left}
+.personal-details{
+  margin-top:0;flex:1 1 auto;display:flex;flex-direction:column;
+  justify-content:space-between;gap:5px;min-height:0;overflow:hidden;
+}
+.details-grid{
+  display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:4px 7px;flex-shrink:0;overflow:hidden;
+}
+.traits-box{
+  margin-top:0;padding-top:5px;border-top:1px solid var(--border);
+  flex:1 1 auto;display:flex;flex-direction:column;min-height:0;overflow:hidden;
+}
+.traits-heading{
+  color:var(--accent);font-size:12.5px;font-weight:bold;
+  margin-bottom:4px;line-height:1.15;flex-shrink:0;
+}
+.traits-grid{
+  display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+  grid-auto-rows:minmax(0,1fr);gap:4px 7px;
+  flex:1 1 auto;min-height:0;overflow:hidden;padding-right:0;
+}
+.detail-item{
+  background:#102b54;border:1px solid var(--border);border-radius:8px;
+  padding:3px 8px;display:flex;flex-direction:column;justify-content:center;
+  min-height:0;overflow:hidden;
+}
+.detail-label{
+  display:block;color:var(--accent);font-size:9.5px;line-height:1.1;
+  font-weight:bold;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.detail-value{
+  color:var(--white);font-size:clamp(10px,0.92vw,11.5px);line-height:1.18;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
 
-/* ACHIEVEMENTS — 3D PERSPECTIVE & CURSOR TILT WITH GLARE */
-#achievements{padding:18px 4% 12px;perspective:1500px;overflow-y:auto}
-#achievements .inner-page{max-width:1600px;width:100%;margin:0 auto;display:flex;flex-direction:column;min-height:0;transform-style:preserve-3d}
-#achievements .page-heading{font-size:clamp(26px,2.6vw,36px);margin-bottom:12px;flex-shrink:0}
-.achievement-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;width:100%;align-items:stretch;min-height:0;perspective:1400px;transform-style:preserve-3d}
+/* ACHIEVEMENTS — 3D PERSPECTIVE TILT, GLARE & LAYERED DEPTH */
+#achievements{padding:18px 4% 12px;overflow:hidden}
+#achievements .inner-page{
+  max-width:1600px;width:100%;height:100%;margin:0 auto;
+  display:flex;flex-direction:column;min-height:0;
+}
+#achievements .page-heading{font-size:clamp(26px,2.6vw,36px);margin-bottom:10px;flex-shrink:0}
+.achievement-list{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;width:100%;flex:1;align-items:stretch;min-height:0;
+  perspective:1300px;transform-style:preserve-3d;
+}
 .achievement-card{
-  position:relative;
-  display:flex;flex-direction:column;gap:12px;min-width:0;padding:20px;
-  border:1px solid #30588d;border-radius:16px;
+  position:relative;display:flex;flex-direction:column;gap:12px;min-width:0;
+  padding:20px;border:1px solid #30588d;border-radius:16px;
   background:linear-gradient(150deg,#0d234b,#081838);
   transform-style:preserve-3d;
-  will-change:transform;
-  overflow:hidden;
   --rx:0deg;--ry:0deg;--tz:0px;--gx:50%;--gy:50%;--go:0;
-  transition:border-color .25s ease,box-shadow .3s ease,transform .16s ease-out;
+  transform:perspective(1300px) rotateX(var(--rx)) rotateY(var(--ry)) translateZ(var(--tz));
+  transition:transform .2s cubic-bezier(.22,.9,.36,1),border-color .25s ease,box-shadow .25s ease;
+  overflow:hidden;
 }
-.achievement-card.ach-3d-enter{
-  animation:achCardSwing3D .78s cubic-bezier(.22,1,.36,1) both;
-  animation-delay:var(--ach-delay,0s);
+.achievement-card::after{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:radial-gradient(circle at var(--gx) var(--gy),rgba(138,180,255,.22),rgba(240,198,109,.08) 38%,transparent 68%);
+  opacity:var(--go);transition:opacity .25s ease;
 }
+.achievement-card.anim-in{animation:achCardSwing3D .78s cubic-bezier(.19,.92,.28,1) both}
+.achievement-card:nth-child(2).anim-in{animation-delay:.08s}
+.achievement-card:nth-child(3).anim-in{animation-delay:.16s}
 @keyframes achCardSwing3D{
-  0%{opacity:0;transform:perspective(1200px) translate3d(0,34px,-110px) rotateX(14deg) rotateY(-12deg) scale(.94)}
-  65%{opacity:1;transform:perspective(1200px) translate3d(0,-3px,12px) rotateX(-2deg) rotateY(2deg) scale(1.01)}
-  100%{opacity:1;transform:perspective(1200px) translate3d(0,0,0) rotateX(0deg) rotateY(0deg) scale(1)}
-}
-.achievement-card:not(.ach-3d-enter){
-  transform:perspective(1200px) rotateX(var(--rx)) rotateY(var(--ry)) translateZ(var(--tz));
-}
-.achievement-card::before{
-  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;z-index:2;
-  background:radial-gradient(420px circle at var(--gx) var(--gy),rgba(138,180,255,.22),rgba(138,180,255,.05) 38%,transparent 70%);
-  opacity:var(--go);transition:opacity .22s ease;
+  0%{opacity:0;transform:perspective(1300px) translateY(34px) translateZ(-90px) rotateX(16deg) rotateY(-14deg) scale(.95)}
+  65%{opacity:1;transform:perspective(1300px) translateY(-4px) translateZ(16px) rotateX(-2.5deg) rotateY(2.5deg) scale(1.01)}
+  100%{opacity:1;transform:perspective(1300px) rotateX(var(--rx)) rotateY(var(--ry)) translateZ(var(--tz)) scale(1)}
 }
 .achievement-card:hover{
   border-color:var(--accent);
-  box-shadow:0 22px 44px rgba(0,0,0,.48),0 0 24px rgba(138,180,255,.16);
+  box-shadow:0 18px 38px rgba(0,6,28,.55),0 0 24px rgba(138,180,255,.14);
 }
-.achievement-header{display:flex;align-items:center;gap:12px;transform:translateZ(20px);transform-style:preserve-3d;position:relative;z-index:3}
-.achievement-icon{width:48px;height:48px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#102b54;border:1px solid var(--border);border-radius:12px;font-size:24px;transform:translateZ(12px)}
+.achievement-header{
+  display:flex;align-items:center;gap:12px;
+  transform:translateZ(24px);transform-style:preserve-3d;
+}
+.achievement-icon{
+  width:48px;height:48px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  background:#102b54;border:1px solid var(--border);border-radius:12px;font-size:24px;
+  transform:translateZ(10px);box-shadow:0 8px 18px rgba(0,0,0,.3);
+}
 .achievement-header h3{margin:0;color:var(--accent);font-size:20px}
-.academic-awards,.sports-awards,.leadership-awards{display:flex;flex-direction:column;gap:12px;flex:1;transform-style:preserve-3d;position:relative;z-index:3}
-.award-highlight{display:flex;align-items:flex-start;gap:10px;padding:15px;background:linear-gradient(120deg,#162c4c,#10213e);border:1px solid #b48b45;border-left:4px solid var(--gold);border-radius:12px;min-width:0;transform:translateZ(12px);transition:.25s}
-.achievement-card:hover .award-highlight{transform:translateZ(24px)}
-.award-highlight:hover{border-color:var(--gold);box-shadow:0 5px 22px rgba(240,198,109,.12)}
-.award-symbol{font-size:24px;flex-shrink:0}
+.academic-awards,.sports-awards,.leadership-awards{
+  display:flex;flex-direction:column;gap:12px;flex:1;transform-style:preserve-3d;
+}
+.award-highlight{
+  display:flex;align-items:flex-start;gap:10px;padding:15px;
+  background:linear-gradient(120deg,#162c4c,#10213e);
+  border:1px solid #b48b45;border-left:4px solid var(--gold);border-radius:12px;
+  min-width:0;transform:translateZ(14px);
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.award-highlight:hover{
+  border-color:var(--gold);transform:translateZ(28px) translateY(-2px);
+  box-shadow:0 8px 24px rgba(240,198,109,.16);
+}
+.award-symbol{font-size:24px;flex-shrink:0;transform:translateZ(8px)}
 .award-text{flex:1;min-width:0}
 .award-title{display:block;color:var(--gold);font-size:15px;line-height:1.4;font-weight:bold}
 .award-description{display:block;color:var(--text);font-size:13px;line-height:1.5;margin-top:5px}
-.award-star{color:var(--gold);font-size:17px;flex-shrink:0}
-.sports-highlight{border-color:#b48b45;border-left-color:var(--gold);background:linear-gradient(120deg,#162c4c,#10213e);flex:1}
+.award-star{color:var(--gold);font-size:17px;flex-shrink:0;transform:translateZ(8px)}
+.sports-highlight{
+  border-color:#b48b45;border-left-color:var(--gold);
+  background:linear-gradient(120deg,#162c4c,#10213e);flex:1;
+}
 .sports-highlight .award-title,.sports-highlight .award-star{color:var(--gold)}
-.sports-highlight:hover{border-color:var(--gold);box-shadow:0 5px 22px rgba(240,198,109,.12)}
 .leadership-highlight{border-color:#b48b45;border-left-color:var(--gold);flex:1}
 
-/* FAMILY AND FRIENDS — 3D CELESTIAL BIRD FLIGHT + 3D GALLERY */
-#family-friends{
-  position:relative;
-  padding:14px 3% 10px;
-  perspective:1500px;
-  overflow:hidden;
-}
+/* FAMILY AND FRIENDS — ~3.2s BORDERLESS 3D CELESTIAL BIRD FLIGHT + 3D GALLERY */
+#family-friends{position:relative;padding:14px 3% 10px;overflow:hidden}
 #family-friends .inner-page{
   max-width:1700px;width:100%;height:100%;margin:0 auto;
-  display:flex;flex-direction:column;min-height:0;
-  transform-style:preserve-3d;
+  display:flex;flex-direction:column;min-height:0;position:relative;z-index:2;
 }
 .ff-heading-row{
   display:flex;align-items:center;justify-content:space-between;gap:12px;
-  margin-bottom:12px;flex-shrink:0;position:relative;z-index:4;
+  margin-bottom:10px;flex-shrink:0;
 }
-.ff-heading-left{display:flex;align-items:center;gap:12px;min-width:0}
-#family-friends .page-heading{font-size:clamp(24px,2.4vw,34px);margin-bottom:0;flex-shrink:0}
+#family-friends .page-heading{font-size:clamp(24px,2.4vw,34px);margin-bottom:0}
 
 /* AMBIENT MINI 3D BIRD BESIDE HEADING */
 .ambient-bird-wrap{
-  width:46px;height:36px;perspective:600px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
+  width:72px;height:42px;perspective:500px;pointer-events:none;flex-shrink:0;
 }
-.ambient-bird{
-  width:36px;height:26px;transform-style:preserve-3d;
-  animation:ambientGlide 3.8s ease-in-out infinite;
+.mini-3d-bird{
+  position:relative;width:100%;height:100%;transform-style:preserve-3d;
+  animation:miniBirdGlide 5.2s ease-in-out infinite;
 }
-@keyframes ambientGlide{
-  0%,100%{transform:translate3d(0,0,8px) rotateY(14deg) rotateZ(-4deg)}
-  50%{transform:translate3d(5px,-4px,18px) rotateY(22deg) rotateZ(5deg)}
+.mini-bird-body{
+  position:absolute;left:22px;top:15px;width:28px;height:12px;
+  border-radius:60% 80% 70% 50%;
+  background:linear-gradient(90deg,#426eae,#8ab4ff,#dbe8ff);
+  box-shadow:0 0 12px rgba(138,180,255,.55);
 }
-.mini-wing-l,.mini-wing-r{
-  position:absolute;top:4px;width:14px;height:10px;
-  background:linear-gradient(135deg,#8ab4ff,#426eae);
-  border:1px solid rgba(219,232,255,.55);
-  border-radius:80% 10% 60% 20%;
+.mini-bird-wing{
+  position:absolute;left:28px;top:17px;width:18px;height:8px;
+  border-radius:80% 30% 60% 20%;
+  background:linear-gradient(135deg,#dbe8ff,#8ab4ff);
+  transform-origin:4px 4px;
 }
-.mini-wing-l{left:8px;transform-origin:100% 60%;animation:miniFlapL .55s ease-in-out infinite alternate}
-.mini-wing-r{left:8px;transform-origin:100% 60%;animation:miniFlapR .55s ease-in-out infinite alternate;opacity:.85}
-.mini-body{
-  position:absolute;left:5px;top:9px;width:22px;height:8px;
-  background:linear-gradient(90deg,#426eae,#dbe8ff);
-  border-radius:60% 90% 70% 40%;
+.mini-bird-wing.left{animation:miniWingLeft .42s ease-in-out infinite alternate}
+.mini-bird-wing.right{animation:miniWingRight .42s ease-in-out infinite alternate}
+@keyframes miniBirdGlide{
+  0%,100%{transform:translate3d(0,0,0) rotateY(0deg) rotateZ(-3deg)}
+  50%{transform:translate3d(-12px,-4px,16px) rotateY(8deg) rotateZ(4deg)}
 }
-@keyframes miniFlapL{from{transform:rotateX(52deg)}to{transform:rotateX(-58deg)}}
-@keyframes miniFlapR{from{transform:rotateX(-48deg)}to{transform:rotateX(58deg)}}
+@keyframes miniWingLeft{
+  from{transform:rotateX(55deg) rotateZ(18deg)}
+  to{transform:rotateX(-58deg) rotateZ(-10deg)}
+}
+@keyframes miniWingRight{
+  from{transform:rotateX(-55deg) rotateZ(18deg)}
+  to{transform:rotateX(58deg) rotateZ(-10deg)}
+}
 
-.family-friends-grid{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
-  width:100%;flex:1;min-height:0;
-  perspective:1400px;transform-style:preserve-3d;
-}
-.family-friends-card{
-  position:relative;
-  display:flex;flex-direction:column;gap:10px;min-width:0;min-height:0;padding:12px;
-  border:1px solid #30588d;border-radius:16px;
-  background:linear-gradient(150deg,#0d234b,#081838);
-  transform-style:preserve-3d;
-  will-change:transform;
-  overflow:hidden;
-  --rx:0deg;--ry:0deg;--tz:0px;--gx:50%;--gy:50%;--go:0;
-  transition:border-color .25s ease,box-shadow .3s ease,transform .16s ease-out;
-}
-.family-friends-card.card-3d-enter{
-  animation:cardSwing3D .78s cubic-bezier(.22,1,.36,1) both;
-  animation-delay:var(--card-delay,0s);
-}
-@keyframes cardSwing3D{
-  0%{opacity:0;transform:perspective(1200px) translate3d(0,36px,-120px) rotateX(16deg) rotateY(-14deg) scale(.92)}
-  65%{opacity:1;transform:perspective(1200px) translate3d(0,-4px,14px) rotateX(-2deg) rotateY(2deg) scale(1.01)}
-  100%{opacity:1;transform:perspective(1200px) translate3d(0,0,0) rotateX(0deg) rotateY(0deg) scale(1)}
-}
-.family-friends-card:not(.card-3d-enter){
-  transform:perspective(1200px) rotateX(var(--rx)) rotateY(var(--ry)) translateZ(var(--tz));
-}
-.family-friends-card::before{
-  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;z-index:2;
-  background:radial-gradient(420px circle at var(--gx) var(--gy),rgba(138,180,255,.24),rgba(138,180,255,.05) 38%,transparent 70%);
-  opacity:var(--go);transition:opacity .22s ease;
-}
-.family-friends-card:hover{
-  border-color:var(--accent);
-  box-shadow:0 22px 44px rgba(0,0,0,.48),0 0 24px rgba(138,180,255,.18);
-}
-.family-friends-header{
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  transform:translateZ(22px);transform-style:preserve-3d;position:relative;z-index:3;
-}
-.family-friends-header h3{color:var(--accent);font-size:17px;text-align:center}
-.family-photo-box{
-  flex:1 1 0;min-height:0;width:100%;
-  border:1px solid var(--border);border-radius:12px;overflow:hidden;
-  background:#071430;transform:translateZ(14px);position:relative;z-index:3;
-}
-.family-friends-card:hover .family-photo-box{transform:translateZ(26px)}
-.family-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .35s ease}
-.family-friends-card:hover .family-photo{transform:scale(1.03)}
-
-/* 3D CELESTIAL BIRD FLIGHT ENTRANCE OVERLAY */
-.bird-intro-overlay{
-  position:absolute;inset:0;z-index:15;
-  display:flex;align-items:center;justify-content:center;
-  background:radial-gradient(circle at 50% 45%,rgba(12,35,76,.82) 0%,rgba(2,10,53,.95) 72%);
-  backdrop-filter:blur(6px);
-  perspective:1600px;
-  overflow:hidden;
-  opacity:1;
-  transition:opacity .55s ease,visibility .55s ease;
-}
-.bird-intro-overlay.done{
-  opacity:0;visibility:hidden;pointer-events:none;
-}
-.bird-trail-canvas{
-  position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;
-}
+/* ~3.2s BORDERLESS 3D CELESTIAL BIRD FLIGHT CURTAIN (ANIMATION ONLY, NO TEXT OVERLAY) */
 .bird-flight-stage{
-  position:relative;width:100%;height:100%;
-  transform-style:preserve-3d;z-index:2;
+  position:fixed;inset:0;z-index:45;pointer-events:none;
+  overflow:hidden;opacity:1;transition:opacity .45s ease;
+  background:radial-gradient(circle at 50% 45%,rgba(12,35,76,.35),rgba(2,10,53,.62) 75%);
 }
+.bird-flight-stage.hidden{opacity:0;pointer-events:none;visibility:hidden}
+#birdTrailCanvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+
 .celestial-bird-rig{
-  position:absolute;left:0;top:0;width:160px;height:120px;
-  transform-style:preserve-3d;
+  position:absolute;left:0;top:0;width:220px;height:150px;
+  perspective:900px;transform-style:preserve-3d;
   will-change:transform;
 }
-.bird-3d-body{
+.celestial-bird-3d{
   position:relative;width:100%;height:100%;
   transform-style:preserve-3d;
 }
 .bird-torso{
-  position:absolute;left:36px;top:48px;width:78px;height:26px;
-  background:linear-gradient(95deg,#244778 0%,#426eae 48%,#8ab4ff 85%,#dbe8ff 100%);
-  border:1px solid rgba(219,232,255,.7);
-  border-radius:42% 85% 65% 35% / 55% 65% 45% 50%;
-  box-shadow:0 0 28px rgba(138,180,255,.55);
-  transform:translateZ(12px);
+  position:absolute;left:64px;top:62px;width:92px;height:28px;
+  border-radius:55% 75% 65% 45%;
+  background:linear-gradient(95deg,#274d84 0%,#426eae 42%,#8ab4ff 82%,#dbe8ff 100%);
+  box-shadow:0 0 26px rgba(138,180,255,.65),inset 0 2px 6px rgba(255,255,255,.55);
+  transform:translateZ(6px);
 }
 .bird-head{
-  position:absolute;left:104px;top:38px;width:30px;height:22px;
-  background:linear-gradient(120deg,#8ab4ff,#dbe8ff);
-  border:1px solid rgba(255,255,255,.8);
-  border-radius:55% 75% 50% 45%;
-  box-shadow:0 0 22px rgba(138,180,255,.75);
-  transform:translateZ(20px);
+  position:absolute;left:138px;top:52px;width:34px;height:24px;
+  border-radius:50% 75% 60% 45%;
+  background:linear-gradient(110deg,#8ab4ff,#dbe8ff);
+  box-shadow:0 0 18px rgba(138,180,255,.75);
+  transform:translateZ(14px) rotate(8deg);
 }
 .bird-beak{
-  position:absolute;left:131px;top:45px;width:16px;height:8px;
-  background:linear-gradient(90deg,#8ab4ff,#ffffff);
-  clip-path:polygon(0 15%,100% 50%,0 85%);
-  transform:translateZ(22px);
+  position:absolute;left:168px;top:59px;width:0;height:0;
+  border-top:5px solid transparent;border-bottom:6px solid transparent;
+  border-left:18px solid var(--gold);
+  filter:drop-shadow(0 0 8px rgba(240,198,109,.65));
+  transform:translateZ(16px);
 }
 .bird-crest{
-  position:absolute;left:98px;top:24px;width:24px;height:16px;
-  background:linear-gradient(180deg,#dbe8ff,rgba(138,180,255,.2));
-  clip-path:polygon(15% 100%,55% 0%,100% 85%);
-  transform:translateZ(24px);
+  position:absolute;left:140px;top:41px;width:20px;height:14px;
+  border-radius:100% 0 60% 10%;
+  background:linear-gradient(135deg,#dbe8ff,#8ab4ff);
+  transform:translateZ(16px) rotate(-18deg);
 }
-.bird-tail{
-  position:absolute;left:-14px;top:44px;width:54px;height:30px;
-  background:linear-gradient(270deg,rgba(138,180,255,.15),#426eae 65%,#8ab4ff);
-  clip-path:polygon(0% 10%,100% 35%,100% 65%,0% 90%,22% 50%);
-  transform-origin:100% 50%;
-  transform:translateZ(8px);
-  animation:tailWave .42s ease-in-out infinite alternate;
+.bird-tail-plane{
+  position:absolute;left:16px;top:64px;width:54px;height:22px;
+  border-radius:80% 10% 10% 80%;
+  background:linear-gradient(270deg,#426eae,#8ab4ff 70%,#dbe8ff);
+  transform-origin:right center;
+  animation:tailWave .55s ease-in-out infinite alternate;
+  opacity:.92;
 }
 @keyframes tailWave{
-  from{transform:translateZ(8px) rotateY(-14deg) rotateZ(-4deg)}
-  to{transform:translateZ(8px) rotateY(16deg) rotateZ(4deg)}
+  from{transform:translateZ(4px) rotateY(18deg) rotateZ(-6deg)}
+  to{transform:translateZ(4px) rotateY(-18deg) rotateZ(7deg)}
 }
-.bird-wing{
-  position:absolute;left:56px;top:52px;width:66px;height:44px;
+.bird-wing-3d{
+  position:absolute;left:84px;top:68px;width:76px;height:34px;
+  border-radius:85% 25% 65% 15%;
+  transform-origin:12px 10px;
   transform-style:preserve-3d;
 }
-.bird-wing.left-wing{
-  transform-origin:24px 6px;
-  animation:flapLeft .34s ease-in-out infinite alternate;
+.bird-wing-3d.top-wing{
+  background:linear-gradient(135deg,rgba(219,232,255,.96),rgba(138,180,255,.85) 55%,rgba(66,110,174,.78));
+  box-shadow:0 0 22px rgba(138,180,255,.5);
+  animation:flapTop .34s ease-in-out infinite alternate;
 }
-.bird-wing.right-wing{
-  transform-origin:24px 6px;
-  animation:flapRight .34s ease-in-out infinite alternate;
+.bird-wing-3d.bottom-wing{
+  background:linear-gradient(225deg,rgba(219,232,255,.92),rgba(138,180,255,.78) 60%,rgba(36,71,120,.8));
+  box-shadow:0 0 18px rgba(138,180,255,.4);
+  animation:flapBottom .34s ease-in-out infinite alternate;
 }
-.wing-inner{
-  width:100%;height:100%;
-  background:linear-gradient(135deg,rgba(219,232,255,.92) 0%,rgba(138,180,255,.78) 48%,rgba(66,110,174,.65) 100%);
-  border:1px solid rgba(219,232,255,.75);
-  border-radius:16% 88% 72% 28% / 20% 85% 40% 55%;
-  box-shadow:0 0 24px rgba(138,180,255,.45);
+@keyframes flapTop{
+  0%{transform:translateZ(12px) rotateX(68deg) rotateZ(22deg)}
+  100%{transform:translateZ(12px) rotateX(-66deg) rotateZ(-14deg)}
 }
-@keyframes flapLeft{
-  0%{transform:translateZ(16px) rotateX(68deg) rotateY(-12deg)}
-  100%{transform:translateZ(16px) rotateX(-64deg) rotateY(12deg)}
-}
-@keyframes flapRight{
-  0%{transform:translateZ(6px) rotateX(-64deg) rotateY(12deg)}
-  100%{transform:translateZ(6px) rotateX(68deg) rotateY(-12deg)}
+@keyframes flapBottom{
+  0%{transform:translateZ(2px) rotateX(-68deg) rotateZ(22deg)}
+  100%{transform:translateZ(2px) rotateX(66deg) rotateZ(-14deg)}
 }
 
-/* 4 RELEASED SKY-BLUE ORBS */
+/* 4 SKY-BLUE FEATHER ORBS RELEASED ALONG FLIGHT */
 .feather-orb{
-  position:absolute;width:22px;height:22px;border-radius:50%;
-  background:radial-gradient(circle at 35% 35%,#ffffff 0%,#8ab4ff 45%,#426eae 85%,transparent 100%);
-  box-shadow:0 0 20px rgba(138,180,255,.95),0 0 42px rgba(66,110,174,.7);
-  opacity:0;transform:translate(-50%,-50%) scale(.2);
-  pointer-events:none;z-index:3;
-  transition:left .75s cubic-bezier(.22,1,.36,1),top .75s cubic-bezier(.22,1,.36,1),opacity .35s ease,transform .75s cubic-bezier(.22,1,.36,1);
+  position:fixed;width:22px;height:22px;border-radius:50%;pointer-events:none;
+  z-index:46;opacity:0;
+  background:radial-gradient(circle at 35% 35%,#ffffff,#8ab4ff 52%,#426eae 100%);
+  box-shadow:0 0 18px rgba(138,180,255,.95),0 0 36px rgba(66,110,174,.75);
+  transform:translate(-50%,-50%) scale(.4);
+  transition:opacity .25s ease;
 }
-.feather-orb.released{
-  opacity:1;
-  transform:translate(-50%,-50%) scale(1.15);
-}
-.feather-orb.fade-out{
-  opacity:0;
-  transform:translate(-50%,-50%) scale(.3);
-}
+.feather-orb.active{opacity:1}
 
-/* SKIP BUTTON ONLY DURING FLIGHT */
-.skip-bird-btn{
-  position:absolute;right:24px;bottom:24px;z-index:10;
-  padding:9px 16px;border-radius:10px;
+/* SKIP BUTTON FOR FLIGHT ENTRANCE */
+.skip-flight-btn{
+  position:fixed;right:24px;bottom:76px;z-index:50;
+  padding:8px 16px;border-radius:10px;
   background:rgba(12,35,76,.88);border:1px solid var(--accent);
   color:var(--white);font-size:13px;font-weight:bold;
   box-shadow:0 8px 24px rgba(0,0,0,.45);
-  transition:.2s ease;
+  transition:transform .2s ease,background .2s ease;
 }
-.skip-bird-btn:hover{background:var(--blue);transform:translateY(-2px)}
+.skip-flight-btn:hover{background:var(--blue);transform:translateY(-2px)}
+.skip-flight-btn.hidden{display:none}
+
+/* 4-COLUMN 3D KEEPSAKE GALLERY */
+.family-friends-grid{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;width:100%;flex:1;min-height:0;
+  perspective:1300px;transform-style:preserve-3d;
+}
+.family-friends-card{
+  position:relative;display:flex;flex-direction:column;gap:8px;min-width:0;min-height:0;
+  padding:11px;border:1px solid #30588d;border-radius:16px;
+  background:linear-gradient(150deg,#0d234b,#081838);
+  transform-style:preserve-3d;
+  --rx:0deg;--ry:0deg;--tz:0px;--gx:50%;--gy:50%;--go:0;
+  transform:perspective(1300px) rotateX(var(--rx)) rotateY(var(--ry)) translateZ(var(--tz));
+  transition:transform .2s cubic-bezier(.22,.9,.36,1),border-color .25s ease,box-shadow .25s ease;
+  overflow:hidden;
+}
+.family-friends-card::after{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:radial-gradient(circle at var(--gx) var(--gy),rgba(138,180,255,.24),rgba(66,110,174,.08) 42%,transparent 70%);
+  opacity:var(--go);transition:opacity .25s ease;
+}
+.family-friends-card.card-swing-in{
+  animation:ffCardSwingIn .75s cubic-bezier(.19,.92,.28,1) both;
+}
+.family-friends-card:nth-child(2).card-swing-in{animation-delay:.09s}
+.family-friends-card:nth-child(3).card-swing-in{animation-delay:.18s}
+.family-friends-card:nth-child(4).card-swing-in{animation-delay:.27s}
+@keyframes ffCardSwingIn{
+  0%{opacity:0;transform:perspective(1300px) translateY(38px) translateZ(-110px) rotateX(18deg) rotateY(-16deg) scale(.94)}
+  65%{opacity:1;transform:perspective(1300px) translateY(-4px) translateZ(18px) rotateX(-2.5deg) rotateY(2.5deg) scale(1.01)}
+  100%{opacity:1;transform:perspective(1300px) rotateX(var(--rx)) rotateY(var(--ry)) translateZ(var(--tz)) scale(1)}
+}
+.family-friends-card:hover{
+  border-color:var(--accent);
+  box-shadow:0 18px 38px rgba(0,6,28,.55),0 0 24px rgba(138,180,255,.15);
+}
+.family-friends-header{
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transform:translateZ(20px);
+}
+.family-friends-header h3{color:var(--accent);font-size:16.5px;text-align:center}
+.family-photo-box{
+  flex:1 1 0;min-height:0;width:100%;border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;background:#071430;
+  transform:translateZ(14px);
+}
+.family-photo{
+  display:block;width:100%;height:100%;object-fit:cover;object-position:center 20%;
+  transition:transform .35s ease;
+}
+.family-friends-card:hover .family-photo{transform:scale(1.03)}
+.family-thank-you{
+  color:var(--text);font-size:12px;line-height:1.38;flex-shrink:0;
+  text-align:center;transform:translateZ(16px);
+}
 
 /* BOTTOM NAVIGATION */
-.bottom-nav{display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 12px;margin:0 auto 8px;flex-shrink:0;background:#0c234c;border:1px solid #426eae;border-radius:16px;box-shadow:0 8px 25px rgba(0,0,0,.3);z-index:20}
-.bottom-btn{padding:9px 22px;background:#123366;border:1px solid #244778;border-radius:9px;color:#dbe8ff;font-size:14px;font-weight:bold;white-space:nowrap;transition:.25s}
+.bottom-nav{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  padding:8px 12px;margin:0 auto 8px;flex-shrink:0;background:#0c234c;
+  border:1px solid #426eae;border-radius:16px;box-shadow:0 8px 25px rgba(0,0,0,.3);
+  z-index:20;
+}
+.bottom-btn{
+  padding:9px 22px;background:#123366;border:1px solid #244778;border-radius:9px;
+  color:#dbe8ff;font-size:14px;font-weight:bold;white-space:nowrap;transition:.25s;
+}
 .bottom-btn:hover{background:#426eae;transform:translateY(-2px)}
 .bottom-btn:focus-visible{outline:2px solid #8ab4ff;outline-offset:3px}
 .next-btn{background:#426eae;color:white}
 
 /* FOOTER */
-footer{flex-shrink:0;text-align:center;padding:8px;background:#040e2f;border-top:1px solid var(--border);color:#8399bd;font-size:12px;z-index:20}
+footer{
+  flex-shrink:0;text-align:center;padding:8px;background:#040e2f;
+  border-top:1px solid var(--border);color:#8399bd;font-size:12px;z-index:20;
+}
 
 /* MEDIUM SCREEN */
 @media(max-width:1100px){
-.details-grid,.traits-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:none}
-.traits-grid{overflow-y:auto}
-.achievement-list{gap:10px}
-.achievement-card{padding:13px}
-.award-highlight{padding:10px;gap:7px}
-.award-title{font-size:13px}
-.award-description{font-size:12px}
-.award-symbol{font-size:19px}
-.achievement-header h3{font-size:17px}
-.home-layout{gap:30px}
-.home-intro{font-size:16px}
-.family-friends-grid{gap:10px}
-.family-friends-card{padding:10px}
-.family-friends-header h3{font-size:15px}
+  #about .info-card{padding:7px 10px}
+  #about .info-card p{font-size:10.5px;line-height:1.25}
+  .details-grid,.traits-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px 6px}
+  .achievement-list{gap:10px}
+  .achievement-card{padding:13px}
+  .award-highlight{padding:10px;gap:7px}
+  .award-title{font-size:13px}
+  .award-description{font-size:12px}
+  .award-symbol{font-size:19px}
+  .achievement-header h3{font-size:17px}
+  .home-layout{gap:30px}
+  .home-intro{font-size:16px}
+  .family-friends-grid{gap:10px}
+  .family-friends-card{padding:10px}
+  .family-friends-header h3{font-size:15px}
+  .family-thank-you{font-size:11px;line-height:1.35}
 }
 
 /* TABLET */
 @media(max-width:850px){
-nav{flex-direction:column;gap:8px;padding:10px 3%}
-.logo{font-size:17px}
-.nav-buttons{justify-content:center;gap:5px}
-.nav-btn{font-size:12px;padding:7px 10px}
-.home-layout{flex-direction:column-reverse;gap:20px}
-.home-content{width:100%}
-.photo-side{width:55%}
-.photo-content img{max-height:220px}
-.home-title{font-size:34px;margin-bottom:12px}
-.home-subtitle{font-size:20px;margin-bottom:10px}
-.home-intro{font-size:14px;line-height:1.5}
-.availability{margin-bottom:12px}
-.floating-card{font-size:10px;padding:8px}
-.code{left:-4%}
-.python,.engineer{right:-4%}
-.about-description{text-align:left}
-#about{overflow-y:auto}
-#about .inner-page{height:auto}
-.details-grid,.traits-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none}
-.traits-grid{max-height:240px;overflow-y:auto}
-#achievements{padding:12px 3%}
-.achievement-list{gap:7px}
-.achievement-card{padding:9px;gap:8px}
-.achievement-header{gap:7px}
-.achievement-icon{width:35px;height:35px;font-size:18px}
-.achievement-header h3{font-size:14px}
-.award-highlight{padding:8px;gap:5px}
-.award-title{font-size:12px}
-.award-description{font-size:11px}
-.award-symbol{font-size:17px}
-.award-star{font-size:12px}
-#family-friends{padding:10px 3%;overflow-y:auto}
-.family-friends-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;gap:10px}
-.family-friends-card{padding:10px;gap:8px}
-.family-photo-box{flex:none;aspect-ratio:4/5}
-.family-friends-header h3{font-size:14px}
+  nav{flex-direction:column;gap:8px;padding:10px 3%}
+  .logo{font-size:17px}
+  .nav-buttons{justify-content:center;gap:5px}
+  .nav-btn{font-size:12px;padding:7px 10px}
+  .home-layout{flex-direction:column-reverse;gap:20px}
+  .home-content{width:100%}
+  .photo-side{width:55%}
+  .photo-content img{max-height:220px}
+  .home-title{font-size:34px;margin-bottom:12px}
+  .home-subtitle{font-size:20px;margin-bottom:10px}
+  .home-intro{font-size:14px;line-height:1.5}
+  .availability{margin-bottom:12px}
+  .floating-card{font-size:10px;padding:8px}
+  .code{left:-4%}
+  .python,.engineer{right:-4%}
+
+  #about{padding:6px 2.5% 6px;overflow:hidden}
+  #about .info-card{padding:6px 10px}
+  #about .info-card h3{font-size:12.5px;margin-bottom:2px}
+  #about .info-card p{font-size:10px;line-height:1.22}
+  .traits-heading{font-size:11.5px;margin-bottom:3px}
+  .details-grid,.traits-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:3px 5px}
+  .detail-item{padding:2px 6px}
+  .detail-label{font-size:8.5px}
+  .detail-value{font-size:9.5px}
+
+  #achievements{padding:12px 3%}
+  .achievement-list{gap:7px}
+  .achievement-card{padding:9px;gap:8px}
+  .achievement-header{gap:7px}
+  .achievement-icon{width:35px;height:35px;font-size:18px}
+  .achievement-header h3{font-size:14px}
+  .award-highlight{padding:8px;gap:5px}
+  .award-title{font-size:12px}
+  .award-description{font-size:11px}
+  .award-symbol{font-size:17px}
+  .award-star{font-size:12px}
+
+  #family-friends{padding:10px 3%;overflow-y:auto}
+  .family-friends-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;gap:10px}
+  .family-friends-card{padding:10px;gap:8px}
+  .family-photo-box{flex:none;aspect-ratio:4/5}
+  .family-friends-header h3{font-size:14px}
+  .family-thank-you{font-size:11.5px;line-height:1.35}
+  .celestial-bird-rig{transform:scale(.75);transform-origin:center}
 }
 
 /* SMALL MOBILE */
 @media(max-width:500px){
-.page{padding:12px 3%}
-.details-grid,.traits-grid{grid-template-columns:1fr;grid-template-rows:none;gap:5px}
-.traits-grid{max-height:210px;overflow-y:auto}
-#about .info-card{padding:8px 12px}
-#about .detail-item{padding:4px 8px}
-#about .page-heading{font-size:25px;margin-bottom:7px}
-#about .info-card p{font-size:12px}
-#about .detail-label{font-size:10px}
-#about .detail-value{font-size:12px}
-.achievement-list{grid-template-columns:1fr;gap:6px}
-#achievements .page-heading{font-size:23px}
-#achievements .page-description{font-size:11px;margin-bottom:8px}
-.achievement-card{padding:7px 10px;gap:5px}
-.achievement-icon{width:29px;height:29px;font-size:15px}
-.achievement-header h3{font-size:13px}
-.academic-awards,.sports-awards,.leadership-awards{gap:5px}
-.award-highlight{padding:5px 7px}
-.award-title{font-size:11px}
-.award-description{font-size:10px;margin-top:1px}
-.award-symbol{font-size:14px}
-#family-friends .page-heading{font-size:22px;margin-bottom:8px}
-.family-friends-grid{grid-template-columns:1fr;gap:10px}
-.family-friends-card{padding:10px;gap:6px}
-.family-friends-header h3{font-size:14px}
-.bottom-nav{gap:6px;padding:5px;margin-bottom:4px}
-.bottom-btn{padding:7px 11px;font-size:12px}
-footer{font-size:10px;padding:5px}
+  .page{padding:12px 3%}
+  #about{padding:5px 2% 5px;overflow:hidden}
+  #about .page-heading{font-size:18px;margin-bottom:0}
+  #about .info-card{padding:5px 8px}
+  #about .info-card h3{font-size:11.5px;margin-bottom:2px}
+  #about .info-card p{font-size:9px;line-height:1.18}
+  .traits-heading{font-size:10.5px;margin-bottom:2px}
+  .details-grid,.traits-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:2.5px 4px}
+  #about .detail-item{padding:2px 5px;border-radius:6px}
+  #about .detail-label{font-size:8px}
+  #about .detail-value{font-size:8.8px}
+
+  .achievement-list{grid-template-columns:1fr;gap:6px}
+  #achievements .page-heading{font-size:23px}
+  #achievements .page-description{font-size:11px;margin-bottom:8px}
+  .achievement-card{padding:7px 10px;gap:5px}
+  .achievement-icon{width:29px;height:29px;font-size:15px}
+  .achievement-header h3{font-size:13px}
+  .academic-awards,.sports-awards,.leadership-awards{gap:5px}
+  .award-highlight{padding:5px 7px}
+  .award-title{font-size:11px}
+  .award-description{font-size:10px;margin-top:1px}
+  .award-symbol{font-size:14px}
+
+  #family-friends .page-heading{font-size:22px}
+  .ambient-bird-wrap{width:54px;height:34px}
+  .family-friends-grid{grid-template-columns:1fr;gap:10px}
+  .family-friends-card{padding:10px;gap:6px}
+  .family-friends-header h3{font-size:14px}
+  .family-thank-you{font-size:11.5px;line-height:1.35}
+  .bottom-nav{gap:6px;padding:5px;margin-bottom:4px}
+  .bottom-btn{padding:7px 11px;font-size:12px}
+  .skip-flight-btn{right:14px;bottom:68px;padding:6px 12px;font-size:12px}
+  footer{font-size:10px;padding:5px}
 }
 
 /* SHORT DESKTOP SCREENS */
 @media(max-height:720px) and (min-width:851px){
-nav{padding-top:8px;padding-bottom:8px}
-#achievements,#family-friends{padding-top:8px;padding-bottom:6px}
-#achievements .page-heading,#family-friends .page-heading{font-size:26px;margin-bottom:6px}
-#achievements .page-description{margin-bottom:8px}
-.achievement-card,.family-friends-card{padding:8px 10px;gap:6px}
-.award-highlight{padding:9px}
-.academic-awards,.sports-awards,.leadership-awards{gap:7px}
-.bottom-nav{padding:5px;margin-bottom:4px}
-footer{padding:5px}
+  nav{padding-top:8px;padding-bottom:8px}
+  #about .info-card{padding:6px 12px}
+  #about .info-card p{font-size:10px;line-height:1.2}
+  #about .detail-item{padding:2px 6px}
+  #about .detail-label{font-size:8.5px}
+  #about .detail-value{font-size:9.8px}
+  #achievements,#family-friends{padding-top:8px;padding-bottom:6px}
+  #achievements .page-heading,#family-friends .page-heading{font-size:26px;margin-bottom:6px}
+  #achievements .page-description{margin-bottom:8px}
+  .achievement-card,.family-friends-card{padding:8px 10px;gap:6px}
+  .award-highlight{padding:9px}
+  .academic-awards,.sports-awards,.leadership-awards{gap:7px}
+  .family-thank-you{font-size:11px;line-height:1.3}
+  .bottom-nav{padding:5px;margin-bottom:4px}
+  footer{padding:5px}
 }
+
 @media(prefers-reduced-motion:reduce){
-*,*::before,*::after{animation:none!important;transition:none!important}
-.python-typing{width:auto;border-right:none}
-.bird-intro-overlay{display:none!important}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .python-typing{width:auto;border-right:none}
+  .bird-flight-stage{display:none!important}
 }
 </style>
 </head>
@@ -494,582 +607,646 @@ footer{padding:5px}
 <div class="app">
 
 <nav>
-<div class="logo">JR / PORTFOLIO</div>
-<div class="nav-buttons" aria-label="Portfolio navigation">
-<button class="nav-btn" data-page="home" onclick="showPage('home')">Home</button>
-<button class="nav-btn" data-page="about" onclick="showPage('about')">Personal Information</button>
-<button class="nav-btn" data-page="achievements" onclick="showPage('achievements')">Achievements</button>
-<button class="nav-btn active" data-page="family-friends" onclick="showPage('family-friends')">Family and Friends</button>
-</div>
+  <div class="logo">JR / PORTFOLIO</div>
+  <div class="nav-buttons" aria-label="Portfolio navigation">
+    <button class="nav-btn active" data-page="home" onclick="showPage('home')">Home</button>
+    <button class="nav-btn" data-page="about" onclick="showPage('about')">Personal Information</button>
+    <button class="nav-btn" data-page="achievements" onclick="showPage('achievements')">Achievements</button>
+    <button class="nav-btn" data-page="family-friends" onclick="showPage('family-friends')">Family and Friends</button>
+  </div>
 </nav>
 
 <main class="page-container">
 
 <!-- HOME PAGE -->
-<section class="page" id="home" aria-label="Home" hidden>
-<div class="home-layout">
-<div class="home-content">
-<div class="availability"><span class="status-dot"></span>Currently Learning &amp; Building</div>
-<h1 class="home-title">
-<span class="hello">Hello, I am</span><br>
-<span class="name">Jhon Jeremy S.<br>Roxas</span>
-</h1>
-<div class="home-subtitle">I am a <span>Computer Science student</span></div>
-<p class="home-intro">
-I am motivated to learn, explore new technologies,
-and continuously improve my programming skills.
-I am passionate about gaining knowledge, taking
-on new challenges, and developing my skills in
-software development.
-</p>
-</div>
+<section class="page active" id="home" aria-label="Home">
+  <div class="home-layout">
+    <div class="home-content">
+      <div class="availability"><span class="status-dot"></span>Currently Learning &amp; Building</div>
+      <h1 class="home-title">
+        <span class="hello">Hello, I am</span><br>
+        <span class="name">Jhon Jeremy S.<br>Roxas</span>
+      </h1>
+      <div class="home-subtitle">I am a <span>Computer Science student</span></div>
+      <p class="home-intro">
+        I am motivated to learn, explore new technologies,
+        and continuously improve my programming skills.
+        I am passionate about gaining knowledge, taking
+        on new challenges, and developing my skills in
+        software development.
+      </p>
+    </div>
 
-<div class="photo-side">
-<div class="photo-container">
-<div class="window-header">
-<span class="window-dot red"></span>
-<span class="window-dot yellow"></span>
-<span class="window-dot green"></span>
-<span class="window-title">j.jpeg</span>
-</div>
-<div class="photo-content">
-<img src="j.jpeg" alt="Jhon Jeremy S. Roxas" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22460%22 height=%22520%22 viewBox=%220 0 460 520%22><rect width=%22460%22 height=%22520%22 fill=%22%23071430%22/><circle cx=%22230%22 cy=%22195%22 r=%2276%22 fill=%22%23426eae%22/><path d=%22M95 430c15-78 72-120 135-120s120 42 135 120%22 fill=%22%23244778%22/><text x=%22230%22 y=%22482%22 text-anchor=%22middle%22 fill=%22%238ab4ff%22 font-family=%22Arial,sans-serif%22 font-size=%2218%22>Jhon Jeremy S. Roxas</text></svg>'">
-</div>
-<div class="floating-card code">&lt;/&gt; Code</div>
-<div class="floating-card python">
-<span class="python-symbol">&#123; &#125;</span>
-<span class="python-typing">Python</span>
-</div>
-<div class="floating-card engineer">⚙ Software Engineer</div>
-</div>
-</div>
-</div>
+    <div class="photo-side">
+      <div class="photo-container">
+        <div class="window-header">
+          <span class="window-dot red"></span>
+          <span class="window-dot yellow"></span>
+          <span class="window-dot green"></span>
+          <span class="window-title">j.jpeg</span>
+        </div>
+        <div class="photo-content">
+          <img src="j.jpeg" alt="Jhon Jeremy S. Roxas" onerror="handleImageFallback(this, 'profile')">
+        </div>
+        <div class="floating-card code">&lt;/&gt; Code</div>
+        <div class="floating-card python">
+          <span class="python-symbol">&#123; &#125;</span>
+          <span class="python-typing">Python</span>
+        </div>
+        <div class="floating-card engineer">⚙ Software Engineer</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- PERSONAL INFORMATION PAGE -->
 <section class="page" id="about" aria-label="Personal Information" hidden>
-<div class="inner-page">
-<h2 class="page-heading">Personal Information</h2>
-<div class="info-card">
-<h3>Who Am I?</h3>
-<p class="about-description">
-I am a first-year Bachelor of Science in
-Computer Science student at the University
-of the Cordilleras. I have a strong interest
-in programming, technology, and software
-development. I aim to become a skilled
-software engineer who can create innovative
-solutions, solve real-world problems, and
-continuously improve my knowledge and skills
-in the field of computer science.
-</p>
-</div>
+  <div class="inner-page">
+    <h2 class="page-heading">Personal Information</h2>
+    <div class="info-card">
+      <h3>Who Am I?</h3>
+      <p class="about-description">
+        I am a first-year Bachelor of Science in
+        Computer Science student at the University
+        of the Cordilleras. I have a strong interest
+        in programming, technology, and software
+        development. I aim to become a skilled
+        software engineer who can create innovative
+        solutions, solve real-world problems, and
+        continuously improve my knowledge and skills
+        in the field of computer science.
+      </p>
+    </div>
 
-<div class="info-card personal-details">
-<h3>Personal Details</h3>
-<div class="details-grid">
-<div class="detail-item"><span class="detail-label">Birthday</span><span class="detail-value">November 17, 2007</span></div>
-<div class="detail-item"><span class="detail-label">Age</span><span class="detail-value">19 Years Old</span></div>
-<div class="detail-item"><span class="detail-label">Year &amp; Course</span><span class="detail-value">1st Year – BS Computer Science</span></div>
-<div class="detail-item"><span class="detail-label">University</span><span class="detail-value">University of the Cordilleras</span></div>
-<div class="detail-item"><span class="detail-label">Location</span><span class="detail-value">Kayang Extension, Labsan Street, Baguio City, Benguet</span></div>
-<div class="detail-item"><span class="detail-label">Civil Status</span><span class="detail-value">Single</span></div>
-</div>
+    <div class="info-card personal-details">
+      <h3>Personal Details</h3>
+      <div class="details-grid">
+        <div class="detail-item"><span class="detail-label">Birthday</span><span class="detail-value">November 17, 2007</span></div>
+        <div class="detail-item"><span class="detail-label">Age</span><span class="detail-value">19 Years Old</span></div>
+        <div class="detail-item"><span class="detail-label">Year &amp; Course</span><span class="detail-value">1st Year – BS Computer Science</span></div>
+        <div class="detail-item"><span class="detail-label">University</span><span class="detail-value">University of the Cordilleras</span></div>
+        <div class="detail-item"><span class="detail-label">Location</span><span class="detail-value">Kayang Extension, Labsan Street, Baguio City, Benguet</span></div>
+        <div class="detail-item"><span class="detail-label">Civil Status</span><span class="detail-value">Single</span></div>
+        <div class="detail-item"><span class="detail-label">Height</span><span class="detail-value">5'9"</span></div>
+        <div class="detail-item"><span class="detail-label">Weight</span><span class="detail-value">63 kg</span></div>
+      </div>
 
-<div class="traits-box">
-<h4 class="traits-heading">Physical &amp; Body Traits</h4>
-<div class="traits-grid">
-<div class="detail-item"><span class="detail-label">Height</span><span class="detail-value">5'9"</span></div>
-<div class="detail-item"><span class="detail-label">Weight</span><span class="detail-value">63 kg</span></div>
-<div class="detail-item"><span class="detail-label">Blood Type</span><span class="detail-value">A+</span></div>
-<div class="detail-item"><span class="detail-label">Eye Color</span><span class="detail-value">Brown</span></div>
-<div class="detail-item"><span class="detail-label">Eyelashes / Eye Shape</span><span class="detail-value">Double Eyelid</span></div>
-<div class="detail-item"><span class="detail-label">Hair Color</span><span class="detail-value">Black</span></div>
-<div class="detail-item"><span class="detail-label">Hair Style / Texture</span><span class="detail-value">Wavy</span></div>
-<div class="detail-item"><span class="detail-label">Skin Tone</span><span class="detail-value">Light Brown</span></div>
-<div class="detail-item"><span class="detail-label">Body Build</span><span class="detail-value">Lean</span></div>
-<div class="detail-item"><span class="detail-label">Dominant Hand</span><span class="detail-value">Right</span></div>
-<div class="detail-item"><span class="detail-label">Vision / Eyewear</span><span class="detail-value">None / 20/20</span></div>
-<div class="detail-item"><span class="detail-label">Dimples</span><span class="detail-value">None</span></div>
-<div class="detail-item"><span class="detail-label">Freckles</span><span class="detail-value">None</span></div>
-<div class="detail-item"><span class="detail-label">Eyebrows</span><span class="detail-value">Soft Angled</span></div>
-<div class="detail-item"><span class="detail-label">Nose Shape</span><span class="detail-value">Button</span></div>
-<div class="detail-item"><span class="detail-label">Lip Shape</span><span class="detail-value">Thin</span></div>
-<div class="detail-item"><span class="detail-label">Facial Hair Style</span><span class="detail-value">Clean-Shaven</span></div>
-<div class="detail-item"><span class="detail-label">Face Shape</span><span class="detail-value">Diamond</span></div>
-<div class="detail-item"><span class="detail-label">Jawline Shape</span><span class="detail-value">Sharp Jawline</span></div>
-<div class="detail-item"><span class="detail-label">Voice Type</span><span class="detail-value">Tenor</span></div>
-<div class="detail-item"><span class="detail-label">Shirt Size</span><span class="detail-value">Medium</span></div>
-<div class="detail-item"><span class="detail-label">Pants Size</span><span class="detail-value">28"</span></div>
-<div class="detail-item"><span class="detail-label">Foot Size</span><span class="detail-value">27.5 cm / UK 9 / EU 43</span></div>
-<div class="detail-item"><span class="detail-label">Wrist Size</span><span class="detail-value">16.5 cm</span></div>
-<div class="detail-item"><span class="detail-label">Ring Finger Size</span><span class="detail-value">19.0 mm</span></div>
-<div class="detail-item"><span class="detail-label">Birthmarks</span><span class="detail-value">8</span></div>
-<div class="detail-item"><span class="detail-label">Tooth Count</span><span class="detail-value">29</span></div>
-<div class="detail-item"><span class="detail-label">Scars</span><span class="detail-value">Knee and Elbow</span></div>
-<div class="detail-item"><span class="detail-label">Tattoos</span><span class="detail-value">None</span></div>
-<div class="detail-item"><span class="detail-label">Piercings</span><span class="detail-value">1</span></div>
-</div>
-</div>
-</div>
-</div>
+      <div class="traits-box">
+        <h4 class="traits-heading">Physical &amp; Body Traits</h4>
+        <div class="traits-grid">
+          <div class="detail-item"><span class="detail-label">Height</span><span class="detail-value">5'9"</span></div>
+          <div class="detail-item"><span class="detail-label">Weight</span><span class="detail-value">63 kg</span></div>
+          <div class="detail-item"><span class="detail-label">Blood Type</span><span class="detail-value">A+</span></div>
+          <div class="detail-item"><span class="detail-label">Eye Color</span><span class="detail-value">Brown</span></div>
+          <div class="detail-item"><span class="detail-label">Eyelashes / Eye Shape</span><span class="detail-value">Double Eyelid</span></div>
+          <div class="detail-item"><span class="detail-label">Hair Color</span><span class="detail-value">Black</span></div>
+          <div class="detail-item"><span class="detail-label">Hair Style / Texture</span><span class="detail-value">Wavy</span></div>
+          <div class="detail-item"><span class="detail-label">Skin Tone</span><span class="detail-value">Light Brown</span></div>
+          <div class="detail-item"><span class="detail-label">Body Build</span><span class="detail-value">Lean</span></div>
+          <div class="detail-item"><span class="detail-label">Dominant Hand</span><span class="detail-value">Right</span></div>
+          <div class="detail-item"><span class="detail-label">Vision / Eyewear</span><span class="detail-value">None / 20/20</span></div>
+          <div class="detail-item"><span class="detail-label">Dimples</span><span class="detail-value">None</span></div>
+          <div class="detail-item"><span class="detail-label">Freckles</span><span class="detail-value">None</span></div>
+          <div class="detail-item"><span class="detail-label">Eyebrows</span><span class="detail-value">Soft Angled</span></div>
+          <div class="detail-item"><span class="detail-label">Nose Shape</span><span class="detail-value">Button</span></div>
+          <div class="detail-item"><span class="detail-label">Lip Shape</span><span class="detail-value">Thin</span></div>
+          <div class="detail-item"><span class="detail-label">Facial Hair Style</span><span class="detail-value">Clean-Shaven</span></div>
+          <div class="detail-item"><span class="detail-label">Face Shape</span><span class="detail-value">Diamond</span></div>
+          <div class="detail-item"><span class="detail-label">Jawline Shape</span><span class="detail-value">Sharp Jawline</span></div>
+          <div class="detail-item"><span class="detail-label">Voice Type</span><span class="detail-value">Tenor</span></div>
+          <div class="detail-item"><span class="detail-label">Shirt Size</span><span class="detail-value">Medium</span></div>
+          <div class="detail-item"><span class="detail-label">Pants Size</span><span class="detail-value">28"</span></div>
+          <div class="detail-item"><span class="detail-label">Foot Size</span><span class="detail-value">27.5 cm / UK 9 / EU 43</span></div>
+          <div class="detail-item"><span class="detail-label">Wrist Size</span><span class="detail-value">16.5 cm</span></div>
+          <div class="detail-item"><span class="detail-label">Ring Finger Size</span><span class="detail-value">19.0 mm</span></div>
+          <div class="detail-item"><span class="detail-label">Birthmarks</span><span class="detail-value">8</span></div>
+          <div class="detail-item"><span class="detail-label">Tooth Count</span><span class="detail-value">29</span></div>
+          <div class="detail-item"><span class="detail-label">Scars</span><span class="detail-value">Knee and Elbow</span></div>
+          <div class="detail-item"><span class="detail-label">Tattoos</span><span class="detail-value">None</span></div>
+          <div class="detail-item"><span class="detail-label">Piercings</span><span class="detail-value">1</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ACHIEVEMENTS PAGE -->
 <section class="page" id="achievements" aria-label="Achievements" hidden>
-<div class="inner-page">
-<h2 class="page-heading">Achievements</h2>
-<div class="achievement-list">
+  <div class="inner-page">
+    <h2 class="page-heading">Achievements</h2>
+    <div class="achievement-list">
 
-<div class="achievement-card" style="--ach-delay:0s">
-<div class="achievement-header"><div class="achievement-icon">🎓</div><h3>Academic</h3></div>
-<div class="academic-awards">
-<div class="award-highlight">
-<span class="award-symbol">🏆</span>
-<div class="award-text">
-<span class="award-title">2nd Place – Experimental Research</span>
-<span class="award-description">Robotics &amp; Automation</span>
-</div>
-<span class="award-star">★</span>
-</div>
-<div class="award-highlight">
-<span class="award-symbol">🥇</span>
-<div class="award-text">
-<span class="award-title">Best Experimental Prototype</span>
-<span class="award-description">Special Recognition</span>
-</div>
-<span class="award-star">★</span>
-</div>
-</div>
-</div>
+      <div class="achievement-card tilt-3d-card">
+        <div class="achievement-header"><div class="achievement-icon">🎓</div><h3>Academic</h3></div>
+        <div class="academic-awards">
+          <div class="award-highlight">
+            <span class="award-symbol">🏆</span>
+            <div class="award-text">
+              <span class="award-title">2nd Place – Experimental Research</span>
+              <span class="award-description">Robotics &amp; Automation</span>
+            </div>
+            <span class="award-star">★</span>
+          </div>
+          <div class="award-highlight">
+            <span class="award-symbol">🥇</span>
+            <div class="award-text">
+              <span class="award-title">Best Experimental Prototype</span>
+              <span class="award-description">Special Recognition</span>
+            </div>
+            <span class="award-star">★</span>
+          </div>
+        </div>
+      </div>
 
-<div class="achievement-card" style="--ach-delay:.12s">
-<div class="achievement-header"><div class="achievement-icon">🏸</div><h3>Sports</h3></div>
-<div class="sports-awards">
-<div class="award-highlight sports-highlight">
-<span class="award-symbol">🏅</span>
-<div class="award-text">
-<span class="award-title">2-Time Regional Qualifier &amp; Semifinalist</span>
-<span class="award-description">Men's Singles Badminton</span>
-<span class="award-description">Central Luzon Regional Athletic Association (CLRAA) Meet</span>
-<span class="award-description">Representing Balanga City, Bataan</span>
-<span class="award-description">2023–2024 | 2024–2025</span>
-</div>
-<span class="award-star">★</span>
-</div>
-</div>
-</div>
+      <div class="achievement-card tilt-3d-card">
+        <div class="achievement-header"><div class="achievement-icon">🏸</div><h3>Sports</h3></div>
+        <div class="sports-awards">
+          <div class="award-highlight sports-highlight">
+            <span class="award-symbol">🏅</span>
+            <div class="award-text">
+              <span class="award-title">2-Time Regional Qualifier &amp; Semifinalist</span>
+              <span class="award-description">Men's Singles Badminton</span>
+              <span class="award-description">Central Luzon Regional Athletic Association (CLRAA) Meet</span>
+              <span class="award-description">Representing Balanga City, Bataan</span>
+              <span class="award-description">2023–2024 | 2024–2025</span>
+            </div>
+            <span class="award-star">★</span>
+          </div>
+        </div>
+      </div>
 
-<div class="achievement-card" style="--ach-delay:.24s">
-<div class="achievement-header"><div class="achievement-icon">👑</div><h3>Leadership</h3></div>
-<div class="leadership-awards">
-<div class="award-highlight leadership-highlight">
-<span class="award-symbol">🏸</span>
-<div class="award-text">
-<span class="award-title">Badminton Team Captain</span>
-<span class="award-description">Sports Leadership</span>
-</div>
-<span class="award-star">★</span>
-</div>
-</div>
-</div>
+      <div class="achievement-card tilt-3d-card">
+        <div class="achievement-header"><div class="achievement-icon">👑</div><h3>Leadership</h3></div>
+        <div class="leadership-awards">
+          <div class="award-highlight leadership-highlight">
+            <span class="award-symbol">🏸</span>
+            <div class="award-text">
+              <span class="award-title">Badminton Team Captain</span>
+              <span class="award-description">Sports Leadership</span>
+            </div>
+            <span class="award-star">★</span>
+          </div>
+        </div>
+      </div>
 
-</div>
-</div>
+    </div>
+  </div>
 </section>
 
 <!-- FAMILY AND FRIENDS PAGE -->
-<section class="page active" id="family-friends" aria-label="Family and Friends">
-<div class="inner-page">
-<div class="ff-heading-row">
-<div class="ff-heading-left">
-<h2 class="page-heading">Family and Friends</h2>
-<div class="ambient-bird-wrap" aria-hidden="true">
-<div class="ambient-bird">
-<div class="mini-wing-l"></div>
-<div class="mini-wing-r"></div>
-<div class="mini-body"></div>
-</div>
-</div>
-</div>
-</div>
+<section class="page" id="family-friends" aria-label="Family and Friends" hidden>
+  <!-- ~3.2s Borderless 3D Celestial Bird Flight Entrance (Animation Only, No Text Overlay) -->
+  <div class="bird-flight-stage hidden" id="birdFlightStage" aria-hidden="true">
+    <canvas id="birdTrailCanvas"></canvas>
+    <div class="celestial-bird-rig" id="celestialBirdRig">
+      <div class="celestial-bird-3d" id="celestialBird3d">
+        <div class="bird-tail-plane"></div>
+        <div class="bird-wing-3d top-wing"></div>
+        <div class="bird-torso"></div>
+        <div class="bird-wing-3d bottom-wing"></div>
+        <div class="bird-crest"></div>
+        <div class="bird-head"></div>
+        <div class="bird-beak"></div>
+      </div>
+    </div>
+  </div>
 
-<div class="family-friends-grid" id="family-friends-grid">
+  <!-- 4 Sky-Blue Orbs Released Along Flight Path -->
+  <div class="feather-orb" id="featherOrb0" aria-hidden="true"></div>
+  <div class="feather-orb" id="featherOrb1" aria-hidden="true"></div>
+  <div class="feather-orb" id="featherOrb2" aria-hidden="true"></div>
+  <div class="feather-orb" id="featherOrb3" aria-hidden="true"></div>
 
-<!-- MOM -->
-<div class="family-friends-card" style="--card-delay:0s">
-<div class="family-friends-header"><h3>My Mom and Me</h3></div>
-<div class="family-photo-box">
-<img class="family-photo" src="mom-and-me.png" alt="Me with my mom" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22480%22 height=%22600%22 viewBox=%220 0 480 600%22><rect width=%22480%22 height=%22600%22 fill=%22%23071430%22/><circle cx=%22240%22 cy=%22220%22 r=%2284%22 fill=%22%23426eae%22/><path d=%22M105 495c16-86 78-132 135-132s119 46 135 132%22 fill=%22%23244778%22/><text x=%22240%22 y=%22548%22 text-anchor=%22middle%22 fill=%22%238ab4ff%22 font-family=%22Arial,sans-serif%22 font-size=%2220%22>My Mom and Me</text></svg>'">
-</div>
-</div>
+  <button type="button" class="skip-flight-btn hidden" id="skipFlightBtn" onclick="skipBirdFlight()">Skip →</button>
 
-<!-- DAD -->
-<div class="family-friends-card" style="--card-delay:.1s">
-<div class="family-friends-header"><h3>My Dad and Me</h3></div>
-<div class="family-photo-box">
-<img class="family-photo" src="dad-and-me.png" alt="Me with my dad" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22480%22 height=%22600%22 viewBox=%220 0 480 600%22><rect width=%22480%22 height=%22600%22 fill=%22%23071430%22/><circle cx=%22240%22 cy=%22220%22 r=%2284%22 fill=%22%23426eae%22/><path d=%22M105 495c16-86 78-132 135-132s119 46 135 132%22 fill=%22%23244778%22/><text x=%22240%22 y=%22548%22 text-anchor=%22middle%22 fill=%22%238ab4ff%22 font-family=%22Arial,sans-serif%22 font-size=%2220%22>My Dad and Me</text></svg>'">
-</div>
-</div>
+  <div class="inner-page">
+    <div class="ff-heading-row">
+      <h2 class="page-heading">Family and Friends</h2>
+      <div class="ambient-bird-wrap" aria-hidden="true">
+        <div class="mini-3d-bird">
+          <div class="mini-bird-wing left"></div>
+          <div class="mini-bird-body"></div>
+          <div class="mini-bird-wing right"></div>
+        </div>
+      </div>
+    </div>
 
-<!-- SIBLING -->
-<div class="family-friends-card" style="--card-delay:.2s">
-<div class="family-friends-header"><h3>My Sibling and Me</h3></div>
-<div class="family-photo-box">
-<img class="family-photo" src="sibling-and-me.jpg" alt="Me with my sibling" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22480%22 height=%22600%22 viewBox=%220 0 480 600%22><rect width=%22480%22 height=%22600%22 fill=%22%23071430%22/><circle cx=%22240%22 cy=%22220%22 r=%2284%22 fill=%22%23426eae%22/><path d=%22M105 495c16-86 78-132 135-132s119 46 135 132%22 fill=%22%23244778%22/><text x=%22240%22 y=%22548%22 text-anchor=%22middle%22 fill=%22%238ab4ff%22 font-family=%22Arial,sans-serif%22 font-size=%2220%22>My Sibling and Me</text></svg>'">
-</div>
-</div>
+    <div class="family-friends-grid" id="familyFriendsGrid">
 
-<!-- FRIENDS -->
-<div class="family-friends-card" style="--card-delay:.3s">
-<div class="family-friends-header"><h3>My Friends</h3></div>
-<div class="family-photo-box">
-<img class="family-photo" src="my-friends.jpg" alt="Me with my friends" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22480%22 height=%22600%22 viewBox=%220 0 480 600%22><rect width=%22480%22 height=%22600%22 fill=%22%23071430%22/><circle cx=%22240%22 cy=%22220%22 r=%2284%22 fill=%22%23426eae%22/><path d=%22M105 495c16-86 78-132 135-132s119 46 135 132%22 fill=%22%23244778%22/><text x=%22240%22 y=%22548%22 text-anchor=%22middle%22 fill=%22%238ab4ff%22 font-family=%22Arial,sans-serif%22 font-size=%2220%22>My Friends</text></svg>'">
-</div>
-</div>
+      <!-- MOM -->
+      <div class="family-friends-card tilt-3d-card">
+        <div class="family-friends-header"><h3>My Mom and Me</h3></div>
+        <div class="family-photo-box">
+          <img class="family-photo" src="mom-and-me.png" alt="Me with my mom" onerror="handleImageFallback(this, 'mom')">
+        </div>
+        <p class="family-thank-you">Thank you for your unconditional love and endless support. Love you always, Mom!</p>
+      </div>
 
-</div>
-</div>
+      <!-- DAD -->
+      <div class="family-friends-card tilt-3d-card">
+        <div class="family-friends-header"><h3>My Dad and Me</h3></div>
+        <div class="family-photo-box">
+          <img class="family-photo" src="dad-and-me.png" alt="Me with my dad" onerror="handleImageFallback(this, 'dad')">
+        </div>
+        <p class="family-thank-you">Thank you for your hard work, guidance, and sacrifices. I love you, Dad!</p>
+      </div>
 
-<!-- 3D CELESTIAL BIRD FLIGHT ENTRANCE OVERLAY (NO TEXT, ONLY BIRD + SKIP) -->
-<div class="bird-intro-overlay" id="bird-intro-overlay" aria-hidden="true">
-<canvas class="bird-trail-canvas" id="bird-trail-canvas"></canvas>
-<div class="bird-flight-stage" id="bird-flight-stage">
-<div class="feather-orb" id="orb-0"></div>
-<div class="feather-orb" id="orb-1"></div>
-<div class="feather-orb" id="orb-2"></div>
-<div class="feather-orb" id="orb-3"></div>
-<div class="celestial-bird-rig" id="celestial-bird-rig">
-<div class="bird-3d-body">
-<div class="bird-tail"></div>
-<div class="bird-torso"></div>
-<div class="bird-crest"></div>
-<div class="bird-head"></div>
-<div class="bird-beak"></div>
-<div class="bird-wing left-wing"><div class="wing-inner"></div></div>
-<div class="bird-wing right-wing"><div class="wing-inner"></div></div>
-</div>
-</div>
-</div>
-<button type="button" class="skip-bird-btn" id="skip-bird-btn" onclick="finishBirdFlight()">Skip →</button>
-</div>
+      <!-- SIBLING -->
+      <div class="family-friends-card tilt-3d-card">
+        <div class="family-friends-header"><h3>My Sibling and Me</h3></div>
+        <div class="family-photo-box">
+          <img class="family-photo" src="sibling-and-me.jpg" alt="Me with my sibling" onerror="handleImageFallback(this, 'sibling')">
+        </div>
+        <p class="family-thank-you">Grateful for every shared memory and brotherly bond. Here's to more, Mybro!</p>
+      </div>
+
+      <!-- FRIENDS -->
+      <div class="family-friends-card tilt-3d-card">
+        <div class="family-friends-header"><h3>My Friends</h3></div>
+        <div class="family-photo-box">
+          <img class="family-photo" src="my-friends.jpg" alt="Me with my friends" onerror="handleImageFallback(this, 'friends')">
+        </div>
+        <p class="family-thank-you">Thank you for the laughter, loyalty, and memories on this journey together!</p>
+      </div>
+
+    </div>
+  </div>
 </section>
 
 </main>
 
 <!-- BOTTOM NAVIGATION -->
 <div class="bottom-nav" role="navigation" aria-label="Bottom navigation">
-<button type="button" class="bottom-btn" onclick="showPage('home')">⌂ Home</button>
-<button type="button" class="bottom-btn" onclick="previousPage()">↶ Redo</button>
-<button type="button" class="bottom-btn next-btn" onclick="nextPage()">Next →</button>
+  <button type="button" class="bottom-btn" onclick="showPage('home')">⌂ Home</button>
+  <button type="button" class="bottom-btn" onclick="previousPage()">↶ Redo</button>
+  <button type="button" class="bottom-btn next-btn" onclick="nextPage()">Next →</button>
 </div>
 
 <footer>
-© <span id="year"></span> Jhon Jeremy S. Roxas. All rights reserved.
+  © <span id="year"></span> Jhon Jeremy S. Roxas. All rights reserved.
 </footer>
 
 </div>
 
 <script>
-const pages=["home","about","achievements","family-friends"];
+const pages = ["home", "about", "achievements", "family-friends"];
+let flightRafId = null;
+let flightTimeoutIds = [];
 
-/* 3D CARD TILT + GLARE + SWING-IN FOR ACHIEVEMENTS & FAMILY-FRIENDS */
-function initTiltCards(selector, enterClass){
-document.querySelectorAll(selector).forEach(card=>{
-card.addEventListener("pointermove",e=>{
-const rect=card.getBoundingClientRect();
-const px=(e.clientX-rect.left)/rect.width;
-const py=(e.clientY-rect.top)/rect.height;
-const maxTilt=11;
-const ry=(px-0.5)*maxTilt*2;
-const rx=(0.5-py)*maxTilt*2;
-card.style.setProperty("--rx",rx.toFixed(2)+"deg");
-card.style.setProperty("--ry",ry.toFixed(2)+"deg");
-card.style.setProperty("--tz","18px");
-card.style.setProperty("--gx",(px*100).toFixed(1)+"%");
-card.style.setProperty("--gy",(py*100).toFixed(1)+"%");
-card.style.setProperty("--go","1");
-});
-card.addEventListener("pointerleave",()=>{
-card.style.setProperty("--rx","0deg");
-card.style.setProperty("--ry","0deg");
-card.style.setProperty("--tz","0px");
-card.style.setProperty("--go","0");
-});
-if(enterClass){
-card.addEventListener("animationend",()=>{
-card.classList.remove(enterClass);
-},{once:true});
-}
-});
-}
-
-function triggerCardSwing(selector, enterClass){
-const cards=document.querySelectorAll(selector);
-cards.forEach(card=>{
-card.classList.remove(enterClass);
-void card.offsetWidth;
-card.classList.add(enterClass);
-card.addEventListener("animationend",()=>{
-card.classList.remove(enterClass);
-},{once:true});
-});
+/* Generates clean inline SVG fallback images when local photos are absent */
+function handleImageFallback(img, variant) {
+  if (!img || img.dataset.fallbackApplied) return;
+  img.dataset.fallbackApplied = "true";
+  const labels = {
+    profile: { title: "JHON JEREMY S. ROXAS", sub: "BS Computer Science • UC" },
+    mom: { title: "MY MOM AND ME", sub: "Unconditional Love & Support" },
+    dad: { title: "MY DAD AND ME", sub: "Guidance & Inspiration" },
+    sibling: { title: "MY SIBLING AND ME", sub: "Shared Memories • Mybro" },
+    friends: { title: "MY FRIENDS", sub: "Laughter & True Friendship" }
+  };
+  const info = labels[variant] || { title: "PORTFOLIO KEEPSAKE", sub: "Jhon Jeremy S. Roxas" };
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 760" width="640" height="760">
+      <defs>
+        <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#0d2552"/>
+          <stop offset="55%" stop-color="#071636"/>
+          <stop offset="100%" stop-color="#030b24"/>
+        </linearGradient>
+        <radialGradient id="glow" cx="50%" cy="38%" r="45%">
+          <stop offset="0%" stop-color="#8ab4ff" stop-opacity="0.32"/>
+          <stop offset="100%" stop-color="#426eae" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="640" height="760" fill="url(#bgGrad)"/>
+      <rect width="640" height="760" fill="url(#glow)"/>
+      <circle cx="320" cy="285" r="108" fill="#123366" stroke="#8ab4ff" stroke-width="3"/>
+      <circle cx="320" cy="260" r="38" fill="#dbe8ff"/>
+      <path d="M242 365 Q320 298 398 365 L398 390 L242 390 Z" fill="#8ab4ff"/>
+      <path d="M210 210 Q320 140 430 215" fill="none" stroke="#8ab4ff" stroke-width="2.5" stroke-dasharray="6 6" opacity="0.7"/>
+      <text x="320" y="455" text-anchor="middle" fill="#dbe8ff" font-family="Arial, sans-serif" font-size="26" font-weight="bold" letter-spacing="2">${info.title}</text>
+      <text x="320" y="492" text-anchor="middle" fill="#8ab4ff" font-family="Arial, sans-serif" font-size="17">${info.sub}</text>
+      <text x="320" y="532" text-anchor="middle" fill="#a5b5d3" font-family="monospace" font-size="14">JR / PORTFOLIO</text>
+    </svg>
+  `.trim();
+  img.src = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
 }
 
-initTiltCards(".family-friends-card","card-3d-enter");
-initTiltCards(".achievement-card","ach-3d-enter");
-
-/* ~3.2s 3D CELESTIAL BIRD FLIGHT + STARDUST/FEATHER TRAIL + 4 ORBS */
-let birdRafId=null;
-let birdDismissTimer=null;
-let birdFinished=false;
-
-function resizeTrailCanvas(canvas, stage){
-if(!canvas||!stage)return;
-const rect=stage.getBoundingClientRect();
-const dpr=Math.min(window.devicePixelRatio||1,2);
-canvas.width=Math.max(1,Math.floor(rect.width*dpr));
-canvas.height=Math.max(1,Math.floor(rect.height*dpr));
-const ctx=canvas.getContext("2d");
-if(ctx)ctx.setTransform(dpr,0,0,dpr,0,0);
+/* Clears scheduled timers and animation frames for the bird entrance */
+function clearBirdFlightTimers() {
+  if (flightRafId) {
+    cancelAnimationFrame(flightRafId);
+    flightRafId = null;
+  }
+  flightTimeoutIds.forEach(id => clearTimeout(id));
+  flightTimeoutIds = [];
 }
 
-function releaseFeatherOrbs(stage){
-const orbs=[
-document.getElementById("orb-0"),
-document.getElementById("orb-1"),
-document.getElementById("orb-2"),
-document.getElementById("orb-3")
-];
-const cards=Array.from(document.querySelectorAll("#family-friends-grid .family-friends-card"));
-const stageRect=stage.getBoundingClientRect();
-
-orbs.forEach((orb,idx)=>{
-if(!orb)return;
-orb.classList.remove("released","fade-out");
-const startX=stageRect.width*(0.28+idx*0.14);
-const startY=stageRect.height*0.44;
-orb.style.left=startX+"px";
-orb.style.top=startY+"px";
-
-const targetCard=cards[idx];
-let destX=stageRect.width*(0.16+idx*0.22);
-let destY=stageRect.height*0.52;
-if(targetCard){
-const cRect=targetCard.getBoundingClientRect();
-destX=cRect.left-stageRect.left+cRect.width*0.5;
-destY=cRect.top-stageRect.top+cRect.height*0.45;
+/* Triggers 3D entrance swing animation on visible Achievement cards */
+function triggerAchievements3DEntrance() {
+  const cards = document.querySelectorAll("#achievements .achievement-card");
+  cards.forEach(card => {
+    card.classList.remove("anim-in");
+    void card.offsetWidth;
+    card.classList.add("anim-in");
+  });
 }
 
-setTimeout(()=>{
-if(!orb)return;
-orb.classList.add("released");
-orb.style.left=destX+"px";
-orb.style.top=destY+"px";
-},150+idx*110);
+/* Runs the ~3.2s borderless 3D celestial bird flight, stardust trail, and 4 orbs */
+function startCelestialBirdFlight() {
+  clearBirdFlightTimers();
 
-setTimeout(()=>{
-if(!orb)return;
-orb.classList.add("fade-out");
-},980+idx*90);
-});
+  const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const stage = document.getElementById("birdFlightStage");
+  const skipBtn = document.getElementById("skipFlightBtn");
+  const rig = document.getElementById("celestialBirdRig");
+  const bird3d = document.getElementById("celestialBird3d");
+  const canvas = document.getElementById("birdTrailCanvas");
+  const cards = Array.from(document.querySelectorAll("#familyFriendsGrid .family-friends-card"));
+  const orbs = [
+    document.getElementById("featherOrb0"),
+    document.getElementById("featherOrb1"),
+    document.getElementById("featherOrb2"),
+    document.getElementById("featherOrb3")
+  ];
+
+  cards.forEach(c => c.classList.remove("card-swing-in"));
+
+  if (prefersReduced || !stage || !rig || !bird3d || !canvas) {
+    if (stage) stage.classList.add("hidden");
+    if (skipBtn) skipBtn.classList.add("hidden");
+    cards.forEach(c => c.classList.add("card-swing-in"));
+    return;
+  }
+
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  canvas.width = Math.floor(w * dpr);
+  canvas.height = Math.floor(h * dpr);
+  const ctx = canvas.getContext("2d");
+
+  stage.classList.remove("hidden");
+  if (skipBtn) skipBtn.classList.remove("hidden");
+  orbs.forEach(orb => {
+    if (!orb) return;
+    orb.classList.remove("active");
+    orb.style.opacity = "0";
+  });
+
+  const particles = [];
+  const duration = 3200; // ~3.2 seconds total flight
+  const startTime = performance.now();
+  const orbReleased = [false, false, false, false];
+  const releaseThresholds = [0.22, 0.42, 0.62, 0.80];
+
+  function spawnStardust(x, y, vx, vy) {
+    for (let i = 0; i < 3; i++) {
+      const isFeather = Math.random() > 0.72;
+      particles.push({
+        x: x + (Math.random() - 0.5) * 18,
+        y: y + (Math.random() - 0.5) * 18,
+        vx: vx * 0.14 + (Math.random() - 0.5) * 1.4,
+        vy: vy * 0.14 + (Math.random() - 0.5) * 1.4,
+        size: isFeather ? 5 + Math.random() * 4 : 2 + Math.random() * 3.5,
+        alpha: 0.95,
+        decay: 0.018 + Math.random() * 0.015,
+        isFeather,
+        rot: Math.random() * Math.PI * 2,
+        vRot: (Math.random() - 0.5) * 0.12
+      });
+    }
+  }
+
+  function releaseOrbToCard(idx, birdCenterX, birdCenterY) {
+    const orb = orbs[idx];
+    const targetCard = cards[idx];
+    if (!orb || !targetCard) return;
+
+    const rect = targetCard.getBoundingClientRect();
+    const targetX = rect.left + rect.width * 0.5;
+    const targetY = rect.top + rect.height * 0.42;
+
+    orb.style.left = birdCenterX + "px";
+    orb.style.top = birdCenterY + "px";
+    orb.style.transform = "translate(-50%, -50%) scale(1.15)";
+    orb.style.opacity = "1";
+    orb.classList.add("active");
+
+    const t0 = performance.now();
+    const orbDur = 460;
+
+    function animateOrb(now) {
+      const p = Math.min((now - t0) / orbDur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      const cx = birdCenterX + (targetX - birdCenterX) * ease;
+      const cy = birdCenterY + (targetY - birdCenterY) * ease - Math.sin(p * Math.PI) * 34;
+      const scale = 1.15 * (1 - p * 0.45);
+      orb.style.left = cx + "px";
+      orb.style.top = cy + "px";
+      orb.style.transform = `translate(-50%, -50%) scale(${scale})`;
+      orb.style.opacity = String(1 - p * 0.85);
+
+      if (p >= 0.65 && !targetCard.classList.contains("card-swing-in")) {
+        targetCard.classList.add("card-swing-in");
+      }
+
+      if (p < 1) {
+        requestAnimationFrame(animateOrb);
+      } else {
+        targetCard.classList.add("card-swing-in");
+        orb.style.opacity = "0";
+        orb.classList.remove("active");
+      }
+    }
+    requestAnimationFrame(animateOrb);
+  }
+
+  let prevX = -180;
+  let prevY = h * 0.58;
+
+  function step(now) {
+    const elapsed = now - startTime;
+    const t = Math.min(elapsed / duration, 1);
+
+    // Sweeping 3D figure-wave flight across viewport
+    const x = -180 + (w + 340) * t;
+    const wave1 = Math.sin(t * Math.PI * 2.3) * (h * 0.16);
+    const arcLift = -Math.sin(t * Math.PI) * (h * 0.14);
+    const y = h * 0.52 + wave1 + arcLift;
+    const zDepth = Math.sin(t * Math.PI * 2) * 140;
+
+    const dx = x - prevX;
+    const dy = y - prevY;
+    const pitch = Math.max(-24, Math.min(24, (dy / 14) * 14));
+    const roll = Math.cos(t * Math.PI * 2.3) * 22;
+    const yaw = Math.sin(t * Math.PI * 1.5) * 16;
+
+    rig.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, ${zDepth.toFixed(1)}px)`;
+    bird3d.style.transform = `rotateX(${roll.toFixed(1)}deg) rotateY(${yaw.toFixed(1)}deg) rotateZ(${pitch.toFixed(1)}deg)`;
+
+    spawnStardust(x + 75, y + 74, dx, dy);
+
+    for (let i = 0; i < 4; i++) {
+      if (!orbReleased[i] && t >= releaseThresholds[i]) {
+        orbReleased[i] = true;
+        releaseOrbToCard(i, x + 110, y + 70);
+      }
+    }
+
+    if (ctx) {
+      ctx.save();
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, w, h);
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const pt = particles[i];
+        pt.x += pt.vx;
+        pt.y += pt.vy;
+        pt.rot += pt.vRot;
+        pt.alpha -= pt.decay;
+        if (pt.alpha <= 0) {
+          particles.splice(i, 1);
+          continue;
+        }
+        ctx.save();
+        ctx.translate(pt.x, pt.y);
+        ctx.rotate(pt.rot);
+        ctx.globalAlpha = Math.max(0, pt.alpha);
+        if (pt.isFeather) {
+          ctx.fillStyle = "#dbe8ff";
+          ctx.beginPath();
+          ctx.ellipse(0, 0, pt.size * 1.5, pt.size * 0.45, 0, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          ctx.fillStyle = "#8ab4ff";
+          ctx.beginPath();
+          ctx.arc(0, 0, pt.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+      ctx.restore();
+    }
+
+    prevX = x;
+    prevY = y;
+
+    if (t < 1) {
+      flightRafId = requestAnimationFrame(step);
+    } else {
+      cards.forEach(c => c.classList.add("card-swing-in"));
+      stage.classList.add("hidden");
+      if (skipBtn) skipBtn.classList.add("hidden");
+      flightRafId = null;
+    }
+  }
+
+  flightRafId = requestAnimationFrame(step);
 }
 
-function finishBirdFlight(){
-if(birdFinished)return;
-birdFinished=true;
-if(birdRafId){cancelAnimationFrame(birdRafId);birdRafId=null;}
-if(birdDismissTimer){clearTimeout(birdDismissTimer);birdDismissTimer=null;}
-
-const overlay=document.getElementById("bird-intro-overlay");
-if(overlay)overlay.classList.add("done");
-triggerCardSwing(".family-friends-card","card-3d-enter");
+/* Skips the remaining bird flight animation immediately */
+function skipBirdFlight() {
+  clearBirdFlightTimers();
+  const stage = document.getElementById("birdFlightStage");
+  const skipBtn = document.getElementById("skipFlightBtn");
+  const cards = document.querySelectorAll("#familyFriendsGrid .family-friends-card");
+  const orbs = document.querySelectorAll(".feather-orb");
+  if (stage) stage.classList.add("hidden");
+  if (skipBtn) skipBtn.classList.add("hidden");
+  orbs.forEach(orb => {
+    orb.classList.remove("active");
+    orb.style.opacity = "0";
+  });
+  cards.forEach(c => c.classList.add("card-swing-in"));
 }
 
-function startBirdFlight(){
-const overlay=document.getElementById("bird-intro-overlay");
-const stage=document.getElementById("bird-flight-stage");
-const rig=document.getElementById("celestial-bird-rig");
-const canvas=document.getElementById("bird-trail-canvas");
-if(!overlay||!stage||!rig||!canvas)return;
+/* Attaches cursor-tracked 3D tilt, radial glare, and Z-depth to 3D cards */
+function init3DTiltCards() {
+  const cards = document.querySelectorAll(".tilt-3d-card");
+  cards.forEach(card => {
+    card.addEventListener("pointermove", e => {
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const rect = card.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width;
+      const py = (e.clientY - rect.top) / rect.height;
+      const rotateY = (px - 0.5) * 14;
+      const rotateX = (0.5 - py) * 14;
+      card.style.setProperty("--ry", rotateY.toFixed(2) + "deg");
+      card.style.setProperty("--rx", rotateX.toFixed(2) + "deg");
+      card.style.setProperty("--tz", "12px");
+      card.style.setProperty("--gx", (px * 100).toFixed(1) + "%");
+      card.style.setProperty("--gy", (py * 100).toFixed(1) + "%");
+      card.style.setProperty("--go", "1");
+    });
 
-if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches){
-overlay.classList.add("done");
-return;
+    card.addEventListener("pointerleave", () => {
+      card.style.setProperty("--ry", "0deg");
+      card.style.setProperty("--rx", "0deg");
+      card.style.setProperty("--tz", "0px");
+      card.style.setProperty("--go", "0");
+    });
+  });
 }
 
-birdFinished=false;
-if(birdRafId){cancelAnimationFrame(birdRafId);birdRafId=null;}
-if(birdDismissTimer){clearTimeout(birdDismissTimer);birdDismissTimer=null;}
+/* Switches active portfolio section and triggers section-specific 3D sequences */
+function showPage(pageId) {
+  const selected = document.getElementById(pageId);
+  if (!selected || !selected.classList.contains("page")) return;
 
-overlay.classList.remove("done");
-resizeTrailCanvas(canvas,stage);
-const ctx=canvas.getContext("2d");
-const particles=[];
-let orbsReleased=false;
-const duration=3200;
-const startTime=performance.now();
+  if (pageId !== "family-friends") {
+    skipBirdFlight();
+  }
 
-function spawnTrail(x,y,angle,tNorm){
-const count=tNorm<0.85?3:1;
-for(let i=0;i<count;i++){
-const isFeather=Math.random()<0.25;
-particles.push({
-x:x+(Math.random()-0.5)*26,
-y:y+(Math.random()-0.5)*26,
-vx:-Math.cos(angle)*(1.2+Math.random()*2.2)+(Math.random()-0.5)*1.1,
-vy:-Math.sin(angle)*(1.2+Math.random()*2.2)+(Math.random()-0.5)*1.2,
-size:isFeather?5+Math.random()*4:1.8+Math.random()*3.2,
-alpha:0.95,
-decay:0.018+Math.random()*0.015,
-feather:isFeather,
-rot:Math.random()*Math.PI*2,
-vRot:(Math.random()-0.5)*0.12
-});
-}
-}
+  document.querySelectorAll(".page").forEach(page => {
+    const active = page.id === pageId;
+    page.classList.toggle("active", active);
+    page.hidden = !active;
+    if (active) page.scrollTop = 0;
+  });
 
-function drawParticles(w,h){
-if(!ctx)return;
-ctx.clearRect(0,0,w,h);
-for(let i=particles.length-1;i>=0;i--){
-const p=particles[i];
-p.x+=p.vx;
-p.y+=p.vy;
-p.rot+=p.vRot;
-p.alpha-=p.decay;
-if(p.alpha<=0){
-particles.splice(i,1);
-continue;
-}
-ctx.save();
-ctx.globalAlpha=Math.max(0,p.alpha);
-ctx.translate(p.x,p.y);
-ctx.rotate(p.rot);
-if(p.feather){
-ctx.fillStyle="#8ab4ff";
-ctx.beginPath();
-ctx.ellipse(0,0,p.size*1.3,p.size*0.45,0,0,Math.PI*2);
-ctx.fill();
-}else{
-ctx.fillStyle="#dbe8ff";
-ctx.shadowColor="#8ab4ff";
-ctx.shadowBlur=10;
-ctx.beginPath();
-ctx.arc(0,0,p.size,0,Math.PI*2);
-ctx.fill();
-}
-ctx.restore();
-}
+  document.querySelectorAll(".nav-btn").forEach(button => {
+    const active = button.dataset.page === pageId;
+    button.classList.toggle("active", active);
+    if (active) button.setAttribute("aria-current", "page");
+    else button.removeAttribute("aria-current");
+  });
+
+  history.replaceState(null, "", "#" + pageId);
+
+  if (pageId === "achievements") {
+    triggerAchievements3DEntrance();
+  } else if (pageId === "family-friends") {
+    startCelestialBirdFlight();
+  }
 }
 
-function step(now){
-if(birdFinished)return;
-const rect=stage.getBoundingClientRect();
-const w=rect.width||window.innerWidth;
-const h=rect.height||window.innerHeight;
-const elapsed=now-startTime;
-const t=Math.min(1,elapsed/duration);
-
-/* Swooping 3D celestial flight path across the viewport */
-const x=(-130)+(w+260)*t;
-const wave1=Math.sin(t*Math.PI*2.2)*Math.min(h*0.18,125);
-const arcUp=-Math.sin(t*Math.PI)*Math.min(h*0.14,95);
-const y=h*0.52+wave1+arcUp;
-const z=Math.sin(t*Math.PI*2)*95+40;
-
-const dt=0.012;
-const tNext=Math.min(1,t+dt);
-const xNext=(-130)+(w+260)*tNext;
-const yNext=h*0.52+Math.sin(tNext*Math.PI*2.2)*Math.min(h*0.18,125)-Math.sin(tNext*Math.PI)*Math.min(h*0.14,95);
-const pitchDeg=(Math.atan2(yNext-y,xNext-x)*180)/Math.PI;
-const bankDeg=Math.cos(t*Math.PI*2.2)*26;
-
-const scale=t>0.82?1-(t-0.82)*2.2:0.92+Math.sin(t*Math.PI)*0.16;
-const opacity=t>0.86?Math.max(0,1-(t-0.86)/0.14):1;
-
-rig.style.opacity=opacity.toFixed(3);
-rig.style.transform=`translate3d(${(x-80).toFixed(1)}px,${(y-60).toFixed(1)}px,${z.toFixed(1)}px) rotateZ(${pitchDeg.toFixed(1)}deg) rotateX(${bankDeg.toFixed(1)}deg) scale(${Math.max(0.35,scale).toFixed(3)})`;
-
-spawnTrail(x+12,y,pitchDeg*Math.PI/180,t);
-drawParticles(w,h);
-
-if(!orbsReleased&&t>=0.48){
-orbsReleased=true;
-releaseFeatherOrbs(stage);
+function previousPage() {
+  const current = document.querySelector(".page.active");
+  const index = current ? pages.indexOf(current.id) : 0;
+  const previousIndex = (index - 1 + pages.length) % pages.length;
+  showPage(pages[previousIndex]);
 }
 
-if(t<1){
-birdRafId=requestAnimationFrame(step);
-}else{
-birdDismissTimer=setTimeout(()=>finishBirdFlight(),180);
-}
-}
-
-birdRafId=requestAnimationFrame(step);
+function nextPage() {
+  const current = document.querySelector(".page.active");
+  const index = current ? pages.indexOf(current.id) : -1;
+  const nextIndex = (index + 1) % pages.length;
+  showPage(pages[nextIndex]);
 }
 
-/* PAGE NAVIGATION */
-function showPage(pageId){
-const selected=document.getElementById(pageId);
-if(!selected||!selected.classList.contains("page"))return;
+document.getElementById("year").textContent = new Date().getFullYear();
+init3DTiltCards();
 
-document.querySelectorAll(".page").forEach(page=>{
-const active=page.id===pageId;
-page.classList.toggle("active",active);
-page.hidden=!active;
-if(active)page.scrollTop=0;
-});
-
-document.querySelectorAll(".nav-btn").forEach(button=>{
-const active=button.dataset.page===pageId;
-button.classList.toggle("active",active);
-if(active)button.setAttribute("aria-current","page");
-else button.removeAttribute("aria-current");
-});
-
-history.replaceState(null,"","#"+pageId);
-
-if(pageId==="achievements"){
-triggerCardSwing(".achievement-card","ach-3d-enter");
-}else if(pageId==="family-friends"){
-startBirdFlight();
-}
+const initial = location.hash.slice(1);
+if (pages.includes(initial)) {
+  showPage(initial);
+} else {
+  showPage("home");
 }
 
-function previousPage(){
-const current=document.querySelector(".page.active");
-const index=current?pages.indexOf(current.id):0;
-const previousIndex=(index-1+pages.length)%pages.length;
-showPage(pages[previousIndex]);
-}
-
-function nextPage(){
-const current=document.querySelector(".page.active");
-const index=current?pages.indexOf(current.id):-1;
-const nextIndex=(index+1)%pages.length;
-showPage(pages[nextIndex]);
-}
-
-window.addEventListener("resize",()=>{
-const canvas=document.getElementById("bird-trail-canvas");
-const stage=document.getElementById("bird-flight-stage");
-resizeTrailCanvas(canvas,stage);
-});
-
-document.getElementById("year").textContent=new Date().getFullYear();
-
-/* OPEN DIRECTLY ON FAMILY-FRIENDS SO THE VISUALIZATION APPEARS IMMEDIATELY */
-const initial=location.hash.slice(1);
-if(pages.includes(initial)&&initial!=="family-friends"){
-showPage(initial);
-}else{
-showPage("family-friends");
-}
-
-window.addEventListener("hashchange",()=>{
-const pageId=location.hash.slice(1);
-if(pages.includes(pageId))showPage(pageId);
+window.addEventListener("hashchange", () => {
+  const pageId = location.hash.slice(1);
+  if (pages.includes(pageId)) showPage(pageId);
 });
 </script>
 </body>
