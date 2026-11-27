@@ -7,842 +7,485 @@
 <title>Jhon Jeremy S. Roxas | Portfolio</title>
 <style>
 :root {
-  --bg: #020a35;
-  --nav: #062758;
-  --card: #091b43;
-  --card2: #0c234c;
-  --border: #244778;
-  --accent: #8ab4ff;
-  --blue: #426eae;
-  --text: #a5b5d3;
-  --white: #dbe8ff;
-  --gold: #f0c66d;
+--bg:#020a35;--nav:#062758;--card:#091b43;--card2:#0c234c;
+--border:#244778;--accent:#8ab4ff;--blue:#426eae;
+--text:#a5b5d3;--white:#dbe8ff;--gold:#f0c66d;
 }
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font: 16px/1.55 Arial, sans-serif;
-  overflow: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background-image:
-    linear-gradient(rgba(82, 126, 181, .05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(82, 126, 181, .05) 1px, transparent 1px);
-  background-size: 45px 45px;
-}
-
-button {
-  font: inherit;
-  cursor: pointer;
-}
-
-.app {
-  display: flex;
-  flex-direction: column;
-  height: 100dvh;
-  min-height: 0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{background:var(--bg);color:var(--text);font:16px/1.55 Arial,sans-serif;overflow:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(rgba(82,126,181,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(82,126,181,.05) 1px,transparent 1px);background-size:45px 45px}
+button{font:inherit;cursor:pointer}
+.app{display:flex;flex-direction:column;height:100dvh;min-height:0}
 
 /* TOP NAVIGATION */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding: 15px 5%;
-  background: var(--nav);
-  border-bottom: 1px solid #123366;
-  flex-shrink: 0;
-}
-
-.logo {
-  color: var(--accent);
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  white-space: nowrap;
-}
-
-.nav-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.nav-btn {
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 9px;
-  padding: 10px 15px;
-  color: var(--text);
-  font-size: 14px;
-  font-weight: bold;
-  transition: .25s;
-}
-
-.nav-btn:hover {
-  background: #123366;
-  color: var(--white);
-}
-
-.nav-btn.active {
-  background: var(--blue);
-  border-color: #527eb5;
-  color: white;
-}
+nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:15px 5%;background:var(--nav);border-bottom:1px solid #123366;flex-shrink:0;z-index:20}
+.logo{color:var(--accent);font-size:20px;font-weight:bold;letter-spacing:1px;white-space:nowrap}
+.nav-buttons{display:flex;flex-wrap:wrap;gap:8px}
+.nav-btn{background:transparent;border:1px solid transparent;border-radius:9px;padding:10px 15px;color:var(--text);font-size:14px;font-weight:bold;transition:.25s}
+.nav-btn:hover{background:#123366;color:var(--white)}
+.nav-btn.active{background:var(--blue);border-color:#527eb5;color:white}
 
 /* PAGE LAYOUT */
-.page-container {
-  flex: 1;
-  min-height: 0;
-  position: relative;
-}
-
-.page {
-  display: none;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  padding: 25px 5%;
-}
-
-.page.active {
-  display: flex;
-  flex-direction: column;
-  animation: fade .3s ease;
-}
-
-@keyframes fade {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+.page-container{flex:1;min-height:0;position:relative}
+.page{display:none;width:100%;height:100%;overflow:hidden;padding:25px 5%}
+.page.active{display:flex;flex-direction:column;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
 /* HOME PAGE */
-.home-layout {
-  width: 100%;
-  max-width: 1400px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 55px;
-}
-
-.home-content {
-  width: 55%;
-  min-width: 0;
-}
-
-.availability {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 9px 15px;
-  margin-bottom: 25px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 30px;
-  color: var(--white);
-  font-size: 13px;
-}
-
-.status-dot {
-  height: 9px;
-  width: 9px;
-  background: #63d99a;
-  border-radius: 50%;
-  animation: pulse 3s infinite;
-}
-
-@keyframes pulse {
-  50% { opacity: .4; }
-}
-
-.home-title {
-  font-size: clamp(40px, 4.8vw, 66px);
-  line-height: 1.08;
-  margin-bottom: 25px;
-}
-
-.hello { color: var(--text); }
-.name { color: var(--blue); }
-
-.home-subtitle {
-  font-size: clamp(21px, 2.3vw, 30px);
-  font-weight: bold;
-  color: var(--white);
-  margin-bottom: 20px;
-}
-
-.home-subtitle span { color: var(--accent); }
-
-.home-intro {
-  max-width: 600px;
-  font-size: 19px;
-  line-height: 1.75;
-}
+.home-layout{width:100%;max-width:1400px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:55px}
+.home-content{width:55%;min-width:0}
+.availability{display:inline-flex;align-items:center;gap:10px;padding:9px 15px;margin-bottom:25px;background:var(--card);border:1px solid var(--border);border-radius:30px;color:var(--white);font-size:13px}
+.status-dot{height:9px;width:9px;background:#63d99a;border-radius:50%;animation:pulse 3s infinite}
+@keyframes pulse{50%{opacity:.4}}
+.home-title{font-size:clamp(40px,4.8vw,66px);line-height:1.08;margin-bottom:25px}
+.hello{color:var(--text)}
+.name{color:var(--blue)}
+.home-subtitle{font-size:clamp(21px,2.3vw,30px);font-weight:bold;color:var(--white);margin-bottom:20px}
+.home-subtitle span{color:var(--accent)}
+.home-intro{max-width:600px;font-size:19px;line-height:1.75}
 
 /* PROFILE PICTURE */
-.photo-side {
-  width: 40%;
-  display: flex;
-  justify-content: center;
-}
-
-.photo-container {
-  position: relative;
-  width: 100%;
-  max-width: 460px;
-  background: var(--card);
-  border: 1px solid var(--blue);
-  border-radius: 16px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, .3);
-}
-
-.window-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 43px;
-  padding: 0 15px;
-  background: var(--card2);
-  border-bottom: 1px solid var(--border);
-  border-radius: 15px 15px 0 0;
-}
-
-.window-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.red { background: #e58c88; }
-.yellow { background: #e7bf72; }
-.green { background: #80c8a0; }
-
-.window-title {
-  margin-left: auto;
-  font: 12px monospace;
-  color: var(--accent);
-}
-
-.photo-content { padding: 12px; }
-
-.photo-content img,
-.photo-content svg {
-  width: 100%;
-  max-height: min(54vh, 520px);
-  height: auto;
-  display: block;
-  object-fit: contain;
-  border-radius: 8px;
-}
+.photo-side{width:40%;display:flex;justify-content:center}
+.photo-container{position:relative;width:100%;max-width:460px;background:var(--card);border:1px solid var(--blue);border-radius:16px;box-shadow:0 15px 40px rgba(0,0,0,.3)}
+.window-header{display:flex;align-items:center;gap:8px;height:43px;padding:0 15px;background:var(--card2);border-bottom:1px solid var(--border);border-radius:15px 15px 0 0}
+.window-dot{width:10px;height:10px;border-radius:50%}
+.red{background:#e58c88}.yellow{background:#e7bf72}.green{background:#80c8a0}
+.window-title{margin-left:auto;font:12px monospace;color:var(--accent)}
+.photo-content{padding:12px}
+.photo-content img{width:100%;max-height:min(54vh,520px);height:auto;display:block;object-fit:contain;border-radius:8px}
 
 /* FLOATING CODING ELEMENTS */
-.floating-card {
-  position: absolute;
-  padding: 12px 16px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 11px;
-  color: var(--white);
-  font-size: 14px;
-  font-weight: bold;
-  white-space: nowrap;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, .3);
-}
-
-.code {
-  top: 55%;
-  left: -8%;
-  animation: float 14s ease-in-out infinite;
-}
-
-.python {
-  top: 15%;
-  right: -5%;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  animation: float 7s ease-in-out infinite;
-}
-
-.python-symbol { color: var(--accent); }
-
-.python-typing {
-  display: inline-block;
-  width: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid var(--accent);
-  animation: typing 6s steps(6, end) infinite, blink .7s step-end infinite;
-}
-
-.engineer {
-  bottom: 12%;
-  right: -5%;
-  animation: float 7s ease-in-out infinite;
-}
-
-@keyframes float {
-  50% { transform: translateY(-12px); }
-}
-
-@keyframes typing {
-  0%, 10% { width: 0; }
-  40%, 65% { width: 6ch; }
-  95%, 100% { width: 0; }
-}
-
-@keyframes blink {
-  50% { border-color: transparent; }
-}
+.floating-card{position:absolute;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:11px;color:var(--white);font-size:14px;font-weight:bold;white-space:nowrap;box-shadow:0 8px 25px rgba(0,0,0,.3)}
+.code{top:55%;left:-8%;animation:float 14s ease-in-out infinite}
+.python{top:15%;right:-5%;display:flex;align-items:center;gap:5px;animation:float 7s ease-in-out infinite}
+.python-symbol{color:var(--accent)}
+.python-typing{display:inline-block;width:0;overflow:hidden;white-space:nowrap;border-right:2px solid var(--accent);animation:typing 6s steps(6,end) infinite,blink .7s step-end infinite}
+.engineer{bottom:12%;right:-5%;animation:float 7s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+@keyframes typing{0%,10%{width:0}40%,65%{width:6ch}95%,100%{width:0}}
+@keyframes blink{50%{border-color:transparent}}
 
 /* INNER PAGES */
-.inner-page {
-  width: 100%;
-  max-width: 1150px;
-  margin: auto;
+.inner-page{width:100%;max-width:1150px;margin:auto}
+.page-heading{color:var(--white);font-size:clamp(30px,3.5vw,42px);margin-bottom:20px}
+.page-description{font-size:16px;margin-bottom:20px}
+.info-card{padding:20px;background:var(--card);border:1px solid var(--border);border-radius:15px}
+.info-card h3{color:var(--accent);font-size:20px;margin-bottom:12px}
+.info-card p{font-size:16px;line-height:1.6}
+
+/* PERSONAL INFORMATION — MAXIMIZED & NON-SCROLLABLE ON DESKTOP */
+#about{padding:10px 3% 8px;overflow:hidden}
+#about .inner-page{max-width:1700px;width:100%;height:100%;margin:0 auto;display:flex;flex-direction:column;gap:8px;min-height:0}
+#about .page-heading{margin-bottom:0;font-size:clamp(22px,2.2vw,30px);line-height:1.15;flex-shrink:0}
+#about .info-card{padding:10px 16px;border-radius:12px}
+#about .info-card h3{margin-bottom:4px;font-size:15px}
+#about .info-card p{line-height:1.35;font-size:12.5px}
+.about-description{text-align:justify}
+.personal-details{flex:1;min-height:0;display:flex;flex-direction:column;gap:8px}
+.details-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px 8px;flex-shrink:0}
+.traits-box{margin-top:0;padding-top:8px;border-top:1px solid var(--border);flex:1;min-height:0;display:flex;flex-direction:column}
+.traits-heading{color:var(--accent);font-size:14px;font-weight:bold;margin-bottom:6px;flex-shrink:0}
+.traits-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));gap:6px 8px;flex:1;min-height:0;overflow:hidden;padding-right:0}
+.detail-item{background:#102b54;border:1px solid var(--border);border-radius:8px;padding:4px 8px;display:flex;flex-direction:column;justify-content:center;min-height:0}
+.detail-label{display:block;color:var(--accent);font-size:10px;font-weight:bold;line-height:1.15;margin-bottom:1px}
+.detail-value{color:var(--white);font-size:12px;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ACHIEVEMENTS — 3D PERSPECTIVE & CURSOR TILT WITH GLARE */
+#achievements{padding:18px 4% 12px;perspective:1500px;overflow-y:auto}
+#achievements .inner-page{max-width:1600px;width:100%;margin:0 auto;display:flex;flex-direction:column;min-height:0;transform-style:preserve-3d}
+#achievements .page-heading{font-size:clamp(26px,2.6vw,36px);margin-bottom:12px;flex-shrink:0}
+.achievement-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;width:100%;align-items:stretch;min-height:0;perspective:1400px;transform-style:preserve-3d}
+.achievement-card{
+  position:relative;
+  display:flex;flex-direction:column;gap:12px;min-width:0;padding:20px;
+  border:1px solid #30588d;border-radius:16px;
+  background:linear-gradient(150deg,#0d234b,#081838);
+  transform-style:preserve-3d;
+  will-change:transform;
+  overflow:hidden;
+  --rx:0deg;--ry:0deg;--tz:0px;--gx:50%;--gy:50%;--go:0;
+  transition:border-color .25s ease,box-shadow .3s ease,transform .16s ease-out;
+}
+.achievement-card.ach-3d-enter{
+  animation:achCardSwing3D .78s cubic-bezier(.22,1,.36,1) both;
+  animation-delay:var(--ach-delay,0s);
+}
+@keyframes achCardSwing3D{
+  0%{opacity:0;transform:perspective(1200px) translate3d(0,34px,-110px) rotateX(14deg) rotateY(-12deg) scale(.94)}
+  65%{opacity:1;transform:perspective(1200px) translate3d(0,-3px,12px) rotateX(-2deg) rotateY(2deg) scale(1.01)}
+  100%{opacity:1;transform:perspective(1200px) translate3d(0,0,0) rotateX(0deg) rotateY(0deg) scale(1)}
+}
+.achievement-card:not(.ach-3d-enter){
+  transform:perspective(1200px) rotateX(var(--rx)) rotateY(var(--ry)) translateZ(var(--tz));
+}
+.achievement-card::before{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;z-index:2;
+  background:radial-gradient(420px circle at var(--gx) var(--gy),rgba(138,180,255,.22),rgba(138,180,255,.05) 38%,transparent 70%);
+  opacity:var(--go);transition:opacity .22s ease;
+}
+.achievement-card:hover{
+  border-color:var(--accent);
+  box-shadow:0 22px 44px rgba(0,0,0,.48),0 0 24px rgba(138,180,255,.16);
+}
+.achievement-header{display:flex;align-items:center;gap:12px;transform:translateZ(20px);transform-style:preserve-3d;position:relative;z-index:3}
+.achievement-icon{width:48px;height:48px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#102b54;border:1px solid var(--border);border-radius:12px;font-size:24px;transform:translateZ(12px)}
+.achievement-header h3{margin:0;color:var(--accent);font-size:20px}
+.academic-awards,.sports-awards,.leadership-awards{display:flex;flex-direction:column;gap:12px;flex:1;transform-style:preserve-3d;position:relative;z-index:3}
+.award-highlight{display:flex;align-items:flex-start;gap:10px;padding:15px;background:linear-gradient(120deg,#162c4c,#10213e);border:1px solid #b48b45;border-left:4px solid var(--gold);border-radius:12px;min-width:0;transform:translateZ(12px);transition:.25s}
+.achievement-card:hover .award-highlight{transform:translateZ(24px)}
+.award-highlight:hover{border-color:var(--gold);box-shadow:0 5px 22px rgba(240,198,109,.12)}
+.award-symbol{font-size:24px;flex-shrink:0}
+.award-text{flex:1;min-width:0}
+.award-title{display:block;color:var(--gold);font-size:15px;line-height:1.4;font-weight:bold}
+.award-description{display:block;color:var(--text);font-size:13px;line-height:1.5;margin-top:5px}
+.award-star{color:var(--gold);font-size:17px;flex-shrink:0}
+.sports-highlight{border-color:#b48b45;border-left-color:var(--gold);background:linear-gradient(120deg,#162c4c,#10213e);flex:1}
+.sports-highlight .award-title,.sports-highlight .award-star{color:var(--gold)}
+.sports-highlight:hover{border-color:var(--gold);box-shadow:0 5px 22px rgba(240,198,109,.12)}
+.leadership-highlight{border-color:#b48b45;border-left-color:var(--gold);flex:1}
+
+/* FAMILY AND FRIENDS — 3D CELESTIAL BIRD FLIGHT + 3D GALLERY */
+#family-friends{
+  position:relative;
+  padding:14px 3% 10px;
+  perspective:1500px;
+  overflow:hidden;
+}
+#family-friends .inner-page{
+  max-width:1700px;width:100%;height:100%;margin:0 auto;
+  display:flex;flex-direction:column;min-height:0;
+  transform-style:preserve-3d;
+}
+.ff-heading-row{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin-bottom:12px;flex-shrink:0;position:relative;z-index:4;
+}
+.ff-heading-left{display:flex;align-items:center;gap:12px;min-width:0}
+#family-friends .page-heading{font-size:clamp(24px,2.4vw,34px);margin-bottom:0;flex-shrink:0}
+
+/* AMBIENT MINI 3D BIRD BESIDE HEADING */
+.ambient-bird-wrap{
+  width:46px;height:36px;perspective:600px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.ambient-bird{
+  width:36px;height:26px;transform-style:preserve-3d;
+  animation:ambientGlide 3.8s ease-in-out infinite;
+}
+@keyframes ambientGlide{
+  0%,100%{transform:translate3d(0,0,8px) rotateY(14deg) rotateZ(-4deg)}
+  50%{transform:translate3d(5px,-4px,18px) rotateY(22deg) rotateZ(5deg)}
+}
+.mini-wing-l,.mini-wing-r{
+  position:absolute;top:4px;width:14px;height:10px;
+  background:linear-gradient(135deg,#8ab4ff,#426eae);
+  border:1px solid rgba(219,232,255,.55);
+  border-radius:80% 10% 60% 20%;
+}
+.mini-wing-l{left:8px;transform-origin:100% 60%;animation:miniFlapL .55s ease-in-out infinite alternate}
+.mini-wing-r{left:8px;transform-origin:100% 60%;animation:miniFlapR .55s ease-in-out infinite alternate;opacity:.85}
+.mini-body{
+  position:absolute;left:5px;top:9px;width:22px;height:8px;
+  background:linear-gradient(90deg,#426eae,#dbe8ff);
+  border-radius:60% 90% 70% 40%;
+}
+@keyframes miniFlapL{from{transform:rotateX(52deg)}to{transform:rotateX(-58deg)}}
+@keyframes miniFlapR{from{transform:rotateX(-48deg)}to{transform:rotateX(58deg)}}
+
+.family-friends-grid{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:100%;flex:1;min-height:0;
+  perspective:1400px;transform-style:preserve-3d;
+}
+.family-friends-card{
+  position:relative;
+  display:flex;flex-direction:column;gap:10px;min-width:0;min-height:0;padding:12px;
+  border:1px solid #30588d;border-radius:16px;
+  background:linear-gradient(150deg,#0d234b,#081838);
+  transform-style:preserve-3d;
+  will-change:transform;
+  overflow:hidden;
+  --rx:0deg;--ry:0deg;--tz:0px;--gx:50%;--gy:50%;--go:0;
+  transition:border-color .25s ease,box-shadow .3s ease,transform .16s ease-out;
+}
+.family-friends-card.card-3d-enter{
+  animation:cardSwing3D .78s cubic-bezier(.22,1,.36,1) both;
+  animation-delay:var(--card-delay,0s);
+}
+@keyframes cardSwing3D{
+  0%{opacity:0;transform:perspective(1200px) translate3d(0,36px,-120px) rotateX(16deg) rotateY(-14deg) scale(.92)}
+  65%{opacity:1;transform:perspective(1200px) translate3d(0,-4px,14px) rotateX(-2deg) rotateY(2deg) scale(1.01)}
+  100%{opacity:1;transform:perspective(1200px) translate3d(0,0,0) rotateX(0deg) rotateY(0deg) scale(1)}
+}
+.family-friends-card:not(.card-3d-enter){
+  transform:perspective(1200px) rotateX(var(--rx)) rotateY(var(--ry)) translateZ(var(--tz));
+}
+.family-friends-card::before{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;z-index:2;
+  background:radial-gradient(420px circle at var(--gx) var(--gy),rgba(138,180,255,.24),rgba(138,180,255,.05) 38%,transparent 70%);
+  opacity:var(--go);transition:opacity .22s ease;
+}
+.family-friends-card:hover{
+  border-color:var(--accent);
+  box-shadow:0 22px 44px rgba(0,0,0,.48),0 0 24px rgba(138,180,255,.18);
+}
+.family-friends-header{
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transform:translateZ(22px);transform-style:preserve-3d;position:relative;z-index:3;
+}
+.family-friends-header h3{color:var(--accent);font-size:17px;text-align:center}
+.family-photo-box{
+  flex:1 1 0;min-height:0;width:100%;
+  border:1px solid var(--border);border-radius:12px;overflow:hidden;
+  background:#071430;transform:translateZ(14px);position:relative;z-index:3;
+}
+.family-friends-card:hover .family-photo-box{transform:translateZ(26px)}
+.family-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .35s ease}
+.family-friends-card:hover .family-photo{transform:scale(1.03)}
+
+/* 3D CELESTIAL BIRD FLIGHT ENTRANCE OVERLAY */
+.bird-intro-overlay{
+  position:absolute;inset:0;z-index:15;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 50% 45%,rgba(12,35,76,.82) 0%,rgba(2,10,53,.95) 72%);
+  backdrop-filter:blur(6px);
+  perspective:1600px;
+  overflow:hidden;
+  opacity:1;
+  transition:opacity .55s ease,visibility .55s ease;
+}
+.bird-intro-overlay.done{
+  opacity:0;visibility:hidden;pointer-events:none;
+}
+.bird-trail-canvas{
+  position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;
+}
+.bird-flight-stage{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;z-index:2;
+}
+.celestial-bird-rig{
+  position:absolute;left:0;top:0;width:160px;height:120px;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.bird-3d-body{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;
+}
+.bird-torso{
+  position:absolute;left:36px;top:48px;width:78px;height:26px;
+  background:linear-gradient(95deg,#244778 0%,#426eae 48%,#8ab4ff 85%,#dbe8ff 100%);
+  border:1px solid rgba(219,232,255,.7);
+  border-radius:42% 85% 65% 35% / 55% 65% 45% 50%;
+  box-shadow:0 0 28px rgba(138,180,255,.55);
+  transform:translateZ(12px);
+}
+.bird-head{
+  position:absolute;left:104px;top:38px;width:30px;height:22px;
+  background:linear-gradient(120deg,#8ab4ff,#dbe8ff);
+  border:1px solid rgba(255,255,255,.8);
+  border-radius:55% 75% 50% 45%;
+  box-shadow:0 0 22px rgba(138,180,255,.75);
+  transform:translateZ(20px);
+}
+.bird-beak{
+  position:absolute;left:131px;top:45px;width:16px;height:8px;
+  background:linear-gradient(90deg,#8ab4ff,#ffffff);
+  clip-path:polygon(0 15%,100% 50%,0 85%);
+  transform:translateZ(22px);
+}
+.bird-crest{
+  position:absolute;left:98px;top:24px;width:24px;height:16px;
+  background:linear-gradient(180deg,#dbe8ff,rgba(138,180,255,.2));
+  clip-path:polygon(15% 100%,55% 0%,100% 85%);
+  transform:translateZ(24px);
+}
+.bird-tail{
+  position:absolute;left:-14px;top:44px;width:54px;height:30px;
+  background:linear-gradient(270deg,rgba(138,180,255,.15),#426eae 65%,#8ab4ff);
+  clip-path:polygon(0% 10%,100% 35%,100% 65%,0% 90%,22% 50%);
+  transform-origin:100% 50%;
+  transform:translateZ(8px);
+  animation:tailWave .42s ease-in-out infinite alternate;
+}
+@keyframes tailWave{
+  from{transform:translateZ(8px) rotateY(-14deg) rotateZ(-4deg)}
+  to{transform:translateZ(8px) rotateY(16deg) rotateZ(4deg)}
+}
+.bird-wing{
+  position:absolute;left:56px;top:52px;width:66px;height:44px;
+  transform-style:preserve-3d;
+}
+.bird-wing.left-wing{
+  transform-origin:24px 6px;
+  animation:flapLeft .34s ease-in-out infinite alternate;
+}
+.bird-wing.right-wing{
+  transform-origin:24px 6px;
+  animation:flapRight .34s ease-in-out infinite alternate;
+}
+.wing-inner{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,rgba(219,232,255,.92) 0%,rgba(138,180,255,.78) 48%,rgba(66,110,174,.65) 100%);
+  border:1px solid rgba(219,232,255,.75);
+  border-radius:16% 88% 72% 28% / 20% 85% 40% 55%;
+  box-shadow:0 0 24px rgba(138,180,255,.45);
+}
+@keyframes flapLeft{
+  0%{transform:translateZ(16px) rotateX(68deg) rotateY(-12deg)}
+  100%{transform:translateZ(16px) rotateX(-64deg) rotateY(12deg)}
+}
+@keyframes flapRight{
+  0%{transform:translateZ(6px) rotateX(-64deg) rotateY(12deg)}
+  100%{transform:translateZ(6px) rotateX(68deg) rotateY(-12deg)}
 }
 
-.page-heading {
-  color: var(--white);
-  font-size: clamp(30px, 3.5vw, 42px);
-  margin-bottom: 20px;
+/* 4 RELEASED SKY-BLUE ORBS */
+.feather-orb{
+  position:absolute;width:22px;height:22px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#ffffff 0%,#8ab4ff 45%,#426eae 85%,transparent 100%);
+  box-shadow:0 0 20px rgba(138,180,255,.95),0 0 42px rgba(66,110,174,.7);
+  opacity:0;transform:translate(-50%,-50%) scale(.2);
+  pointer-events:none;z-index:3;
+  transition:left .75s cubic-bezier(.22,1,.36,1),top .75s cubic-bezier(.22,1,.36,1),opacity .35s ease,transform .75s cubic-bezier(.22,1,.36,1);
+}
+.feather-orb.released{
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1.15);
+}
+.feather-orb.fade-out{
+  opacity:0;
+  transform:translate(-50%,-50%) scale(.3);
 }
 
-.page-description {
-  font-size: 16px;
-  margin-bottom: 20px;
+/* SKIP BUTTON ONLY DURING FLIGHT */
+.skip-bird-btn{
+  position:absolute;right:24px;bottom:24px;z-index:10;
+  padding:9px 16px;border-radius:10px;
+  background:rgba(12,35,76,.88);border:1px solid var(--accent);
+  color:var(--white);font-size:13px;font-weight:bold;
+  box-shadow:0 8px 24px rgba(0,0,0,.45);
+  transition:.2s ease;
 }
-
-.info-card {
-  padding: 20px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 15px;
-}
-
-.info-card h3 {
-  color: var(--accent);
-  font-size: 20px;
-  margin-bottom: 12px;
-}
-
-.info-card p {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* PERSONAL INFORMATION */
-#about {
-  padding: 12px 4% 10px;
-  overflow: hidden;
-}
-
-#about .inner-page {
-  max-width: 1600px;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-height: 0;
-}
-
-#about .page-heading {
-  margin-bottom: 0;
-  font-size: clamp(24px, 2.5vw, 34px);
-  flex-shrink: 0;
-}
-
-#about .info-card {
-  padding: 12px 16px;
-}
-
-#about .info-card h3 {
-  margin-bottom: 8px;
-  font-size: 17px;
-}
-
-.personal-details {
-  margin-top: 0;
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.details-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 6px 10px;
-  flex-shrink: 0;
-}
-
-.traits-box {
-  margin-top: 0;
-  padding-top: 10px;
-  border-top: 1px solid var(--border);
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.traits-heading {
-  color: var(--accent);
-  font-size: 15px;
-  font-weight: bold;
-  margin-bottom: 8px;
-  flex-shrink: 0;
-}
-
-.traits-grid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-auto-rows: 1fr;
-  gap: 6px 10px;
-  flex: 1;
-  min-height: 0;
-  overflow: hidden;
-  padding-right: 0;
-}
-
-.detail-item {
-  background: #102b54;
-  border: 1px solid var(--border);
-  border-radius: 9px;
-  padding: 6px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 0;
-}
-
-.detail-label {
-  display: block;
-  color: var(--accent);
-  font-size: 11px;
-  font-weight: bold;
-  line-height: 1.2;
-  margin-bottom: 2px;
-}
-
-.detail-value {
-  color: var(--white);
-  font-size: 13px;
-  line-height: 1.25;
-  overflow-wrap: anywhere;
-}
-
-/* ACHIEVEMENTS */
-#achievements { padding: 18px 4% 12px; overflow-y: auto; }
-#achievements .inner-page {
-  max-width: 1600px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-}
-
-#achievements .page-heading { font-size: clamp(26px, 2.6vw, 36px); margin-bottom: 3px; }
-#achievements .page-description { font-size: 14px; margin-bottom: 16px; }
-
-.achievement-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  width: 100%;
-  align-items: stretch;
-  min-height: 0;
-}
-
-.achievement-card {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  min-width: 0;
-  padding: 20px;
-  border: 1px solid #30588d;
-  border-radius: 16px;
-  background: linear-gradient(150deg, #0d234b, #081838);
-  transition: .25s ease;
-}
-
-.achievement-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-}
-
-.achievement-header { display: flex; align-items: center; gap: 12px; }
-
-.achievement-icon {
-  width: 48px;
-  height: 48px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #102b54;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  font-size: 24px;
-}
-
-.achievement-header h3 { margin: 0; color: var(--accent); font-size: 20px; }
-
-.academic-awards,
-.sports-awards,
-.leadership-awards {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1;
-}
-
-.award-highlight {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 15px;
-  background: linear-gradient(120deg, #162c4c, #10213e);
-  border: 1px solid #b48b45;
-  border-left: 4px solid var(--gold);
-  border-radius: 12px;
-  min-width: 0;
-  transition: .25s;
-}
-
-.award-highlight:hover {
-  border-color: var(--gold);
-  box-shadow: 0 5px 22px rgba(240, 198, 109, .12);
-}
-
-.award-symbol { font-size: 24px; flex-shrink: 0; }
-.award-text { flex: 1; min-width: 0; }
-
-.award-title {
-  display: block;
-  color: var(--gold);
-  font-size: 15px;
-  line-height: 1.4;
-  font-weight: bold;
-}
-
-.award-description {
-  display: block;
-  color: var(--text);
-  font-size: 13px;
-  line-height: 1.5;
-  margin-top: 5px;
-}
-
-.award-star { color: var(--gold); font-size: 17px; flex-shrink: 0; }
-
-.sports-highlight {
-  border-color: #b48b45;
-  border-left-color: var(--gold);
-  background: linear-gradient(120deg, #162c4c, #10213e);
-  flex: 1;
-}
-
-.sports-highlight .award-title,
-.sports-highlight .award-star {
-  color: var(--gold);
-}
-
-.sports-highlight:hover {
-  border-color: var(--gold);
-  box-shadow: 0 5px 22px rgba(240, 198, 109, .12);
-}
-
-.leadership-highlight {
-  border-color: #b48b45;
-  border-left-color: var(--gold);
-  flex: 1;
-}
-
-/* FAMILY AND FRIENDS — 4-COLUMN FULL-HEIGHT GALLERY */
-#family-friends { padding: 14px 3% 10px; overflow-y: auto; }
-
-#family-friends .inner-page {
-  max-width: 1700px;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-}
-
-#family-friends .page-heading {
-  font-size: clamp(24px, 2.4vw, 34px);
-  margin-bottom: 12px;
-  flex-shrink: 0;
-}
-
-.family-friends-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  width: 100%;
-  flex: 1;
-  min-height: 0;
-}
-
-.family-friends-card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 0;
-  min-height: 0;
-  padding: 12px;
-  border: 1px solid #30588d;
-  border-radius: 16px;
-  background: linear-gradient(150deg, #0d234b, #081838);
-  transition: .25s ease;
-}
-
-.family-friends-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-}
-
-.family-friends-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.family-friends-header h3 {
-  color: var(--accent);
-  font-size: 17px;
-  text-align: center;
-}
-
-.family-photo-box {
-  flex: 1 1 0;
-  min-height: 0;
-  width: 100%;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  background: #071430;
-}
-
-.family-photo,
-.family-photo-fallback {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-}
-
-.family-thank-you {
-  color: var(--text);
-  font-size: 12px;
-  line-height: 1.42;
-  flex-shrink: 0;
-  text-align: justify;
-}
+.skip-bird-btn:hover{background:var(--blue);transform:translateY(-2px)}
 
 /* BOTTOM NAVIGATION */
-.bottom-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 8px 12px;
-  margin: 0 auto 8px;
-  flex-shrink: 0;
-  background: #0c234c;
-  border: 1px solid #426eae;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, .3);
-}
-
-.bottom-btn {
-  padding: 9px 22px;
-  background: #123366;
-  border: 1px solid #244778;
-  border-radius: 9px;
-  color: #dbe8ff;
-  font-size: 14px;
-  font-weight: bold;
-  white-space: nowrap;
-  transition: .25s;
-}
-
-.bottom-btn:hover {
-  background: #426eae;
-  transform: translateY(-2px);
-}
-
-.bottom-btn:focus-visible {
-  outline: 2px solid #8ab4ff;
-  outline-offset: 3px;
-}
-
-.next-btn {
-  background: #426eae;
-  color: white;
-}
+.bottom-nav{display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 12px;margin:0 auto 8px;flex-shrink:0;background:#0c234c;border:1px solid #426eae;border-radius:16px;box-shadow:0 8px 25px rgba(0,0,0,.3);z-index:20}
+.bottom-btn{padding:9px 22px;background:#123366;border:1px solid #244778;border-radius:9px;color:#dbe8ff;font-size:14px;font-weight:bold;white-space:nowrap;transition:.25s}
+.bottom-btn:hover{background:#426eae;transform:translateY(-2px)}
+.bottom-btn:focus-visible{outline:2px solid #8ab4ff;outline-offset:3px}
+.next-btn{background:#426eae;color:white}
 
 /* FOOTER */
-footer {
-  flex-shrink: 0;
-  text-align: center;
-  padding: 8px;
-  background: #040e2f;
-  border-top: 1px solid var(--border);
-  color: #8399bd;
-  font-size: 12px;
-}
+footer{flex-shrink:0;text-align:center;padding:8px;background:#040e2f;border-top:1px solid var(--border);color:#8399bd;font-size:12px;z-index:20}
 
 /* MEDIUM SCREEN */
-@media(max-width:1100px) {
-  .details-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .traits-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-  .achievement-list { gap: 10px; }
-  .achievement-card { padding: 13px; }
-  .award-highlight { padding: 10px; gap: 7px; }
-  .award-title { font-size: 13px; }
-  .award-description { font-size: 12px; }
-  .award-symbol { font-size: 19px; }
-  .achievement-header h3 { font-size: 17px; }
-  .home-layout { gap: 30px; }
-  .home-intro { font-size: 16px; }
-  .family-friends-grid { gap: 10px; }
-  .family-friends-card { padding: 10px; }
-  .family-friends-header h3 { font-size: 15px; }
-  .family-thank-you { font-size: 11px; line-height: 1.35; }
+@media(max-width:1100px){
+.details-grid,.traits-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:none}
+.traits-grid{overflow-y:auto}
+.achievement-list{gap:10px}
+.achievement-card{padding:13px}
+.award-highlight{padding:10px;gap:7px}
+.award-title{font-size:13px}
+.award-description{font-size:12px}
+.award-symbol{font-size:19px}
+.achievement-header h3{font-size:17px}
+.home-layout{gap:30px}
+.home-intro{font-size:16px}
+.family-friends-grid{gap:10px}
+.family-friends-card{padding:10px}
+.family-friends-header h3{font-size:15px}
 }
 
 /* TABLET */
-@media(max-width:850px) {
-  nav { flex-direction: column; gap: 8px; padding: 10px 3%; }
-  .logo { font-size: 17px; }
-  .nav-buttons { justify-content: center; gap: 5px; }
-  .nav-btn { font-size: 12px; padding: 7px 10px; }
-  .home-layout { flex-direction: column-reverse; gap: 20px; }
-  .home-content { width: 100%; }
-  .photo-side { width: 55%; }
-  .photo-content img, .photo-content svg { max-height: 220px; }
-  .home-title { font-size: 34px; margin-bottom: 12px; }
-  .home-subtitle { font-size: 20px; margin-bottom: 10px; }
-  .home-intro { font-size: 14px; line-height: 1.5; }
-  .availability { margin-bottom: 12px; }
-  .floating-card { font-size: 10px; padding: 8px; }
-  .code { left: -4%; }
-  .python, .engineer { right: -4%; }
-  .about-description { text-align: left; }
-  #about { overflow-y: auto; }
-  #about .inner-page { height: auto; }
-  .details-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .traits-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: auto; max-height: none; overflow: visible; }
-  #achievements { padding: 12px 3%; }
-  .achievement-list { gap: 7px; }
-  .achievement-card { padding: 9px; gap: 8px; }
-  .achievement-header { gap: 7px; }
-  .achievement-icon { width: 35px; height: 35px; font-size: 18px; }
-  .achievement-header h3 { font-size: 14px; }
-  .award-highlight { padding: 8px; gap: 5px; }
-  .award-title { font-size: 12px; }
-  .award-description { font-size: 11px; }
-  .award-symbol { font-size: 17px; }
-  .award-star { font-size: 12px; }
-  #family-friends { padding: 10px 3%; overflow-y: auto; }
-  .family-friends-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto; gap: 10px; }
-  .family-friends-card { padding: 10px; gap: 8px; }
-  .family-photo-box { flex: none; aspect-ratio: 4/5; }
-  .family-friends-header h3 { font-size: 14px; }
-  .family-thank-you { font-size: 11.5px; line-height: 1.35; text-align: left; }
+@media(max-width:850px){
+nav{flex-direction:column;gap:8px;padding:10px 3%}
+.logo{font-size:17px}
+.nav-buttons{justify-content:center;gap:5px}
+.nav-btn{font-size:12px;padding:7px 10px}
+.home-layout{flex-direction:column-reverse;gap:20px}
+.home-content{width:100%}
+.photo-side{width:55%}
+.photo-content img{max-height:220px}
+.home-title{font-size:34px;margin-bottom:12px}
+.home-subtitle{font-size:20px;margin-bottom:10px}
+.home-intro{font-size:14px;line-height:1.5}
+.availability{margin-bottom:12px}
+.floating-card{font-size:10px;padding:8px}
+.code{left:-4%}
+.python,.engineer{right:-4%}
+.about-description{text-align:left}
+#about{overflow-y:auto}
+#about .inner-page{height:auto}
+.details-grid,.traits-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none}
+.traits-grid{max-height:240px;overflow-y:auto}
+#achievements{padding:12px 3%}
+.achievement-list{gap:7px}
+.achievement-card{padding:9px;gap:8px}
+.achievement-header{gap:7px}
+.achievement-icon{width:35px;height:35px;font-size:18px}
+.achievement-header h3{font-size:14px}
+.award-highlight{padding:8px;gap:5px}
+.award-title{font-size:12px}
+.award-description{font-size:11px}
+.award-symbol{font-size:17px}
+.award-star{font-size:12px}
+#family-friends{padding:10px 3%;overflow-y:auto}
+.family-friends-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;gap:10px}
+.family-friends-card{padding:10px;gap:8px}
+.family-photo-box{flex:none;aspect-ratio:4/5}
+.family-friends-header h3{font-size:14px}
 }
 
 /* SMALL MOBILE */
-@media(max-width:500px) {
-  .page { padding: 12px 3%; }
-  .details-grid { grid-template-columns: 1fr; gap: 5px; }
-  .traits-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; max-height: none; overflow: visible; }
-  #about .info-card { padding: 8px 12px; }
-  #about .detail-item { padding: 5px 8px; }
-  #about .page-heading { font-size: 25px; margin-bottom: 7px; }
-  #about .info-card p { font-size: 12px; }
-  #about .detail-label { font-size: 10px; }
-  #about .detail-value { font-size: 11.5px; }
-  .achievement-list { grid-template-columns: 1fr; gap: 6px; }
-  #achievements .page-heading { font-size: 23px; }
-  #achievements .page-description { font-size: 11px; margin-bottom: 8px; }
-  .achievement-card { padding: 7px 10px; gap: 5px; }
-  .achievement-icon { width: 29px; height: 29px; font-size: 15px; }
-  .achievement-header h3 { font-size: 13px; }
-  .academic-awards, .sports-awards, .leadership-awards { gap: 5px; }
-  .award-highlight { padding: 5px 7px; }
-  .award-title { font-size: 11px; }
-  .award-description { font-size: 10px; margin-top: 1px; }
-  .award-symbol { font-size: 14px; }
-  #family-friends .page-heading { font-size: 22px; margin-bottom: 8px; }
-  .family-friends-grid { grid-template-columns: 1fr; gap: 10px; }
-  .family-friends-card { padding: 10px; gap: 6px; }
-  .family-friends-header h3 { font-size: 14px; }
-  .family-thank-you { font-size: 11.5px; line-height: 1.35; }
-  .bottom-nav { gap: 6px; padding: 5px; margin-bottom: 4px; }
-  .bottom-btn { padding: 7px 11px; font-size: 12px; }
-  footer { font-size: 10px; padding: 5px; }
+@media(max-width:500px){
+.page{padding:12px 3%}
+.details-grid,.traits-grid{grid-template-columns:1fr;grid-template-rows:none;gap:5px}
+.traits-grid{max-height:210px;overflow-y:auto}
+#about .info-card{padding:8px 12px}
+#about .detail-item{padding:4px 8px}
+#about .page-heading{font-size:25px;margin-bottom:7px}
+#about .info-card p{font-size:12px}
+#about .detail-label{font-size:10px}
+#about .detail-value{font-size:12px}
+.achievement-list{grid-template-columns:1fr;gap:6px}
+#achievements .page-heading{font-size:23px}
+#achievements .page-description{font-size:11px;margin-bottom:8px}
+.achievement-card{padding:7px 10px;gap:5px}
+.achievement-icon{width:29px;height:29px;font-size:15px}
+.achievement-header h3{font-size:13px}
+.academic-awards,.sports-awards,.leadership-awards{gap:5px}
+.award-highlight{padding:5px 7px}
+.award-title{font-size:11px}
+.award-description{font-size:10px;margin-top:1px}
+.award-symbol{font-size:14px}
+#family-friends .page-heading{font-size:22px;margin-bottom:8px}
+.family-friends-grid{grid-template-columns:1fr;gap:10px}
+.family-friends-card{padding:10px;gap:6px}
+.family-friends-header h3{font-size:14px}
+.bottom-nav{gap:6px;padding:5px;margin-bottom:4px}
+.bottom-btn{padding:7px 11px;font-size:12px}
+footer{font-size:10px;padding:5px}
 }
 
 /* SHORT DESKTOP SCREENS */
-@media(max-height:720px) and (min-width:851px) {
-  nav { padding-top: 8px; padding-bottom: 8px; }
-  #about { padding-top: 8px; padding-bottom: 6px; }
-  #about .inner-page { gap: 6px; }
-  #about .info-card { padding: 9px 14px; }
-  #about .info-card h3 { margin-bottom: 5px; font-size: 15px; }
-  .traits-box { padding-top: 7px; gap: 0; }
-  .traits-heading { margin-bottom: 5px; font-size: 14px; }
-  .details-grid, .traits-grid { gap: 4px 8px; max-height: none; }
-  .detail-item { padding: 4px 8px; }
-  .detail-label { font-size: 10px; margin-bottom: 1px; }
-  .detail-value { font-size: 12px; line-height: 1.2; }
-  #achievements, #family-friends { padding-top: 8px; padding-bottom: 6px; }
-  #achievements .page-heading, #family-friends .page-heading { font-size: 26px; margin-bottom: 6px; }
-  #achievements .page-description { margin-bottom: 8px; }
-  .achievement-card, .family-friends-card { padding: 8px 10px; gap: 6px; }
-  .award-highlight { padding: 9px; }
-  .academic-awards, .sports-awards, .leadership-awards { gap: 7px; }
-  .family-thank-you { font-size: 11px; line-height: 1.3; }
-  .bottom-nav { padding: 5px; margin-bottom: 4px; }
-  footer { padding: 5px; }
+@media(max-height:720px) and (min-width:851px){
+nav{padding-top:8px;padding-bottom:8px}
+#achievements,#family-friends{padding-top:8px;padding-bottom:6px}
+#achievements .page-heading,#family-friends .page-heading{font-size:26px;margin-bottom:6px}
+#achievements .page-description{margin-bottom:8px}
+.achievement-card,.family-friends-card{padding:8px 10px;gap:6px}
+.award-highlight{padding:9px}
+.academic-awards,.sports-awards,.leadership-awards{gap:7px}
+.bottom-nav{padding:5px;margin-bottom:4px}
+footer{padding:5px}
 }
-
-@media(prefers-reduced-motion:reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-  .python-typing { width: auto; border-right: none; }
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after{animation:none!important;transition:none!important}
+.python-typing{width:auto;border-right:none}
+.bird-intro-overlay{display:none!important}
 }
 </style>
 </head>
@@ -850,14 +493,13 @@ footer {
 <body>
 <div class="app">
 
-<!-- Top Navigation Bar -->
 <nav>
 <div class="logo">JR / PORTFOLIO</div>
 <div class="nav-buttons" aria-label="Portfolio navigation">
 <button class="nav-btn" data-page="home" onclick="showPage('home')">Home</button>
-<button class="nav-btn active" data-page="about" onclick="showPage('about')" aria-current="page">Personal Information</button>
+<button class="nav-btn" data-page="about" onclick="showPage('about')">Personal Information</button>
 <button class="nav-btn" data-page="achievements" onclick="showPage('achievements')">Achievements</button>
-<button class="nav-btn" data-page="family-friends" onclick="showPage('family-friends')">Family and Friends</button>
+<button class="nav-btn active" data-page="family-friends" onclick="showPage('family-friends')">Family and Friends</button>
 </div>
 </nav>
 
@@ -891,7 +533,7 @@ software development.
 <span class="window-title">j.jpeg</span>
 </div>
 <div class="photo-content">
-<img src="j.jpeg" alt="Jhon Jeremy S. Roxas" onerror="handleImageFallback(this, 'JR', 'Jhon Jeremy S. Roxas')">
+<img src="j.jpeg" alt="Jhon Jeremy S. Roxas" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22460%22 height=%22520%22 viewBox=%220 0 460 520%22><rect width=%22460%22 height=%22520%22 fill=%22%23071430%22/><circle cx=%22230%22 cy=%22195%22 r=%2276%22 fill=%22%23426eae%22/><path d=%22M95 430c15-78 72-120 135-120s120 42 135 120%22 fill=%22%23244778%22/><text x=%22230%22 y=%22482%22 text-anchor=%22middle%22 fill=%22%238ab4ff%22 font-family=%22Arial,sans-serif%22 font-size=%2218%22>Jhon Jeremy S. Roxas</text></svg>'">
 </div>
 <div class="floating-card code">&lt;/&gt; Code</div>
 <div class="floating-card python">
@@ -905,9 +547,23 @@ software development.
 </section>
 
 <!-- PERSONAL INFORMATION PAGE -->
-<section class="page active" id="about" aria-label="Personal Information">
+<section class="page" id="about" aria-label="Personal Information" hidden>
 <div class="inner-page">
 <h2 class="page-heading">Personal Information</h2>
+<div class="info-card">
+<h3>Who Am I?</h3>
+<p class="about-description">
+I am a first-year Bachelor of Science in
+Computer Science student at the University
+of the Cordilleras. I have a strong interest
+in programming, technology, and software
+development. I aim to become a skilled
+software engineer who can create innovative
+solutions, solve real-world problems, and
+continuously improve my knowledge and skills
+in the field of computer science.
+</p>
+</div>
 
 <div class="info-card personal-details">
 <h3>Personal Details</h3>
@@ -920,7 +576,6 @@ software development.
 <div class="detail-item"><span class="detail-label">Civil Status</span><span class="detail-value">Single</span></div>
 </div>
 
-<!-- Updated Physical & Body Traits Sub-Section -->
 <div class="traits-box">
 <h4 class="traits-heading">Physical &amp; Body Traits</h4>
 <div class="traits-grid">
@@ -966,7 +621,7 @@ software development.
 <h2 class="page-heading">Achievements</h2>
 <div class="achievement-list">
 
-<div class="achievement-card">
+<div class="achievement-card" style="--ach-delay:0s">
 <div class="achievement-header"><div class="achievement-icon">🎓</div><h3>Academic</h3></div>
 <div class="academic-awards">
 <div class="award-highlight">
@@ -988,7 +643,7 @@ software development.
 </div>
 </div>
 
-<div class="achievement-card">
+<div class="achievement-card" style="--ach-delay:.12s">
 <div class="achievement-header"><div class="achievement-icon">🏸</div><h3>Sports</h3></div>
 <div class="sports-awards">
 <div class="award-highlight sports-highlight">
@@ -1005,7 +660,7 @@ software development.
 </div>
 </div>
 
-<div class="achievement-card">
+<div class="achievement-card" style="--ach-delay:.24s">
 <div class="achievement-header"><div class="achievement-icon">👑</div><h3>Leadership</h3></div>
 <div class="leadership-awards">
 <div class="award-highlight leadership-highlight">
@@ -1024,65 +679,79 @@ software development.
 </section>
 
 <!-- FAMILY AND FRIENDS PAGE -->
-<section class="page" id="family-friends" aria-label="Family and Friends" hidden>
+<section class="page active" id="family-friends" aria-label="Family and Friends">
 <div class="inner-page">
+<div class="ff-heading-row">
+<div class="ff-heading-left">
 <h2 class="page-heading">Family and Friends</h2>
+<div class="ambient-bird-wrap" aria-hidden="true">
+<div class="ambient-bird">
+<div class="mini-wing-l"></div>
+<div class="mini-wing-r"></div>
+<div class="mini-body"></div>
+</div>
+</div>
+</div>
+</div>
 
-<div class="family-friends-grid">
+<div class="family-friends-grid" id="family-friends-grid">
 
 <!-- MOM -->
-<div class="family-friends-card">
+<div class="family-friends-card" style="--card-delay:0s">
 <div class="family-friends-header"><h3>My Mom and Me</h3></div>
 <div class="family-photo-box">
-<img class="family-photo" src="mom-and-me.png" alt="Me with my mom" onerror="handleImageFallback(this, 'MOM', 'My Mom & Me')">
+<img class="family-photo" src="mom-and-me.png" alt="Me with my mom" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22480%22 height=%22600%22 viewBox=%220 0 480 600%22><rect width=%22480%22 height=%22600%22 fill=%22%23071430%22/><circle cx=%22240%22 cy=%22220%22 r=%2284%22 fill=%22%23426eae%22/><path d=%22M105 495c16-86 78-132 135-132s119 46 135 132%22 fill=%22%23244778%22/><text x=%22240%22 y=%22548%22 text-anchor=%22middle%22 fill=%22%238ab4ff%22 font-family=%22Arial,sans-serif%22 font-size=%2220%22>My Mom and Me</text></svg>'">
 </div>
-<p class="family-thank-you">
-Thank you for your unconditional love, endless sacrifices,
-and constant support. I am truly blessed to have you as my
-mom. I love you always!
-</p>
 </div>
 
 <!-- DAD -->
-<div class="family-friends-card">
+<div class="family-friends-card" style="--card-delay:.1s">
 <div class="family-friends-header"><h3>My Dad and Me</h3></div>
 <div class="family-photo-box">
-<img class="family-photo" src="dad-and-me.png" alt="Me with my dad" onerror="handleImageFallback(this, 'DAD', 'My Dad & Me')">
+<img class="family-photo" src="dad-and-me.png" alt="Me with my dad" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22480%22 height=%22600%22 viewBox=%220 0 480 600%22><rect width=%22480%22 height=%22600%22 fill=%22%23071430%22/><circle cx=%22240%22 cy=%22220%22 r=%2284%22 fill=%22%23426eae%22/><path d=%22M105 495c16-86 78-132 135-132s119 46 135 132%22 fill=%22%23244778%22/><text x=%22240%22 y=%22548%22 text-anchor=%22middle%22 fill=%22%238ab4ff%22 font-family=%22Arial,sans-serif%22 font-size=%2220%22>My Dad and Me</text></svg>'">
 </div>
-<p class="family-thank-you">
-Thank you for your hard work, guidance, and sacrifices for
-our family. You inspire me to become a better person every
-day. I love you, Dad!
-</p>
 </div>
 
 <!-- SIBLING -->
-<div class="family-friends-card">
+<div class="family-friends-card" style="--card-delay:.2s">
 <div class="family-friends-header"><h3>My Sibling and Me</h3></div>
 <div class="family-photo-box">
-<img class="family-photo" src="sibling-and-me.jpg" alt="Me with my sibling" onerror="handleImageFallback(this, 'BRO', 'My Sibling & Me')">
+<img class="family-photo" src="sibling-and-me.jpg" alt="Me with my sibling" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22480%22 height=%22600%22 viewBox=%220 0 480 600%22><rect width=%22480%22 height=%22600%22 fill=%22%23071430%22/><circle cx=%22240%22 cy=%22220%22 r=%2284%22 fill=%22%23426eae%22/><path d=%22M105 495c16-86 78-132 135-132s119 46 135 132%22 fill=%22%23244778%22/><text x=%22240%22 y=%22548%22 text-anchor=%22middle%22 fill=%22%238ab4ff%22 font-family=%22Arial,sans-serif%22 font-size=%2220%22>My Sibling and Me</text></svg>'">
 </div>
-<p class="family-thank-you">
-Thank you for being part of my life and for all the memories
-we share brother. I'm grateful to have you as my sibling, and I look
-forward to making more memories Mybro!
-</p>
 </div>
 
 <!-- FRIENDS -->
-<div class="family-friends-card">
+<div class="family-friends-card" style="--card-delay:.3s">
 <div class="family-friends-header"><h3>My Friends</h3></div>
 <div class="family-photo-box">
-<img class="family-photo" src="my-friends.jpg" alt="Me with my friends" onerror="handleImageFallback(this, 'FRIENDS', 'My Friends')">
+<img class="family-photo" src="my-friends.jpg" alt="Me with my friends" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22480%22 height=%22600%22 viewBox=%220 0 480 600%22><rect width=%22480%22 height=%22600%22 fill=%22%23071430%22/><circle cx=%22240%22 cy=%22220%22 r=%2284%22 fill=%22%23426eae%22/><path d=%22M105 495c16-86 78-132 135-132s119 46 135 132%22 fill=%22%23244778%22/><text x=%22240%22 y=%22548%22 text-anchor=%22middle%22 fill=%22%238ab4ff%22 font-family=%22Arial,sans-serif%22 font-size=%2220%22>My Friends</text></svg>'">
 </div>
-<p class="family-thank-you">
-Thank you for the laughter, unforgettable memories, and
-genuine friendship. I'm grateful to have you all as part of
-my journey. Here's to more memories together!
-</p>
 </div>
 
 </div>
+</div>
+
+<!-- 3D CELESTIAL BIRD FLIGHT ENTRANCE OVERLAY (NO TEXT, ONLY BIRD + SKIP) -->
+<div class="bird-intro-overlay" id="bird-intro-overlay" aria-hidden="true">
+<canvas class="bird-trail-canvas" id="bird-trail-canvas"></canvas>
+<div class="bird-flight-stage" id="bird-flight-stage">
+<div class="feather-orb" id="orb-0"></div>
+<div class="feather-orb" id="orb-1"></div>
+<div class="feather-orb" id="orb-2"></div>
+<div class="feather-orb" id="orb-3"></div>
+<div class="celestial-bird-rig" id="celestial-bird-rig">
+<div class="bird-3d-body">
+<div class="bird-tail"></div>
+<div class="bird-torso"></div>
+<div class="bird-crest"></div>
+<div class="bird-head"></div>
+<div class="bird-beak"></div>
+<div class="bird-wing left-wing"><div class="wing-inner"></div></div>
+<div class="bird-wing right-wing"><div class="wing-inner"></div></div>
+</div>
+</div>
+</div>
+<button type="button" class="skip-bird-btn" id="skip-bird-btn" onclick="finishBirdFlight()">Skip →</button>
 </div>
 </section>
 
@@ -1102,150 +771,305 @@ my journey. Here's to more memories together!
 </div>
 
 <script>
-const pages = ["home", "about", "achievements", "family-friends"];
+const pages=["home","about","achievements","family-friends"];
 
-/**
- * Switches the active section view, updates navigation states, and resets scroll.
- */
-function showPage(pageId) {
-  try {
-    const selected = document.getElementById(pageId);
-    if (!selected || !selected.classList.contains("page")) return;
-
-    document.querySelectorAll(".page").forEach(page => {
-      const active = page.id === pageId;
-      page.classList.toggle("active", active);
-      page.hidden = !active;
-      if (active) page.scrollTop = 0;
-    });
-
-    document.querySelectorAll(".nav-btn").forEach(button => {
-      const active = button.dataset.page === pageId;
-      button.classList.toggle("active", active);
-      if (active) button.setAttribute("aria-current", "page");
-      else button.removeAttribute("aria-current");
-    });
-
-    if (location.hash !== "#" + pageId) {
-      history.replaceState(null, "", "#" + pageId);
-    }
-  } catch (err) {
-    console.error("Error switching page:", err);
-  }
+/* 3D CARD TILT + GLARE + SWING-IN FOR ACHIEVEMENTS & FAMILY-FRIENDS */
+function initTiltCards(selector, enterClass){
+document.querySelectorAll(selector).forEach(card=>{
+card.addEventListener("pointermove",e=>{
+const rect=card.getBoundingClientRect();
+const px=(e.clientX-rect.left)/rect.width;
+const py=(e.clientY-rect.top)/rect.height;
+const maxTilt=11;
+const ry=(px-0.5)*maxTilt*2;
+const rx=(0.5-py)*maxTilt*2;
+card.style.setProperty("--rx",rx.toFixed(2)+"deg");
+card.style.setProperty("--ry",ry.toFixed(2)+"deg");
+card.style.setProperty("--tz","18px");
+card.style.setProperty("--gx",(px*100).toFixed(1)+"%");
+card.style.setProperty("--gy",(py*100).toFixed(1)+"%");
+card.style.setProperty("--go","1");
+});
+card.addEventListener("pointerleave",()=>{
+card.style.setProperty("--rx","0deg");
+card.style.setProperty("--ry","0deg");
+card.style.setProperty("--tz","0px");
+card.style.setProperty("--go","0");
+});
+if(enterClass){
+card.addEventListener("animationend",()=>{
+card.classList.remove(enterClass);
+},{once:true});
+}
+});
 }
 
-/**
- * Navigates to the previous page in sequence.
- */
-function previousPage() {
-  const current = document.querySelector(".page.active");
-  const index = current ? pages.indexOf(current.id) : 0;
-  const previousIndex = (index - 1 + pages.length) % pages.length;
-  showPage(pages[previousIndex]);
+function triggerCardSwing(selector, enterClass){
+const cards=document.querySelectorAll(selector);
+cards.forEach(card=>{
+card.classList.remove(enterClass);
+void card.offsetWidth;
+card.classList.add(enterClass);
+card.addEventListener("animationend",()=>{
+card.classList.remove(enterClass);
+},{once:true});
+});
 }
 
-/**
- * Navigates to the next page in sequence.
- */
-function nextPage() {
-  const current = document.querySelector(".page.active");
-  const index = current ? pages.indexOf(current.id) : -1;
-  const nextIndex = (index + 1) % pages.length;
-  showPage(pages[nextIndex]);
+initTiltCards(".family-friends-card","card-3d-enter");
+initTiltCards(".achievement-card","ach-3d-enter");
+
+/* ~3.2s 3D CELESTIAL BIRD FLIGHT + STARDUST/FEATHER TRAIL + 4 ORBS */
+let birdRafId=null;
+let birdDismissTimer=null;
+let birdFinished=false;
+
+function resizeTrailCanvas(canvas, stage){
+if(!canvas||!stage)return;
+const rect=stage.getBoundingClientRect();
+const dpr=Math.min(window.devicePixelRatio||1,2);
+canvas.width=Math.max(1,Math.floor(rect.width*dpr));
+canvas.height=Math.max(1,Math.floor(rect.height*dpr));
+const ctx=canvas.getContext("2d");
+if(ctx)ctx.setTransform(dpr,0,0,dpr,0,0);
 }
 
-/**
- * Replaces missing local image assets with a styled inline SVG placeholder.
- */
-function handleImageFallback(imgEl, badgeText, captionText) {
-  try {
-    if (!imgEl || !imgEl.parentNode) return;
-    const svgNS = "http://www.w3.org/2000/svg";
-    const svg = document.createElementNS(svgNS, "svg");
-    svg.setAttribute("viewBox", "0 0 400 320");
-    svg.setAttribute("role", "img");
-    svg.setAttribute("aria-label", captionText);
-    svg.classList.add("family-photo-fallback");
+function releaseFeatherOrbs(stage){
+const orbs=[
+document.getElementById("orb-0"),
+document.getElementById("orb-1"),
+document.getElementById("orb-2"),
+document.getElementById("orb-3")
+];
+const cards=Array.from(document.querySelectorAll("#family-friends-grid .family-friends-card"));
+const stageRect=stage.getBoundingClientRect();
 
-    const bgRect = document.createElementNS(svgNS, "rect");
-    bgRect.setAttribute("width", "400");
-    bgRect.setAttribute("height", "320");
-    bgRect.setAttribute("fill", "#081838");
-    svg.appendChild(bgRect);
+orbs.forEach((orb,idx)=>{
+if(!orb)return;
+orb.classList.remove("released","fade-out");
+const startX=stageRect.width*(0.28+idx*0.14);
+const startY=stageRect.height*0.44;
+orb.style.left=startX+"px";
+orb.style.top=startY+"px";
 
-    const gridLine1 = document.createElementNS(svgNS, "line");
-    gridLine1.setAttribute("x1", "0");
-    gridLine1.setAttribute("y1", "160");
-    gridLine1.setAttribute("x2", "400");
-    gridLine1.setAttribute("y2", "160");
-    gridLine1.setAttribute("stroke", "rgba(138, 180, 255, 0.12)");
-    svg.appendChild(gridLine1);
-
-    const gridLine2 = document.createElementNS(svgNS, "line");
-    gridLine2.setAttribute("x1", "200");
-    gridLine2.setAttribute("y1", "0");
-    gridLine2.setAttribute("x2", "200");
-    gridLine2.setAttribute("y2", "320");
-    gridLine2.setAttribute("stroke", "rgba(138, 180, 255, 0.12)");
-    svg.appendChild(gridLine2);
-
-    const circle = document.createElementNS(svgNS, "circle");
-    circle.setAttribute("cx", "200");
-    circle.setAttribute("cy", "124");
-    circle.setAttribute("r", "44");
-    circle.setAttribute("fill", "#102b54");
-    circle.setAttribute("stroke", "#8ab4ff");
-    circle.setAttribute("stroke-width", "2");
-    svg.appendChild(circle);
-
-    const badge = document.createElementNS(svgNS, "text");
-    badge.setAttribute("x", "200");
-    badge.setAttribute("y", "130");
-    badge.setAttribute("text-anchor", "middle");
-    badge.setAttribute("fill", "#dbe8ff");
-    badge.setAttribute("font-family", "Arial, sans-serif");
-    badge.setAttribute("font-size", "16");
-    badge.setAttribute("font-weight", "bold");
-    badge.textContent = badgeText;
-    svg.appendChild(badge);
-
-    const label = document.createElementNS(svgNS, "text");
-    label.setAttribute("x", "200");
-    label.setAttribute("y", "205");
-    label.setAttribute("text-anchor", "middle");
-    label.setAttribute("fill", "#f0c66d");
-    label.setAttribute("font-family", "Arial, sans-serif");
-    label.setAttribute("font-size", "15");
-    label.setAttribute("font-weight", "bold");
-    label.textContent = captionText;
-    svg.appendChild(label);
-
-    const sub = document.createElementNS(svgNS, "text");
-    sub.setAttribute("x", "200");
-    sub.setAttribute("y", "230");
-    sub.setAttribute("text-anchor", "middle");
-    sub.setAttribute("fill", "#a5b5d3");
-    sub.setAttribute("font-family", "monospace");
-    sub.setAttribute("font-size", "12");
-    sub.textContent = imgEl.getAttribute("src") || "preview";
-    svg.appendChild(sub);
-
-    imgEl.replaceWith(svg);
-  } catch (err) {
-    console.error("Fallback SVG error:", err);
-  }
+const targetCard=cards[idx];
+let destX=stageRect.width*(0.16+idx*0.22);
+let destY=stageRect.height*0.52;
+if(targetCard){
+const cRect=targetCard.getBoundingClientRect();
+destX=cRect.left-stageRect.left+cRect.width*0.5;
+destY=cRect.top-stageRect.top+cRect.height*0.45;
 }
 
-document.getElementById("year").textContent = new Date().getFullYear();
+setTimeout(()=>{
+if(!orb)return;
+orb.classList.add("released");
+orb.style.left=destX+"px";
+orb.style.top=destY+"px";
+},150+idx*110);
 
-// Default to Personal Information (#about) unless another valid hash is present
-const initial = location.hash.slice(1);
-if (pages.includes(initial)) showPage(initial);
-else showPage("about");
+setTimeout(()=>{
+if(!orb)return;
+orb.classList.add("fade-out");
+},980+idx*90);
+});
+}
 
-window.addEventListener("hashchange", () => {
-  const pageId = location.hash.slice(1);
-  if (pages.includes(pageId)) showPage(pageId);
+function finishBirdFlight(){
+if(birdFinished)return;
+birdFinished=true;
+if(birdRafId){cancelAnimationFrame(birdRafId);birdRafId=null;}
+if(birdDismissTimer){clearTimeout(birdDismissTimer);birdDismissTimer=null;}
+
+const overlay=document.getElementById("bird-intro-overlay");
+if(overlay)overlay.classList.add("done");
+triggerCardSwing(".family-friends-card","card-3d-enter");
+}
+
+function startBirdFlight(){
+const overlay=document.getElementById("bird-intro-overlay");
+const stage=document.getElementById("bird-flight-stage");
+const rig=document.getElementById("celestial-bird-rig");
+const canvas=document.getElementById("bird-trail-canvas");
+if(!overlay||!stage||!rig||!canvas)return;
+
+if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+overlay.classList.add("done");
+return;
+}
+
+birdFinished=false;
+if(birdRafId){cancelAnimationFrame(birdRafId);birdRafId=null;}
+if(birdDismissTimer){clearTimeout(birdDismissTimer);birdDismissTimer=null;}
+
+overlay.classList.remove("done");
+resizeTrailCanvas(canvas,stage);
+const ctx=canvas.getContext("2d");
+const particles=[];
+let orbsReleased=false;
+const duration=3200;
+const startTime=performance.now();
+
+function spawnTrail(x,y,angle,tNorm){
+const count=tNorm<0.85?3:1;
+for(let i=0;i<count;i++){
+const isFeather=Math.random()<0.25;
+particles.push({
+x:x+(Math.random()-0.5)*26,
+y:y+(Math.random()-0.5)*26,
+vx:-Math.cos(angle)*(1.2+Math.random()*2.2)+(Math.random()-0.5)*1.1,
+vy:-Math.sin(angle)*(1.2+Math.random()*2.2)+(Math.random()-0.5)*1.2,
+size:isFeather?5+Math.random()*4:1.8+Math.random()*3.2,
+alpha:0.95,
+decay:0.018+Math.random()*0.015,
+feather:isFeather,
+rot:Math.random()*Math.PI*2,
+vRot:(Math.random()-0.5)*0.12
+});
+}
+}
+
+function drawParticles(w,h){
+if(!ctx)return;
+ctx.clearRect(0,0,w,h);
+for(let i=particles.length-1;i>=0;i--){
+const p=particles[i];
+p.x+=p.vx;
+p.y+=p.vy;
+p.rot+=p.vRot;
+p.alpha-=p.decay;
+if(p.alpha<=0){
+particles.splice(i,1);
+continue;
+}
+ctx.save();
+ctx.globalAlpha=Math.max(0,p.alpha);
+ctx.translate(p.x,p.y);
+ctx.rotate(p.rot);
+if(p.feather){
+ctx.fillStyle="#8ab4ff";
+ctx.beginPath();
+ctx.ellipse(0,0,p.size*1.3,p.size*0.45,0,0,Math.PI*2);
+ctx.fill();
+}else{
+ctx.fillStyle="#dbe8ff";
+ctx.shadowColor="#8ab4ff";
+ctx.shadowBlur=10;
+ctx.beginPath();
+ctx.arc(0,0,p.size,0,Math.PI*2);
+ctx.fill();
+}
+ctx.restore();
+}
+}
+
+function step(now){
+if(birdFinished)return;
+const rect=stage.getBoundingClientRect();
+const w=rect.width||window.innerWidth;
+const h=rect.height||window.innerHeight;
+const elapsed=now-startTime;
+const t=Math.min(1,elapsed/duration);
+
+/* Swooping 3D celestial flight path across the viewport */
+const x=(-130)+(w+260)*t;
+const wave1=Math.sin(t*Math.PI*2.2)*Math.min(h*0.18,125);
+const arcUp=-Math.sin(t*Math.PI)*Math.min(h*0.14,95);
+const y=h*0.52+wave1+arcUp;
+const z=Math.sin(t*Math.PI*2)*95+40;
+
+const dt=0.012;
+const tNext=Math.min(1,t+dt);
+const xNext=(-130)+(w+260)*tNext;
+const yNext=h*0.52+Math.sin(tNext*Math.PI*2.2)*Math.min(h*0.18,125)-Math.sin(tNext*Math.PI)*Math.min(h*0.14,95);
+const pitchDeg=(Math.atan2(yNext-y,xNext-x)*180)/Math.PI;
+const bankDeg=Math.cos(t*Math.PI*2.2)*26;
+
+const scale=t>0.82?1-(t-0.82)*2.2:0.92+Math.sin(t*Math.PI)*0.16;
+const opacity=t>0.86?Math.max(0,1-(t-0.86)/0.14):1;
+
+rig.style.opacity=opacity.toFixed(3);
+rig.style.transform=`translate3d(${(x-80).toFixed(1)}px,${(y-60).toFixed(1)}px,${z.toFixed(1)}px) rotateZ(${pitchDeg.toFixed(1)}deg) rotateX(${bankDeg.toFixed(1)}deg) scale(${Math.max(0.35,scale).toFixed(3)})`;
+
+spawnTrail(x+12,y,pitchDeg*Math.PI/180,t);
+drawParticles(w,h);
+
+if(!orbsReleased&&t>=0.48){
+orbsReleased=true;
+releaseFeatherOrbs(stage);
+}
+
+if(t<1){
+birdRafId=requestAnimationFrame(step);
+}else{
+birdDismissTimer=setTimeout(()=>finishBirdFlight(),180);
+}
+}
+
+birdRafId=requestAnimationFrame(step);
+}
+
+/* PAGE NAVIGATION */
+function showPage(pageId){
+const selected=document.getElementById(pageId);
+if(!selected||!selected.classList.contains("page"))return;
+
+document.querySelectorAll(".page").forEach(page=>{
+const active=page.id===pageId;
+page.classList.toggle("active",active);
+page.hidden=!active;
+if(active)page.scrollTop=0;
+});
+
+document.querySelectorAll(".nav-btn").forEach(button=>{
+const active=button.dataset.page===pageId;
+button.classList.toggle("active",active);
+if(active)button.setAttribute("aria-current","page");
+else button.removeAttribute("aria-current");
+});
+
+history.replaceState(null,"","#"+pageId);
+
+if(pageId==="achievements"){
+triggerCardSwing(".achievement-card","ach-3d-enter");
+}else if(pageId==="family-friends"){
+startBirdFlight();
+}
+}
+
+function previousPage(){
+const current=document.querySelector(".page.active");
+const index=current?pages.indexOf(current.id):0;
+const previousIndex=(index-1+pages.length)%pages.length;
+showPage(pages[previousIndex]);
+}
+
+function nextPage(){
+const current=document.querySelector(".page.active");
+const index=current?pages.indexOf(current.id):-1;
+const nextIndex=(index+1)%pages.length;
+showPage(pages[nextIndex]);
+}
+
+window.addEventListener("resize",()=>{
+const canvas=document.getElementById("bird-trail-canvas");
+const stage=document.getElementById("bird-flight-stage");
+resizeTrailCanvas(canvas,stage);
+});
+
+document.getElementById("year").textContent=new Date().getFullYear();
+
+/* OPEN DIRECTLY ON FAMILY-FRIENDS SO THE VISUALIZATION APPEARS IMMEDIATELY */
+const initial=location.hash.slice(1);
+if(pages.includes(initial)&&initial!=="family-friends"){
+showPage(initial);
+}else{
+showPage("family-friends");
+}
+
+window.addEventListener("hashchange",()=>{
+const pageId=location.hash.slice(1);
+if(pages.includes(pageId))showPage(pageId);
 });
 </script>
 </body>
